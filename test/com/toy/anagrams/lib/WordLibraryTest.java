@@ -31,6 +31,7 @@
 
 package com.toy.anagrams.lib;
 
+import com.nc.pilot.lib.WordLibrary;
 import java.util.Arrays;
 import junit.framework.TestCase;
 

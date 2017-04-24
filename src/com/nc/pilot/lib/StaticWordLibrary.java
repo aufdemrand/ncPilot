@@ -29,7 +29,7 @@
 
 /* Anagram Game Application */
 
-package com.toy.anagrams.lib;
+package com.nc.pilot.lib;
 
 /**
  * Implementation of the logic for the Anagram Game application.
