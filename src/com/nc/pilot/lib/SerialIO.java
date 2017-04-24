@@ -99,6 +99,17 @@ public class SerialIO implements SerialPortEventListener {
 			serialPort.close();
 		}
 	}
+        public synchronized void writeByte(byte b)
+        {
+            //System.out.println("Writing " + data);
+             if (serialPort != null){
+                 try {
+                     output.write(b);
+                 } catch (IOException ex) {
+                     Logger.getLogger(SerialIO.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+            }
+        }
         public synchronized void write(String data)
         {
             //System.out.println("Writing " + data);
@@ -136,8 +147,12 @@ public class SerialIO implements SerialPortEventListener {
             public String posx;
             public String posz;
         }
+        private class Report{
+            public String qr;
+        }
         private class JSON_Data{
             public StatusReport sr;
+            public Report r;
         }
 	public synchronized void serialEvent(SerialPortEvent oEvent) {
                 Gson g = new Gson();
@@ -158,6 +173,11 @@ public class SerialIO implements SerialPortEventListener {
                                 if (json.sr.posz != null)
                                 {
                                     GlobalData.Z = json.sr.posz;
+                                }
+                                if (json.r.qr != null)
+                                {
+                                    System.out.println("Buffer Available: " + json.r.qr);
+                                    GlobalData.bufferAvailable = Integer.parseInt(json.r.qr);
                                 }
                                 
 			} catch (Exception e) {

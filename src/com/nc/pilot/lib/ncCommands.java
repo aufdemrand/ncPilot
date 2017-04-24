@@ -35,4 +35,13 @@ public class ncCommands {
     
     public static String StartJogZMinus = "G91 G0 Z-5 G90\r\n";
     public static String StopJogZMinus = "!%\r\n";
+    
+    //Set origins
+    public static String SetXOrigin = "G28.3 X0\r\n";
+    public static String SetYOrigin = "G28.3 Y0\r\n";
+    public static String SetZOrigin = "G28.3 Z0\r\n";
+    
+    //M Codes
+    public static String TorchOn = "M3\r\n";
+    public static String TorchOff = "M5\r\n";
 }

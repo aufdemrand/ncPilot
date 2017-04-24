@@ -35,23 +35,35 @@ import com.nc.pilot.lib.GlobalData;
 import com.nc.pilot.lib.SerialIO;
 import com.nc.pilot.lib.ncCommands;
 import java.awt.Dimension;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.input.KeyCode;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 /**
  * Main window of the Anagram Game application.
  */
-public class HMI extends JFrame {
+            
+public class HMI extends JFrame{
 
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
@@ -91,16 +103,99 @@ public class HMI extends JFrame {
     /** Creates new form Anagrams */
     private SerialIO serial;
     public HMI() {
+        setFocusable(true);
         serial = new SerialIO();
         serial.initialize();
-        
-        serial.write("$ej=1\n\r"); //Enable JSON Mode
+     
         
         initComponents();
         pack();
-        timer = new Timer(300, new MyActionListener());
+        timer = new Timer(10, new MyActionListener());
         timer.setInitialDelay(0);
         timer.start();
+        
+        KeyboardFocusManager.getCurrentKeyboardFocusManager()
+        .addKeyEventDispatcher(new KeyEventDispatcher() {
+            @Override
+            public boolean dispatchKeyEvent(KeyEvent ke) {
+              switch (ke.getID()) {
+                    case KeyEvent.KEY_PRESSED:
+                        if (ke.getKeyCode() == KeyEvent.VK_UP) {
+                            if (GlobalData.KeycodeExecute == false)
+                            {
+                                GlobalData.KeycodeExecute = true;
+                                serial.write(ncCommands.StartJogYPlus);
+                            }
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
+                            if (GlobalData.KeycodeExecute == false)
+                            {
+                                GlobalData.KeycodeExecute = true;
+                                serial.write(ncCommands.StartJogYMinus);
+                            }
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+                            if (GlobalData.KeycodeExecute == false)
+                            {
+                                GlobalData.KeycodeExecute = true;
+                                serial.write(ncCommands.StartJogXMinus);
+                            }
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+                            if (GlobalData.KeycodeExecute == false)
+                            {
+                                GlobalData.KeycodeExecute = true;
+                                serial.write(ncCommands.StartJogXPlus);
+                            }
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_W) {
+                            if (GlobalData.KeycodeExecute == false)
+                            {
+                                GlobalData.KeycodeExecute = true;
+                                serial.write(ncCommands.StartJogZPlus);
+                            }
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_S) {
+                            if (GlobalData.KeycodeExecute == false)
+                            {
+                                GlobalData.KeycodeExecute = true;
+                                serial.write(ncCommands.StartJogZMinus);
+                            }
+                        }
+                        break;
+
+                    case KeyEvent.KEY_RELEASED:
+                        if (ke.getKeyCode() == KeyEvent.VK_UP) {
+                            GlobalData.KeycodeExecute = false;
+                            serial.write(ncCommands.StopJogYPlus);
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
+                            GlobalData.KeycodeExecute = false;
+                            serial.write(ncCommands.StopJogYMinus);
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+                            GlobalData.KeycodeExecute = false;
+                            serial.write(ncCommands.StopJogXPlus);
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+                            GlobalData.KeycodeExecute = false;
+                            serial.write(ncCommands.StopJogXMinus);
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_W) {
+                            GlobalData.KeycodeExecute = false;
+                            serial.write(ncCommands.StopJogZPlus);
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_S) {
+                            GlobalData.KeycodeExecute = false;
+                            serial.write(ncCommands.StopJogZMinus);
+                        }
+                        break;
+                    }
+                return false;
+            }
+        });
+        
+        
     }
     
     /** This method is called from within the constructor to
@@ -110,7 +205,6 @@ public class HMI extends JFrame {
      */
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -131,6 +225,11 @@ public class HMI extends JFrame {
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jButton14 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         mainMenu = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -145,6 +244,17 @@ public class HMI extends JFrame {
 
         jPanel1.setMinimumSize(new java.awt.Dimension(900, 600));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 600));
+        jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPanel1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jPanel1KeyTyped(evt);
+            }
+        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
@@ -197,6 +307,11 @@ public class HMI extends JFrame {
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jButton3MouseReleased(evt);
+            }
+        });
+        jButton3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton3KeyPressed(evt);
             }
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 80, 60));
@@ -259,14 +374,24 @@ public class HMI extends JFrame {
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 260, 80, 60));
 
         jButton8.setText("Z=0");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 80, 60));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 80, 60));
 
-        jButton9.setText("XY=0");
+        jButton9.setText("Y=0");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
         jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 80, 60));
 
         jButton10.setText("Z-");
@@ -295,6 +420,41 @@ public class HMI extends JFrame {
             }
         });
         jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, 80, 60));
+
+        jButton13.setText("X=0");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 80, 60));
+
+        jToggleButton1.setText("Torch");
+        jToggleButton1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jToggleButton1StateChanged(evt);
+            }
+        });
+        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButton1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, -1, -1));
+
+        jButton14.setText("Open NC");
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton14MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 120, 80));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 540, 200));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -362,7 +522,19 @@ public class HMI extends JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
-        serial.write(ncCommands.CycleStart);        // TODO add your handling code here:
+        if (GlobalData.Auto == false)
+        {
+            //Start feeding code
+            GlobalData.Auto = true;
+            GlobalData.bufferAvailable = 32;
+            GlobalData.bufferPosition = 0;
+           //GlobalData.NC_Code = jTextArea1.toString();
+        }
+        else
+        {
+            serial.write(ncCommands.CycleStart);
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton12MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -371,6 +543,7 @@ public class HMI extends JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         serial.write(ncCommands.QueFlush);        // TODO add your handling code here:
+        GlobalData.Auto = false;
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
@@ -421,6 +594,71 @@ public class HMI extends JFrame {
         serial.write(ncCommands.StopJogZMinus);// TODO add your handling code here:
     }//GEN-LAST:event_jButton10MouseReleased
 
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        serial.write(ncCommands.SetXOrigin);    // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        serial.write(ncCommands.SetYOrigin);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        serial.write(ncCommands.SetZOrigin);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton3KeyPressed
+        
+    }//GEN-LAST:event_jButton3KeyPressed
+
+    private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
+         
+    }//GEN-LAST:event_jPanel1KeyPressed
+
+    private void jPanel1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyReleased
+              // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel1KeyReleased
+
+    private void jPanel1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyTyped
+        
+    }//GEN-LAST:event_jPanel1KeyTyped
+
+    private void jToggleButton1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jToggleButton1StateChanged
+        
+    // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1StateChanged
+
+    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
+        if (GlobalData.TorchOn == false)
+        {
+            GlobalData.TorchOn = true;
+            serial.write(ncCommands.TorchOn);
+        }
+        else
+        {
+            GlobalData.TorchOn = false;
+            serial.write(ncCommands.TorchOff);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1MouseClicked
+
+    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        int result = fileChooser.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+            GlobalData.NCFile = selectedFile.getAbsolutePath();
+            try {
+                jTextArea1.setText(GlobalData.readFile(GlobalData.NCFile));
+                GlobalData.NC_Code = GlobalData.readFile(GlobalData.NCFile);
+            } catch (IOException ex) {
+                Logger.getLogger(HMI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem exitMenuItem;
@@ -429,6 +667,8 @@ public class HMI extends JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -444,6 +684,9 @@ public class HMI extends JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JMenuBar mainMenu;
     // End of variables declaration//GEN-END:variables
 
@@ -454,6 +697,34 @@ public class HMI extends JFrame {
            jLabel6.setText(GlobalData.X);
            jLabel7.setText(GlobalData.Y);
            jLabel3.setText(GlobalData.Z);
+           
+           if (GlobalData.Auto == true)
+           {
+               if (GlobalData.bufferAvailable > 0)
+                {
+                    //System.out.println("Buffer Availible = " + GlobalData.bufferAvailable);
+                    if (GlobalData.NC_Code.length() > GlobalData.bufferPosition)
+                    {
+                        String b = new StringBuilder().append(GlobalData.NC_Code.charAt(GlobalData.bufferPosition)).toString();
+                        //System.out.println(b);
+                        serial.write(b);
+                        GlobalData.bufferPosition++;
+                        
+                        //serial.write("{\"qr\":\"\"}\r\n");
+                    }
+                    else
+                    {
+                        System.out.println("End of file!");
+                        GlobalData.Auto = false;
+                        GlobalData.bufferPosition = 0;
+                    }
+                    
+                }
+               else
+               {
+                   System.out.println("Waiting for Buffer to free up!");
+               }
+           }
         }
     }
 }
