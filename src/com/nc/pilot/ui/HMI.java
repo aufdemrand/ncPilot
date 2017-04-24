@@ -31,16 +31,22 @@
 
 package com.nc.pilot.ui;
 
+import com.nc.pilot.lib.GlobalData;
 import com.nc.pilot.lib.SerialIO;
-import com.nc.pilot.lib.WordLibrary;
+import com.nc.pilot.lib.ncCommands;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 /**
  * Main window of the Anagram Game application.
@@ -81,15 +87,20 @@ public class HMI extends JFrame {
     }
 
     private int wordIdx = 0;
-
+    private Timer timer = null;
     /** Creates new form Anagrams */
     private SerialIO serial;
     public HMI() {
         serial = new SerialIO();
         serial.initialize();
+        
+        serial.write("$ej=1\n\r"); //Enable JSON Mode
+        
         initComponents();
         pack();
-        
+        timer = new Timer(300, new MyActionListener());
+        timer.setInitialDelay(0);
+        timer.start();
     }
     
     /** This method is called from within the constructor to
@@ -119,6 +130,7 @@ public class HMI extends JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         mainMenu = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -176,18 +188,61 @@ public class HMI extends JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 80, 60));
 
         jButton3.setText("Y+");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton3MouseReleased(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 80, 60));
 
         jButton2.setText("Y-");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton2MouseReleased(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 80, 60));
 
         jButton4.setText("X-");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton4MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton4MouseReleased(evt);
+            }
+        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 80, 60));
 
         jButton5.setText("X+");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton5MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton5MouseReleased(evt);
+            }
+        });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 80, 60));
 
         jButton6.setText("Z+");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton6MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton6MouseReleased(evt);
+            }
+        });
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -195,8 +250,13 @@ public class HMI extends JFrame {
         });
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 260, 80, 60));
 
-        jButton7.setText("Start");
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, 80, 60));
+        jButton7.setText("Flush");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 260, 80, 60));
 
         jButton8.setText("Z=0");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -210,10 +270,31 @@ public class HMI extends JFrame {
         jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 80, 60));
 
         jButton10.setText("Z-");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton10MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton10MouseReleased(evt);
+            }
+        });
         jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 80, 60));
 
         jButton11.setText("Hold");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
         jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 410, 80, 60));
+
+        jButton12.setText("Start");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, 80, 60));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -273,12 +354,72 @@ public class HMI extends JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        try {
-            serial.write("$$\n\r");              // TODO add your handling code here:
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(HMI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        serial.write(ncCommands.GoToOrigin);
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+      
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        serial.write(ncCommands.CycleStart);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        serial.write(ncCommands.FeedHold);  // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        serial.write(ncCommands.QueFlush);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
+        serial.write(ncCommands.StartJogYPlus);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MousePressed
+
+    private void jButton3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseReleased
+        serial.write(ncCommands.StopJogYPlus); // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseReleased
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        serial.write(ncCommands.StartJogYMinus);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MousePressed
+
+    private void jButton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseReleased
+        serial.write(ncCommands.StopJogYMinus); // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseReleased
+
+    private void jButton5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MousePressed
+        serial.write(ncCommands.StartJogXPlus);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MousePressed
+
+    private void jButton5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseReleased
+        serial.write(ncCommands.StopJogXPlus);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseReleased
+
+    private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
+        serial.write(ncCommands.StartJogXMinus);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MousePressed
+
+    private void jButton4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseReleased
+        serial.write(ncCommands.StopJogXMinus);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseReleased
+
+    private void jButton6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MousePressed
+        serial.write(ncCommands.StartJogZPlus);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton6MousePressed
+
+    private void jButton6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseReleased
+        serial.write(ncCommands.StopJogZPlus);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton6MouseReleased
+
+    private void jButton10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MousePressed
+        serial.write(ncCommands.StartJogZMinus);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton10MousePressed
+
+    private void jButton10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseReleased
+        serial.write(ncCommands.StopJogZMinus);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton10MouseReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
@@ -287,6 +428,7 @@ public class HMI extends JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -305,4 +447,13 @@ public class HMI extends JFrame {
     private javax.swing.JMenuBar mainMenu;
     // End of variables declaration//GEN-END:variables
 
+    class MyActionListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+           
+           jLabel6.setText(GlobalData.X);
+           jLabel7.setText(GlobalData.Y);
+           jLabel3.setText(GlobalData.Z);
+        }
+    }
 }

@@ -5,6 +5,7 @@
  */
 package com.nc.pilot.lib;
 
+import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -98,17 +99,31 @@ public class SerialIO implements SerialPortEventListener {
 			serialPort.close();
 		}
 	}
-        public synchronized void write(String data) throws UnsupportedEncodingException
+        public synchronized void write(String data)
         {
             //System.out.println("Writing " + data);
              if (serialPort != null){
+                     Writer w = null;
                  try {
-                     //System.out.println(data);
-                     Writer w = new OutputStreamWriter(output, "Cp1252");
-                     w.write(data);
-                     w.close(); //close will auto-flush
-                 } catch (IOException ex) {
+                     w = new OutputStreamWriter(output, "Cp1252");
+                         try {
+                             w.write(data);
+                         } catch (IOException ex) {
+                             Logger.getLogger(SerialIO.class.getName()).log(Level.SEVERE, null, ex);
+                         }
+                         try {
+                             w.close(); //close will auto-flush
+                         } catch (IOException ex) {
+                             Logger.getLogger(SerialIO.class.getName()).log(Level.SEVERE, null, ex);
+                         }
+                 } catch (UnsupportedEncodingException ex) {
                      Logger.getLogger(SerialIO.class.getName()).log(Level.SEVERE, null, ex);
+                 } finally {
+                     try {
+                         w.close();
+                     } catch (IOException ex) {
+                         Logger.getLogger(SerialIO.class.getName()).log(Level.SEVERE, null, ex);
+                     }
                  }
             }
         }
@@ -116,11 +131,35 @@ public class SerialIO implements SerialPortEventListener {
 	/**
 	 * Handle an event on the serial port. Read the data and print it.
 	 */
+        private class StatusReport{
+            public String posy;
+            public String posx;
+            public String posz;
+        }
+        private class JSON_Data{
+            public StatusReport sr;
+        }
 	public synchronized void serialEvent(SerialPortEvent oEvent) {
+                Gson g = new Gson();
 		if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 			try {
 				String inputLine=input.readLine();
 				System.out.println(inputLine);
+                                JSON_Data json = g.fromJson(inputLine, JSON_Data.class);
+                                //System.out.println(json.posy);
+                                if (json.sr.posx != null)
+                                {
+                                    GlobalData.X = json.sr.posx;
+                                }
+                                if (json.sr.posy != null)
+                                {
+                                    GlobalData.Y = json.sr.posy;
+                                }
+                                if (json.sr.posz != null)
+                                {
+                                    GlobalData.Z = json.sr.posz;
+                                }
+                                
 			} catch (Exception e) {
 				System.err.println(e.toString());
 			}
