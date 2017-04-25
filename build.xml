@@ -31,8 +31,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 <!-- You may freely edit this file. See commented blocks below for -->
 <!-- some examples of how to customize the build. -->
 <!-- (If you delete it and reopen the project it will be recreated.) -->
-<project name="anagrams" default="default" basedir=".">
-    <description>Builds, tests, and runs the project anagrams.</description>
+<project name="ncPilot" default="default" basedir=".">
+    <description>Builds, tests, and runs the project ncPilot.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 
