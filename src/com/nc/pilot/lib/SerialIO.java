@@ -31,7 +31,8 @@ public class SerialIO implements SerialPortEventListener {
 			"COM1",
                         "COM2",
 			"COM3",
-			"COM4"
+			"COM4",
+                        "COM17"
 	};
 	/**
 	* A BufferedReader which will be fed by a InputStreamReader 

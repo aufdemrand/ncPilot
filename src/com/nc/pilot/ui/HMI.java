@@ -113,6 +113,7 @@ public class HMI extends JFrame{
         timer.setInitialDelay(0);
         timer.start();
         
+        
         KeyboardFocusManager.getCurrentKeyboardFocusManager()
         .addKeyEventDispatcher(new KeyEventDispatcher() {
             @Override
@@ -147,23 +148,41 @@ public class HMI extends JFrame{
                                 serial.write(ncCommands.StartJogXPlus);
                             }
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_W) {
+                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_UP) {
                             if (GlobalData.KeycodeExecute == false)
                             {
                                 GlobalData.KeycodeExecute = true;
                                 serial.write(ncCommands.StartJogZPlus);
                             }
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_S) {
+                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_DOWN) {
                             if (GlobalData.KeycodeExecute == false)
                             {
                                 GlobalData.KeycodeExecute = true;
                                 serial.write(ncCommands.StartJogZMinus);
                             }
                         }
+                        if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
+                            if (GlobalData.KeycodeExecute == false)
+                            {
+                                GlobalData.KeycodeExecute = true;
+                            }
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_R && GlobalData.AltPressed == true) {
+                            if (GlobalData.KeycodeExecute == false)
+                            {
+                                GlobalData.KeycodeExecute = true;
+                            }
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_ALT) {
+                                GlobalData.AltPressed = true;
+                        }
                         break;
 
                     case KeyEvent.KEY_RELEASED:
+                        if (ke.getKeyCode() == KeyEvent.VK_ALT) {
+                            GlobalData.AltPressed = false;
+                        }
                         if (ke.getKeyCode() == KeyEvent.VK_UP) {
                             GlobalData.KeycodeExecute = false;
                             serial.write(ncCommands.StopJogYPlus);
@@ -180,13 +199,22 @@ public class HMI extends JFrame{
                             GlobalData.KeycodeExecute = false;
                             serial.write(ncCommands.StopJogXMinus);
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_W) {
+                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_UP) {
                             GlobalData.KeycodeExecute = false;
                             serial.write(ncCommands.StopJogZPlus);
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_S) {
+                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_DOWN) {
                             GlobalData.KeycodeExecute = false;
                             serial.write(ncCommands.StopJogZMinus);
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
+                            GlobalData.KeycodeExecute = false;
+                            serial.write(ncCommands.FeedHold);
+                        }
+                        if (ke.getKeyCode() == KeyEvent.VK_R && GlobalData.AltPressed == true) {
+                            GlobalData.KeycodeExecute = false;
+                            //serial.write(ncCommands.CycleStart);
+                            jButton12MouseClicked(null);
                         }
                         break;
                     }
@@ -521,13 +549,14 @@ public class HMI extends JFrame{
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        System.out.println("Run!");
         if (GlobalData.Auto == false)
         {
             //Start feeding code
             GlobalData.Auto = true;
             GlobalData.bufferAvailable = 32;
             GlobalData.bufferPosition = 0;
-           //GlobalData.NC_Code = jTextArea1.toString();
+            GlobalData.NC_Code = jTextArea1.getText();
         }
         else
         {

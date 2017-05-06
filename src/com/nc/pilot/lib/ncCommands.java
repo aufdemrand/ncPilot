@@ -42,6 +42,6 @@ public class ncCommands {
     public static String SetZOrigin = "G92 Z=0\r\nG53\r\nG28.3 Z=0.000\r\n";
     
     //M Codes
-    public static String TorchOn = "M8\r\n";
-    public static String TorchOff = "M9\r\n";
+    public static String TorchOn = "M3\r\n";
+    public static String TorchOff = "M5\r\n";
 }

@@ -20,6 +20,7 @@ public class GlobalData {
     public static String Z = "0.000";
     
     public static Boolean KeycodeExecute = false;
+    public static Boolean AltPressed = false;
     
     public static Boolean TorchOn = false;
     
