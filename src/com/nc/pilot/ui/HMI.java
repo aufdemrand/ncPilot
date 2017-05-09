@@ -120,42 +120,42 @@ public class HMI extends JFrame{
             public boolean dispatchKeyEvent(KeyEvent ke) {
               switch (ke.getID()) {
                     case KeyEvent.KEY_PRESSED:
-                        if (ke.getKeyCode() == KeyEvent.VK_UP) {
+                        if (ke.getKeyCode() == KeyEvent.VK_UP && GlobalData.GCodeWindowFocused == false) {
                             if (GlobalData.KeycodeExecute == false)
                             {
                                 GlobalData.KeycodeExecute = true;
                                 serial.write(ncCommands.StartJogYPlus);
                             }
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
+                        if (ke.getKeyCode() == KeyEvent.VK_DOWN && GlobalData.GCodeWindowFocused == false) {
                             if (GlobalData.KeycodeExecute == false)
                             {
                                 GlobalData.KeycodeExecute = true;
                                 serial.write(ncCommands.StartJogYMinus);
                             }
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+                        if (ke.getKeyCode() == KeyEvent.VK_LEFT && GlobalData.GCodeWindowFocused == false) {
                             if (GlobalData.KeycodeExecute == false)
                             {
                                 GlobalData.KeycodeExecute = true;
                                 serial.write(ncCommands.StartJogXMinus);
                             }
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+                        if (ke.getKeyCode() == KeyEvent.VK_RIGHT && GlobalData.GCodeWindowFocused == false) {
                             if (GlobalData.KeycodeExecute == false)
                             {
                                 GlobalData.KeycodeExecute = true;
                                 serial.write(ncCommands.StartJogXPlus);
                             }
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_UP) {
+                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_UP && GlobalData.GCodeWindowFocused == false) {
                             if (GlobalData.KeycodeExecute == false)
                             {
                                 GlobalData.KeycodeExecute = true;
                                 serial.write(ncCommands.StartJogZPlus);
                             }
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_DOWN) {
+                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_DOWN && GlobalData.GCodeWindowFocused == false) {
                             if (GlobalData.KeycodeExecute == false)
                             {
                                 GlobalData.KeycodeExecute = true;
@@ -183,27 +183,27 @@ public class HMI extends JFrame{
                         if (ke.getKeyCode() == KeyEvent.VK_ALT) {
                             GlobalData.AltPressed = false;
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_UP) {
+                        if (ke.getKeyCode() == KeyEvent.VK_UP && GlobalData.GCodeWindowFocused == false) {
                             GlobalData.KeycodeExecute = false;
                             serial.write(ncCommands.StopJogYPlus);
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
+                        if (ke.getKeyCode() == KeyEvent.VK_DOWN && GlobalData.GCodeWindowFocused == false) {
                             GlobalData.KeycodeExecute = false;
                             serial.write(ncCommands.StopJogYMinus);
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+                        if (ke.getKeyCode() == KeyEvent.VK_RIGHT && GlobalData.GCodeWindowFocused == false) {
                             GlobalData.KeycodeExecute = false;
                             serial.write(ncCommands.StopJogXPlus);
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+                        if (ke.getKeyCode() == KeyEvent.VK_LEFT && GlobalData.GCodeWindowFocused == false) {
                             GlobalData.KeycodeExecute = false;
                             serial.write(ncCommands.StopJogXMinus);
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_UP) {
+                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_UP && GlobalData.GCodeWindowFocused == false) {
                             GlobalData.KeycodeExecute = false;
                             serial.write(ncCommands.StopJogZPlus);
                         }
-                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_DOWN) {
+                        if (ke.getKeyCode() == KeyEvent.VK_PAGE_DOWN && GlobalData.GCodeWindowFocused == false) {
                             GlobalData.KeycodeExecute = false;
                             serial.write(ncCommands.StopJogZMinus);
                         }
@@ -479,6 +479,14 @@ public class HMI extends JFrame{
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextArea1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextArea1FocusLost(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 540, 200));
@@ -686,6 +694,18 @@ public class HMI extends JFrame{
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14MouseClicked
+
+    private void jTextArea1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextArea1FocusGained
+        // TODO add your handling code here:
+        GlobalData.GCodeWindowFocused = true;
+        //System.out.println("Focused!");
+    }//GEN-LAST:event_jTextArea1FocusGained
+
+    private void jTextArea1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextArea1FocusLost
+        // TODO add your handling code here:
+        GlobalData.GCodeWindowFocused = false;
+        //System.out.println("UnFocused!");
+    }//GEN-LAST:event_jTextArea1FocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;

@@ -21,6 +21,7 @@ public class GlobalData {
     
     public static Boolean KeycodeExecute = false;
     public static Boolean AltPressed = false;
+    public static Boolean GCodeWindowFocused = false;
     
     public static Boolean TorchOn = false;
     
