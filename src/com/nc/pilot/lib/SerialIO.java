@@ -156,6 +156,19 @@ public class SerialIO implements SerialPortEventListener {
             public StatusReport sr;
             public Report r;
         }
+        private void ParseQueReport(Integer q)
+        {
+            System.out.println("Buffer Available: " + q);
+            GlobalData.FreeBuffers = q;
+            if (q > 22) //If qr is > 30
+            {
+                GlobalData.PlannerReady = true;
+            }
+            else
+            {
+                GlobalData.PlannerReady = false;
+            }
+        }
 	public synchronized void serialEvent(SerialPortEvent oEvent) {
                 Gson g = new Gson();
                 Gson qr = new Gson();
@@ -169,13 +182,7 @@ public class SerialIO implements SerialPortEventListener {
                                 {
                                     if (report.qr != null)
                                     {
-                                        System.out.println("(qr)Buffer Available: " + report.qr);
-                                        //GlobalData.bufferAvailable = Integer.parseInt(report.qr);
-                                        if (Integer.parseInt(report.qr) > 30)
-                                        {
-                                            GlobalData.bufferWait = false;
-                                            GlobalData.bufferAvailable = 10;
-                                        }
+                                        ParseQueReport(Integer.parseInt(report.qr));
                                     }
                                 }
                                 
@@ -206,13 +213,7 @@ public class SerialIO implements SerialPortEventListener {
                                     {
                                         if (json.r.qr != null)
                                         {
-                                            System.out.println("(r.qr)Buffer Available: " + json.r.qr);
-                                            //GlobalData.bufferAvailable = Integer.parseInt(report.qr);
-                                            if (Integer.parseInt(json.r.qr) > 30)
-                                            {
-                                                GlobalData.bufferWait = false;
-                                                GlobalData.bufferAvailable = Integer.parseInt(json.r.qr) - 10;
-                                            }
+                                            ParseQueReport(Integer.parseInt(json.r.qr));
                                         }
                                     }
                                 }

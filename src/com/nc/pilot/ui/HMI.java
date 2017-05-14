@@ -261,6 +261,10 @@ public class HMI extends JFrame{
         jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         mainMenu = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -510,6 +514,18 @@ public class HMI extends JFrame{
         jLabel10.setText("Lines Sent:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, -1));
 
+        jLabel11.setText("Lines Total:");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
+
+        jLabel12.setText("0");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, -1));
+
+        jLabel13.setText("Free Buffer:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, -1, -1));
+
+        jLabel14.setText("0");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, -1, -1));
+
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         fileMenu.setMnemonic('F');
@@ -581,8 +597,7 @@ public class HMI extends JFrame{
         {
             //Start feeding code
             GlobalData.Auto = true;
-            GlobalData.bufferAvailable = 5;
-            GlobalData.bufferPosition = 0;
+            GlobalData.LinePosition = 0;
             GlobalData.NC_Code = jTextArea1.getText();
         }
         else
@@ -599,8 +614,7 @@ public class HMI extends JFrame{
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         serial.write(ncCommands.QueFlush);        // TODO add your handling code here:
         GlobalData.Auto = false;
-        GlobalData.bufferAvailable = 15;
-        GlobalData.bufferPosition = 0;
+        GlobalData.LinePosition = 0;
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
@@ -748,6 +762,10 @@ public class HMI extends JFrame{
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -764,6 +782,9 @@ public class HMI extends JFrame{
     // End of variables declaration//GEN-END:variables
 
     class MyActionListener implements ActionListener {
+        
+        private Integer skipTicks = 10;
+        private Integer tickCount = 0;
 
         public void actionPerformed(ActionEvent e) {
            
@@ -771,49 +792,49 @@ public class HMI extends JFrame{
            jLabel7.setText(GlobalData.Y);
            jLabel3.setText(GlobalData.Z);
            jLabel8.setText(GlobalData.F);
-           jLabel1.setText(String.valueOf(GlobalData.bufferPosition));
+           jLabel1.setText(String.valueOf(GlobalData.LinePosition));
+           jLabel12.setText(String.valueOf(GlobalData.NC_Lines));
+           jLabel14.setText(String.valueOf(GlobalData.FreeBuffers));
            
+           tickCount++;
+           if (tickCount < skipTicks)
+           {
+               return;
+           }
+           tickCount = 0;
            if (GlobalData.Auto == true)
            {
                String[] lines = GlobalData.NC_Code.split("\n");
-               if (GlobalData.bufferAvailable > 0 && GlobalData.bufferWait == false)
+               GlobalData.NC_Lines = lines.length;
+               if (GlobalData.PlannerReady)
                 {
                     GlobalData.SendOnce = true;
-                    GlobalData.bufferAvailable--;
                     //System.out.println("Buffer Availible = " + GlobalData.bufferAvailable);
-                    if (lines.length > GlobalData.bufferPosition)
+                    if (lines.length > GlobalData.LinePosition)
                     {
                         System.out.println("Sending!");
-                        String b = new StringBuilder().append(lines[GlobalData.bufferPosition]).toString();
+                        String b = new StringBuilder().append(lines[GlobalData.LinePosition]).toString();
                         System.out.println(b);
                         serial.write(b + "\r\n");
-                        GlobalData.bufferPosition++;
+                        GlobalData.LinePosition++;
                         
-                        //serial.write("{\"qr\":\"\"}\r\n");
+                        serial.write("{\"qr\":\"\"}\r\n");
                     }
                     else
                     {
-                        if (lines.length == GlobalData.bufferPosition)
+                        if (lines.length == GlobalData.LinePosition)
                         {
                             System.out.println("End of file!");
                             GlobalData.Auto = false;
-                            GlobalData.bufferPosition = 0;
                         }
-                        else
-                        {
-                            System.out.println("Waiting for buffer report!");
-                            GlobalData.bufferWait = true;
-                        }
-                        
                     }
-                    
                 }
                else
                {
                    System.out.println("Waiting for Buffer to free up!");
                    if (GlobalData.SendOnce)
                    {
-                       GlobalData.SendOnce = true;
+                       GlobalData.SendOnce = false;
                        serial.write("{\"qr\":null}\r\n");
                    }
                    

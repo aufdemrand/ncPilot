@@ -28,13 +28,13 @@ public class GlobalData {
     
     public static String NCFile;
     public static String NC_Code;
+    public static Integer NC_Lines;
     
     public static Boolean Auto = false;
     
-    //public static int bufferSize = 5; //bytes
-    public static int bufferAvailable = 0; //bytes
-    public static int bufferPosition = 0; //bytes
-    public static boolean bufferWait = false;
+    public static int LinePosition = 0;
+    public static int FreeBuffers = 0;
+    public static boolean PlannerReady = false;
     public static boolean SendOnce = true;
     
     public static String readFile(String path) throws IOException 
