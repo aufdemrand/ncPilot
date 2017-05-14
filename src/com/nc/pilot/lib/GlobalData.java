@@ -18,6 +18,7 @@ public class GlobalData {
     public static String X = "0.000";
     public static String Y = "0.000";
     public static String Z = "0.000";
+    public static String F = "0.000";
     
     public static Boolean KeycodeExecute = false;
     public static Boolean AltPressed = false;
@@ -30,9 +31,10 @@ public class GlobalData {
     
     public static Boolean Auto = false;
     
-    public static int bufferSize = 254; //bytes
-    public static int bufferAvailable = 32; //bytes
+    public static int bufferSize = 20; //bytes
+    public static int bufferAvailable = 10; //bytes
     public static int bufferPosition = 0; //bytes
+    public static boolean bufferWait = false;
     
     public static String readFile(String path) throws IOException 
     {

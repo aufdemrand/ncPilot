@@ -257,6 +257,8 @@ public class HMI extends JFrame{
         jButton14 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         mainMenu = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -490,6 +492,15 @@ public class HMI extends JFrame{
         jScrollPane2.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 540, 200));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel8.setText("0.000");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel9.setText("F");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -731,6 +742,8 @@ public class HMI extends JFrame{
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
@@ -745,16 +758,20 @@ public class HMI extends JFrame{
            jLabel6.setText(GlobalData.X);
            jLabel7.setText(GlobalData.Y);
            jLabel3.setText(GlobalData.Z);
+           jLabel8.setText(GlobalData.F);
            
            if (GlobalData.Auto == true)
            {
-               if (GlobalData.bufferAvailable > 0)
+               String[] lines = GlobalData.NC_Code.split("\n");
+               if (GlobalData.bufferAvailable > 20 && GlobalData.bufferWait == false)
                 {
+                    
                     //System.out.println("Buffer Availible = " + GlobalData.bufferAvailable);
-                    if (GlobalData.NC_Code.length() > GlobalData.bufferPosition)
+                    if (lines.length > GlobalData.bufferPosition)
                     {
-                        String b = new StringBuilder().append(GlobalData.NC_Code.charAt(GlobalData.bufferPosition)).toString();
-                        //System.out.println(b);
+                        System.out.println("Sending!");
+                        String b = new StringBuilder().append(lines[GlobalData.bufferPosition]).toString();
+                        System.out.println(b);
                         serial.write(b);
                         GlobalData.bufferPosition++;
                         
@@ -762,15 +779,25 @@ public class HMI extends JFrame{
                     }
                     else
                     {
-                        System.out.println("End of file!");
-                        GlobalData.Auto = false;
-                        GlobalData.bufferPosition = 0;
+                        if (lines.length == GlobalData.bufferPosition)
+                        {
+                            System.out.println("End of file!");
+                            GlobalData.Auto = false;
+                            GlobalData.bufferPosition = 0;
+                        }
+                        else
+                        {
+                            System.out.println("Waiting for buffer report!");
+                            GlobalData.bufferWait = true;
+                        }
+                        
                     }
                     
                 }
                else
                {
                    System.out.println("Waiting for Buffer to free up!");
+                   
                }
            }
         }

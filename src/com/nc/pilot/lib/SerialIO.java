@@ -147,6 +147,7 @@ public class SerialIO implements SerialPortEventListener {
             public String posy;
             public String posx;
             public String posz;
+            public String vel;
         }
         private class Report{
             public String qr;
@@ -157,29 +158,45 @@ public class SerialIO implements SerialPortEventListener {
         }
 	public synchronized void serialEvent(SerialPortEvent oEvent) {
                 Gson g = new Gson();
+                Gson qr = new Gson();
 		if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 			try {
 				String inputLine=input.readLine();
 				System.out.println(inputLine);
+                                Report report = qr.fromJson(inputLine, Report.class);
+                                if (report != null)
+                                {
+                                    if (report.qr != null)
+                                    {
+                                        System.out.println("Buffer Available: " + report.qr);
+                                        GlobalData.bufferAvailable = Integer.parseInt(report.qr);
+                                        GlobalData.bufferWait = false;
+                                    }
+                                }
+                                
                                 JSON_Data json = g.fromJson(inputLine, JSON_Data.class);
                                 //System.out.println(json.posy);
-                                if (json.sr.posx != null)
+                                if (json != null)
                                 {
-                                    GlobalData.X = json.sr.posx;
+                                    if (json.sr.posx != null)
+                                    {
+                                        GlobalData.X = json.sr.posx;
+                                    }
+                                    if (json.sr.posy != null)
+                                    {
+                                        GlobalData.Y = json.sr.posy;
+                                    }
+                                    if (json.sr.posz != null)
+                                    {
+                                        GlobalData.Z = json.sr.posz;
+                                    }
+                                    if (json.sr.vel != null)
+                                    {
+                                        GlobalData.F = json.sr.vel;
+                                    }
                                 }
-                                if (json.sr.posy != null)
-                                {
-                                    GlobalData.Y = json.sr.posy;
-                                }
-                                if (json.sr.posz != null)
-                                {
-                                    GlobalData.Z = json.sr.posz;
-                                }
-                                if (json.r.qr != null)
-                                {
-                                    System.out.println("Buffer Available: " + json.r.qr);
-                                    GlobalData.bufferAvailable = Integer.parseInt(json.r.qr);
-                                }
+                                
+                                
                                 
 			} catch (Exception e) {
 				System.err.println(e.toString());
