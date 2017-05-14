@@ -772,7 +772,7 @@ public class HMI extends JFrame{
                         System.out.println("Sending!");
                         String b = new StringBuilder().append(lines[GlobalData.bufferPosition]).toString();
                         System.out.println(b);
-                        serial.write(b);
+                        serial.write(b + "\r\n");
                         GlobalData.bufferPosition++;
                         
                         //serial.write("{\"qr\":\"\"}\r\n");
