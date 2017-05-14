@@ -31,10 +31,11 @@ public class GlobalData {
     
     public static Boolean Auto = false;
     
-    public static int bufferSize = 20; //bytes
-    public static int bufferAvailable = 10; //bytes
+    //public static int bufferSize = 5; //bytes
+    public static int bufferAvailable = 0; //bytes
     public static int bufferPosition = 0; //bytes
     public static boolean bufferWait = false;
+    public static boolean SendOnce = true;
     
     public static String readFile(String path) throws IOException 
     {

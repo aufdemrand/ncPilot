@@ -259,6 +259,8 @@ public class HMI extends JFrame{
         jTextArea1 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         mainMenu = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -502,6 +504,12 @@ public class HMI extends JFrame{
         jLabel9.setText("F");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
+        jLabel1.setText("0");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, -1));
+
+        jLabel10.setText("Lines Sent:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, -1));
+
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         fileMenu.setMnemonic('F');
@@ -573,7 +581,7 @@ public class HMI extends JFrame{
         {
             //Start feeding code
             GlobalData.Auto = true;
-            GlobalData.bufferAvailable = 32;
+            GlobalData.bufferAvailable = 5;
             GlobalData.bufferPosition = 0;
             GlobalData.NC_Code = jTextArea1.getText();
         }
@@ -591,6 +599,8 @@ public class HMI extends JFrame{
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         serial.write(ncCommands.QueFlush);        // TODO add your handling code here:
         GlobalData.Auto = false;
+        GlobalData.bufferAvailable = 15;
+        GlobalData.bufferPosition = 0;
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
@@ -736,6 +746,8 @@ public class HMI extends JFrame{
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -759,13 +771,15 @@ public class HMI extends JFrame{
            jLabel7.setText(GlobalData.Y);
            jLabel3.setText(GlobalData.Z);
            jLabel8.setText(GlobalData.F);
+           jLabel1.setText(String.valueOf(GlobalData.bufferPosition));
            
            if (GlobalData.Auto == true)
            {
                String[] lines = GlobalData.NC_Code.split("\n");
-               if (GlobalData.bufferAvailable > 20 && GlobalData.bufferWait == false)
+               if (GlobalData.bufferAvailable > 0 && GlobalData.bufferWait == false)
                 {
-                    
+                    GlobalData.SendOnce = true;
+                    GlobalData.bufferAvailable--;
                     //System.out.println("Buffer Availible = " + GlobalData.bufferAvailable);
                     if (lines.length > GlobalData.bufferPosition)
                     {
@@ -797,6 +811,12 @@ public class HMI extends JFrame{
                else
                {
                    System.out.println("Waiting for Buffer to free up!");
+                   if (GlobalData.SendOnce)
+                   {
+                       GlobalData.SendOnce = true;
+                       serial.write("{\"qr\":null}\r\n");
+                   }
+                   
                    
                }
            }

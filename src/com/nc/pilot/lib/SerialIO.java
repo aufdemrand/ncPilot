@@ -163,14 +163,19 @@ public class SerialIO implements SerialPortEventListener {
 			try {
 				String inputLine=input.readLine();
 				System.out.println(inputLine);
+                                
                                 Report report = qr.fromJson(inputLine, Report.class);
                                 if (report != null)
                                 {
                                     if (report.qr != null)
                                     {
-                                        System.out.println("Buffer Available: " + report.qr);
-                                        GlobalData.bufferAvailable = Integer.parseInt(report.qr);
-                                        GlobalData.bufferWait = false;
+                                        System.out.println("(qr)Buffer Available: " + report.qr);
+                                        //GlobalData.bufferAvailable = Integer.parseInt(report.qr);
+                                        if (Integer.parseInt(report.qr) > 30)
+                                        {
+                                            GlobalData.bufferWait = false;
+                                            GlobalData.bufferAvailable = 10;
+                                        }
                                     }
                                 }
                                 
@@ -178,21 +183,37 @@ public class SerialIO implements SerialPortEventListener {
                                 //System.out.println(json.posy);
                                 if (json != null)
                                 {
-                                    if (json.sr.posx != null)
+                                    if (json.sr != null)
                                     {
-                                        GlobalData.X = json.sr.posx;
+                                        if (json.sr.posx != null)
+                                        {
+                                            GlobalData.X = json.sr.posx;
+                                        }
+                                        if (json.sr.posy != null)
+                                        {
+                                            GlobalData.Y = json.sr.posy;
+                                        }
+                                        if (json.sr.posz != null)
+                                        {
+                                            GlobalData.Z = json.sr.posz;
+                                        }
+                                        if (json.sr.vel != null)
+                                        {
+                                            GlobalData.F = json.sr.vel;
+                                        } 
                                     }
-                                    if (json.sr.posy != null)
+                                    if (json.r != null)
                                     {
-                                        GlobalData.Y = json.sr.posy;
-                                    }
-                                    if (json.sr.posz != null)
-                                    {
-                                        GlobalData.Z = json.sr.posz;
-                                    }
-                                    if (json.sr.vel != null)
-                                    {
-                                        GlobalData.F = json.sr.vel;
+                                        if (json.r.qr != null)
+                                        {
+                                            System.out.println("(r.qr)Buffer Available: " + json.r.qr);
+                                            //GlobalData.bufferAvailable = Integer.parseInt(report.qr);
+                                            if (Integer.parseInt(json.r.qr) > 30)
+                                            {
+                                                GlobalData.bufferWait = false;
+                                                GlobalData.bufferAvailable = Integer.parseInt(json.r.qr) - 10;
+                                            }
+                                        }
                                     }
                                 }
                                 
