@@ -783,7 +783,7 @@ public class HMI extends JFrame{
 
     class MyActionListener implements ActionListener {
         
-        private Integer skipTicks = 10;
+        private Integer skipTicks = 5;
         private Integer tickCount = 0;
 
         public void actionPerformed(ActionEvent e) {

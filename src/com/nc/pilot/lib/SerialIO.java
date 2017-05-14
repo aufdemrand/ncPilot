@@ -160,7 +160,7 @@ public class SerialIO implements SerialPortEventListener {
         {
             System.out.println("Buffer Available: " + q);
             GlobalData.FreeBuffers = q;
-            if (q > 22) //If qr is > 30
+            if (q > 10) //If qr is > 30
             {
                 GlobalData.PlannerReady = true;
             }
