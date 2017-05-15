@@ -51,6 +51,8 @@ import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.input.KeyCode;
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -58,10 +60,6 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
-/**
- * Main window of the Anagram Game application.
- */
-            
 public class HMI extends JFrame{
 
     public static void main(String[] args) {
@@ -299,7 +297,7 @@ public class HMI extends JFrame{
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel3.setText("0.000");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        jPanel1.add(jLabel3, new AbsoluteConstraints(110, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 255));
