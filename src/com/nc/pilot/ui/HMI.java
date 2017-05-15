@@ -622,6 +622,8 @@ public class HMI extends JFrame{
         serial.write("$xjm=50\r\n");
         serial.write("$yjm=50\r\n");
         serial.write("$ej=1\r\n");
+
+        serial.write(ncCommands.TorchOff);
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
