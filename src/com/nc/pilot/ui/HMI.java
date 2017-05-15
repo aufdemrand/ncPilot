@@ -597,6 +597,11 @@ public class HMI extends JFrame{
             GlobalData.Auto = true;
             GlobalData.LinePosition = 0;
             GlobalData.NC_Code = jTextArea1.getText();
+
+            serial.write("$xjm=5\r\n");
+            serial.write("$yjm=5\r\n");
+            serial.write("$ej=1\r\n");
+
         }
         else
         {
@@ -613,6 +618,10 @@ public class HMI extends JFrame{
         serial.write(ncCommands.QueFlush);        // TODO add your handling code here:
         GlobalData.Auto = false;
         GlobalData.LinePosition = 0;
+
+        serial.write("$xjm=50\r\n");
+        serial.write("$yjm=50\r\n");
+        serial.write("$ej=1\r\n");
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed

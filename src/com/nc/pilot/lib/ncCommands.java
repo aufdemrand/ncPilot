@@ -12,8 +12,8 @@ package com.nc.pilot.lib;
 public class ncCommands {
     public static String GoToOrigin = "G90 G0 X0 Y0\r\n";
     public static String FeedHold = "!\r\n";
-    public static String CycleStart = "$xvm=5\r\n$yvm=5\r\n$ej=1\r\n~\r\n";
-    public static String QueFlush = "%\r\n$xvm=50\r\n$yvm=50\r\n$ej=1\r\n";
+    public static String CycleStart = "~\r\n";
+    public static String QueFlush = "%\r\n";
     
     //Y Jogging
     public static String StartJogYPlus = "G91 G0 Y100\r\n";
