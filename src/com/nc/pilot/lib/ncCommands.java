@@ -44,4 +44,13 @@ public class ncCommands {
     //M Codes
     public static String TorchOn = "M3\r\n";
     public static String TorchOff = "M5\r\n";
+
+    public static void WriteWait()
+    {
+        try {
+            Thread.sleep(500);
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+    }
 }

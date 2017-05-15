@@ -48,6 +48,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.input.KeyCode;
@@ -599,8 +600,11 @@ public class HMI extends JFrame{
             GlobalData.NC_Code = jTextArea1.getText();
 
             serial.write("$xjm=5\r\n");
+            ncCommands.WriteWait();
             serial.write("$yjm=5\r\n");
+            ncCommands.WriteWait();
             serial.write("$ej=1\r\n");
+            ncCommands.WriteWait();
 
         }
         else
@@ -620,8 +624,11 @@ public class HMI extends JFrame{
         GlobalData.LinePosition = 0;
 
         serial.write("$xjm=50\r\n");
+        ncCommands.WriteWait();
         serial.write("$yjm=50\r\n");
+        ncCommands.WriteWait();
         serial.write("$ej=1\r\n");
+        ncCommands.WriteWait();
 
         serial.write(ncCommands.TorchOff);
     }//GEN-LAST:event_jButton7MouseClicked
