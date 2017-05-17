@@ -107,7 +107,7 @@ public class HMI extends JFrame{
         
         initComponents();
         pack();
-        timer = new Timer(5, new MyActionListener());
+        timer = new Timer(10, new MyActionListener());
         timer.setInitialDelay(0);
         timer.start();
         
