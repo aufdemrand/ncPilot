@@ -7,9 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8907f65-b5b3-4349-933e-bf222ba0f9b3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ncPilot_jar/ncPilot.jar" afterPath="$PROJECT_DIR$/out/artifacts/ncPilot_jar/ncPilot.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Parameters.cfg" afterPath="$PROJECT_DIR$/Parameters.cfg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +23,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HMI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HMI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="584" column="38" lean-forward="true" selection-start-line="584" selection-start-column="38" selection-end-line="584" selection-end-column="38" />
+            <state relative-caret-position="134">
+              <caret line="589" column="42" lean-forward="false" selection-start-line="589" selection-start-column="42" selection-end-line="589" selection-end-column="42" />
               <folding>
                 <element signature="e#10894#10983#0" expanded="true" />
                 <element signature="e#12749#12912#0" expanded="true" />
@@ -104,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ncCommands.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ncCommands.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="14" column="50" lean-forward="true" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+            <state relative-caret-position="102">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -138,7 +139,7 @@
         <entry file="file://$PROJECT_DIR$/Parameters.cfg">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+              <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -178,9 +179,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ncParameters.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ncConfig.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java" />
         <option value="$PROJECT_DIR$/Parameters.cfg" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java" />
-        <option value="$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java" />
       </list>
     </option>
   </component>
@@ -1332,31 +1333,15 @@
     <entry file="file://$PROJECT_DIR$/Parameters.cfg">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/ncConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="50" lean-forward="true" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="584" column="38" lean-forward="true" selection-start-line="584" selection-start-column="38" selection-end-line="584" selection-end-column="38" />
+        <state relative-caret-position="134">
+          <caret line="589" column="42" lean-forward="false" selection-start-line="589" selection-start-column="42" selection-end-line="589" selection-end-column="42" />
           <folding>
             <element signature="e#10894#10983#0" expanded="true" />
             <element signature="e#12749#12912#0" expanded="true" />
@@ -1430,6 +1415,22 @@
             <element signature="e#24926#24927#0" expanded="true" />
             <element signature="e#24990#24991#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/ncConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

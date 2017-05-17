@@ -12,7 +12,7 @@ package com.nc.pilot.lib;
 public class ncCommands {
     public static String GoToOrigin = "G90 G0 X0 Y0\r\n";
 
-    public static String Home = "G28.2 Y0 X0\r\n";
+    public static String Home = "G28.2 Y0\r\nG28.2 X0\r\n";
 
     public static String FeedHold = "!\r\n";
     public static String CycleStart = "~\r\n";
