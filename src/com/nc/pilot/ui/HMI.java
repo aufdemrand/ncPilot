@@ -98,7 +98,6 @@ public class HMI extends JFrame{
 
     private int wordIdx = 0;
     private Timer timer = null;
-    /** Creates new form Anagrams */
     private SerialIO serial;
     public HMI() {
         setFocusable(true);
@@ -108,7 +107,7 @@ public class HMI extends JFrame{
         
         initComponents();
         pack();
-        timer = new Timer(10, new MyActionListener());
+        timer = new Timer(5, new MyActionListener());
         timer.setInitialDelay(0);
         timer.start();
         
@@ -598,14 +597,7 @@ public class HMI extends JFrame{
             GlobalData.Auto = true;
             GlobalData.LinePosition = 0;
             GlobalData.NC_Code = jTextArea1.getText();
-
-            serial.write("$xjm=5\r\n");
-            ncCommands.WriteWait();
-            serial.write("$yjm=5\r\n");
-            ncCommands.WriteWait();
-            serial.write("$ej=1\r\n");
-            ncCommands.WriteWait();
-
+            ncCommands.AutoMode(serial);
         }
         else
         {
@@ -623,14 +615,7 @@ public class HMI extends JFrame{
         GlobalData.Auto = false;
         GlobalData.LinePosition = 0;
 
-        serial.write("$xjm=50\r\n");
-        ncCommands.WriteWait();
-        serial.write("$yjm=50\r\n");
-        ncCommands.WriteWait();
-        serial.write("$ej=1\r\n");
-        ncCommands.WriteWait();
-
-        serial.write(ncCommands.TorchOff);
+        ncCommands.ManualMode(serial);
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
@@ -798,65 +783,56 @@ public class HMI extends JFrame{
     // End of variables declaration//GEN-END:variables
 
     class MyActionListener implements ActionListener {
-        
+
         private Integer skipTicks = 5;
         private Integer tickCount = 0;
 
         public void actionPerformed(ActionEvent e) {
-           
-           jLabel6.setText(GlobalData.X);
-           jLabel7.setText(GlobalData.Y);
-           jLabel3.setText(GlobalData.Z);
-           jLabel8.setText(GlobalData.F);
-           jLabel1.setText(String.valueOf(GlobalData.LinePosition));
-           jLabel12.setText(String.valueOf(GlobalData.NC_Lines));
-           jLabel14.setText(String.valueOf(GlobalData.FreeBuffers));
-           
-           tickCount++;
-           if (tickCount < skipTicks)
-           {
-               return;
-           }
-           tickCount = 0;
-           if (GlobalData.Auto == true)
-           {
-               String[] lines = GlobalData.NC_Code.split("\n");
-               GlobalData.NC_Lines = lines.length;
-               if (GlobalData.PlannerReady)
-                {
+
+            jLabel6.setText(GlobalData.X);
+            jLabel7.setText(GlobalData.Y);
+            jLabel3.setText(GlobalData.Z);
+            jLabel8.setText(GlobalData.F);
+            jLabel1.setText(String.valueOf(GlobalData.LinePosition));
+            jLabel12.setText(String.valueOf(GlobalData.NC_Lines));
+            jLabel14.setText(String.valueOf(GlobalData.FreeBuffers));
+
+            tickCount++;
+            if (tickCount < skipTicks) {
+                return;
+            }
+            tickCount = 0;
+            if (GlobalData.Auto == true) {
+                String[] lines = GlobalData.NC_Code.split("\n");
+                GlobalData.NC_Lines = lines.length;
+                if (GlobalData.PlannerReady) {
                     GlobalData.SendOnce = true;
                     //System.out.println("Buffer Availible = " + GlobalData.bufferAvailable);
-                    if (lines.length > GlobalData.LinePosition)
-                    {
+                    if (lines.length > GlobalData.LinePosition) {
                         System.out.println("Sending!");
                         String b = new StringBuilder().append(lines[GlobalData.LinePosition]).toString();
                         System.out.println(b);
                         serial.write(b + "\r\n");
                         GlobalData.LinePosition++;
-                        
+
                         serial.write("{\"qr\":\"\"}\r\n");
-                    }
-                    else
-                    {
-                        if (lines.length == GlobalData.LinePosition)
-                        {
+                    } else {
+                        if (lines.length == GlobalData.LinePosition) {
                             System.out.println("End of file!");
                             GlobalData.Auto = false;
+                            ncCommands.ManualMode(serial);
                         }
                     }
+                } else {
+                    System.out.println("Waiting for Buffer to free up!");
+                    if (GlobalData.SendOnce) {
+                        GlobalData.SendOnce = false;
+                        serial.write("{\"qr\":null}\r\n");
+                    }
+
+
                 }
-               else
-               {
-                   System.out.println("Waiting for Buffer to free up!");
-                   if (GlobalData.SendOnce)
-                   {
-                       GlobalData.SendOnce = false;
-                       serial.write("{\"qr\":null}\r\n");
-                   }
-                   
-                   
-               }
-           }
+            }
         }
     }
 }

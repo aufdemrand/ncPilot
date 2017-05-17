@@ -7,35 +7,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8907f65-b5b3-4349-933e-bf222ba0f9b3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$10.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$12.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$13.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$14.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$15.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$16.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$17.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$18.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$19.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$20.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$21.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$22.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$23.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$24.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$25.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$26.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$27.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$MyActionListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI.class" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/ncConfig.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/ncConfig.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nc/pilot/ui/About.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.form" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ncPilot_jar/ncPilot.jar" afterPath="$PROJECT_DIR$/out/artifacts/ncPilot_jar/ncPilot.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/ncCommands.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/ncCommands.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$10.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$11.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$12.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$13.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$14.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$15.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$15.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$16.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$16.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$17.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$17.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$18.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$18.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$19.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$19.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$2.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$20.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$20.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$21.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$21.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$22.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$22.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$23.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$23.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$24.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$24.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$25.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$25.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$26.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$26.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$27.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$27.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$3.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$4.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$5.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$6.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$7.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$8.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$9.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$MyActionListener.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI$MyActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/HMI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java" />
     </list>
@@ -49,44 +55,107 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HMI.java" pinned="false" current-in-tab="true">
+    <leaf>
+      <file leaf-file-name="HMI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="706">
-              <caret line="631" column="0" lean-forward="true" selection-start-line="631" selection-start-column="0" selection-end-line="631" selection-end-column="0" />
+            <state relative-caret-position="322">
+              <caret line="826" column="73" lean-forward="false" selection-start-line="826" selection-start-column="73" selection-end-line="826" selection-end-column="73" />
               <folding>
-                <element signature="e#10931#11020#0" expanded="true" />
-                <element signature="e#12786#12949#0" expanded="true" />
-                <element signature="e#12948#12949#0" expanded="true" />
-                <element signature="e#15039#15211#0" expanded="true" />
-                <element signature="e#15210#15211#0" expanded="true" />
-                <element signature="e#16063#16227#0" expanded="true" />
-                <element signature="e#16226#16227#0" expanded="true" />
-                <element signature="e#18503#18675#0" expanded="true" />
-                <element signature="e#18674#18675#0" expanded="true" />
-                <element signature="e#18846#19018#0" expanded="true" />
-                <element signature="e#19017#19018#0" expanded="true" />
-                <element signature="e#19408#19580#0" expanded="true" />
-                <element signature="e#19579#19580#0" expanded="true" />
-                <element signature="e#20230#20403#0" expanded="true" />
-                <element signature="e#20402#20403#0" expanded="true" />
-                <element signature="e#20579#20752#0" expanded="true" />
-                <element signature="e#20751#20752#0" expanded="true" />
-                <element signature="e#20926#21099#0" expanded="true" />
-                <element signature="e#21098#21099#0" expanded="true" />
-                <element signature="e#21877#22050#0" expanded="true" />
-                <element signature="e#22049#22050#0" expanded="true" />
+                <element signature="e#2670#2757#0" expanded="true" />
+                <element signature="e#4253#4254#0" expanded="true" />
+                <element signature="e#4311#4312#0" expanded="true" />
+                <element signature="e#10893#10982#0" expanded="true" />
+                <element signature="e#12748#12911#0" expanded="true" />
+                <element signature="e#12910#12911#0" expanded="true" />
+                <element signature="e#13178#13179#0" expanded="true" />
+                <element signature="e#13232#13233#0" expanded="true" />
+                <element signature="e#13299#13300#0" expanded="true" />
+                <element signature="e#13354#13355#0" expanded="true" />
+                <element signature="e#13418#13419#0" expanded="true" />
+                <element signature="e#13470#13471#0" expanded="true" />
+                <element signature="e#15001#15173#0" expanded="true" />
+                <element signature="e#15172#15173#0" expanded="true" />
+                <element signature="e#15321#15322#0" expanded="true" />
+                <element signature="e#15381#15382#0" expanded="true" />
+                <element signature="e#15666#15667#0" expanded="true" />
+                <element signature="e#15723#15724#0" expanded="true" />
+                <element signature="e#15793#15794#0" expanded="true" />
+                <element signature="e#15850#15851#0" expanded="true" />
+                <element signature="e#15921#15922#0" expanded="true" />
+                <element signature="e#15979#15980#0" expanded="true" />
+                <element signature="e#16025#16189#0" expanded="true" />
+                <element signature="e#16188#16189#0" expanded="true" />
+                <element signature="e#16463#16464#0" expanded="true" />
+                <element signature="e#16520#16521#0" expanded="true" />
+                <element signature="e#16591#16592#0" expanded="true" />
+                <element signature="e#16649#16650#0" expanded="true" />
+                <element signature="e#16934#16935#0" expanded="true" />
+                <element signature="e#16991#16992#0" expanded="true" />
+                <element signature="e#17062#17063#0" expanded="true" />
+                <element signature="e#17120#17121#0" expanded="true" />
+                <element signature="e#17405#17406#0" expanded="true" />
+                <element signature="e#17462#17463#0" expanded="true" />
+                <element signature="e#17533#17534#0" expanded="true" />
+                <element signature="e#17591#17592#0" expanded="true" />
+                <element signature="e#17876#17877#0" expanded="true" />
+                <element signature="e#17933#17934#0" expanded="true" />
+                <element signature="e#18004#18005#0" expanded="true" />
+                <element signature="e#18062#18063#0" expanded="true" />
+                <element signature="e#18221#18222#0" expanded="true" />
+                <element signature="e#18281#18282#0" expanded="true" />
+                <element signature="e#18465#18637#0" expanded="true" />
+                <element signature="e#18636#18637#0" expanded="true" />
+                <element signature="e#18808#18980#0" expanded="true" />
+                <element signature="e#18979#18980#0" expanded="true" />
+                <element signature="e#19128#19129#0" expanded="true" />
+                <element signature="e#19188#19189#0" expanded="true" />
+                <element signature="e#19370#19542#0" expanded="true" />
+                <element signature="e#19541#19542#0" expanded="true" />
+                <element signature="e#19818#19819#0" expanded="true" />
+                <element signature="e#19876#19877#0" expanded="true" />
+                <element signature="e#19947#19948#0" expanded="true" />
+                <element signature="e#20006#20007#0" expanded="true" />
+                <element signature="e#20192#20365#0" expanded="true" />
+                <element signature="e#20364#20365#0" expanded="true" />
+                <element signature="e#20541#20714#0" expanded="true" />
+                <element signature="e#20713#20714#0" expanded="true" />
+                <element signature="e#20888#21061#0" expanded="true" />
+                <element signature="e#21060#21061#0" expanded="true" />
+                <element signature="e#21361#21362#0" expanded="true" />
+                <element signature="e#21424#21425#0" expanded="true" />
+                <element signature="e#21478#21656#0" expanded="true" />
+                <element signature="e#21655#21656#0" expanded="true" />
+                <element signature="e#21839#22012#0" expanded="true" />
+                <element signature="e#22011#22012#0" expanded="true" />
+                <element signature="e#22323#22324#0" expanded="true" />
+                <element signature="e#22381#22382#0" expanded="true" />
+                <element signature="e#22448#22449#0" expanded="true" />
+                <element signature="e#22504#22505#0" expanded="true" />
+                <element signature="e#24381#24382#0" expanded="true" />
+                <element signature="e#24446#24447#0" expanded="true" />
+                <element signature="e#24925#24926#0" expanded="true" />
+                <element signature="e#24989#24990#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ncCommands.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ncConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/ncConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ncCommands.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+            <state relative-caret-position="154">
+              <caret line="54" column="23" lean-forward="false" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -95,22 +164,29 @@
       <file leaf-file-name="SerialIO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="45">
               <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#8107#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>new org.netbeans.lib.awtextra.</find>
       <find>Auto = true</find>
       <find>Auto = false</find>
+      <find>ManualMode(serial);</find>
+      <find>ManualMode();</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,16 +200,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ncParameters.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ncConfig.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="737" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -150,22 +227,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncPilot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ncPilot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -209,6 +270,10 @@
               <option name="myItemId" value="pilot" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -242,12 +307,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
+              <option name="myItemId" value="libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ncPilot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ncPilot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -518,37 +599,59 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="737" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16458334" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -563,32 +666,186 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/About.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="108" column="32" lean-forward="false" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
+          <folding>
+            <element signature="e#2670#2757#0" expanded="true" />
+            <element signature="e#4253#4254#0" expanded="true" />
+            <element signature="e#4311#4312#0" expanded="true" />
+            <element signature="e#10893#10982#0" expanded="true" />
+            <element signature="e#12748#12911#0" expanded="true" />
+            <element signature="e#12910#12911#0" expanded="true" />
+            <element signature="e#13178#13179#0" expanded="true" />
+            <element signature="e#13232#13233#0" expanded="true" />
+            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13354#13355#0" expanded="true" />
+            <element signature="e#13418#13419#0" expanded="true" />
+            <element signature="e#13470#13471#0" expanded="true" />
+            <element signature="e#15001#15173#0" expanded="true" />
+            <element signature="e#15172#15173#0" expanded="true" />
+            <element signature="e#15321#15322#0" expanded="true" />
+            <element signature="e#15381#15382#0" expanded="true" />
+            <element signature="e#15666#15667#0" expanded="true" />
+            <element signature="e#15723#15724#0" expanded="true" />
+            <element signature="e#15793#15794#0" expanded="true" />
+            <element signature="e#15850#15851#0" expanded="true" />
+            <element signature="e#15921#15922#0" expanded="true" />
+            <element signature="e#15979#15980#0" expanded="true" />
+            <element signature="e#16025#16189#0" expanded="true" />
+            <element signature="e#16188#16189#0" expanded="true" />
+            <element signature="e#16463#16464#0" expanded="true" />
+            <element signature="e#16520#16521#0" expanded="true" />
+            <element signature="e#16591#16592#0" expanded="true" />
+            <element signature="e#16649#16650#0" expanded="true" />
+            <element signature="e#16934#16935#0" expanded="true" />
+            <element signature="e#16991#16992#0" expanded="true" />
+            <element signature="e#17062#17063#0" expanded="true" />
+            <element signature="e#17120#17121#0" expanded="true" />
+            <element signature="e#17405#17406#0" expanded="true" />
+            <element signature="e#17462#17463#0" expanded="true" />
+            <element signature="e#17533#17534#0" expanded="true" />
+            <element signature="e#17591#17592#0" expanded="true" />
+            <element signature="e#17876#17877#0" expanded="true" />
+            <element signature="e#17933#17934#0" expanded="true" />
+            <element signature="e#18004#18005#0" expanded="true" />
+            <element signature="e#18062#18063#0" expanded="true" />
+            <element signature="e#18221#18222#0" expanded="true" />
+            <element signature="e#18281#18282#0" expanded="true" />
+            <element signature="e#18465#18637#0" expanded="true" />
+            <element signature="e#18636#18637#0" expanded="true" />
+            <element signature="e#18808#18980#0" expanded="true" />
+            <element signature="e#18979#18980#0" expanded="true" />
+            <element signature="e#19128#19129#0" expanded="true" />
+            <element signature="e#19188#19189#0" expanded="true" />
+            <element signature="e#19370#19542#0" expanded="true" />
+            <element signature="e#19541#19542#0" expanded="true" />
+            <element signature="e#19818#19819#0" expanded="true" />
+            <element signature="e#19876#19877#0" expanded="true" />
+            <element signature="e#19947#19948#0" expanded="true" />
+            <element signature="e#20006#20007#0" expanded="true" />
+            <element signature="e#20192#20365#0" expanded="true" />
+            <element signature="e#20364#20365#0" expanded="true" />
+            <element signature="e#20541#20714#0" expanded="true" />
+            <element signature="e#20713#20714#0" expanded="true" />
+            <element signature="e#20888#21061#0" expanded="true" />
+            <element signature="e#21060#21061#0" expanded="true" />
+            <element signature="e#21361#21362#0" expanded="true" />
+            <element signature="e#21424#21425#0" expanded="true" />
+            <element signature="e#21478#21656#0" expanded="true" />
+            <element signature="e#21655#21656#0" expanded="true" />
+            <element signature="e#21839#22012#0" expanded="true" />
+            <element signature="e#22011#22012#0" expanded="true" />
+            <element signature="e#22323#22324#0" expanded="true" />
+            <element signature="e#22381#22382#0" expanded="true" />
+            <element signature="e#22448#22449#0" expanded="true" />
+            <element signature="e#22504#22505#0" expanded="true" />
+            <element signature="e#24381#24382#0" expanded="true" />
+            <element signature="e#24446#24447#0" expanded="true" />
+            <element signature="e#24925#24926#0" expanded="true" />
+            <element signature="e#24989#24990#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#10931#11020#0" expanded="true" />
-            <element signature="e#12786#12949#0" expanded="true" />
-            <element signature="e#12948#12949#0" expanded="true" />
-            <element signature="e#15039#15211#0" expanded="true" />
-            <element signature="e#15210#15211#0" expanded="true" />
-            <element signature="e#16063#16227#0" expanded="true" />
-            <element signature="e#16226#16227#0" expanded="true" />
-            <element signature="e#18503#18675#0" expanded="true" />
-            <element signature="e#18674#18675#0" expanded="true" />
-            <element signature="e#18846#19018#0" expanded="true" />
-            <element signature="e#19017#19018#0" expanded="true" />
-            <element signature="e#19408#19580#0" expanded="true" />
-            <element signature="e#19579#19580#0" expanded="true" />
-            <element signature="e#20230#20403#0" expanded="true" />
-            <element signature="e#20402#20403#0" expanded="true" />
-            <element signature="e#20579#20752#0" expanded="true" />
-            <element signature="e#20751#20752#0" expanded="true" />
-            <element signature="e#20926#21099#0" expanded="true" />
-            <element signature="e#21098#21099#0" expanded="true" />
-            <element signature="e#21877#22050#0" expanded="true" />
-            <element signature="e#22049#22050#0" expanded="true" />
+            <element signature="e#2670#2757#0" expanded="true" />
+            <element signature="e#4253#4254#0" expanded="true" />
+            <element signature="e#4311#4312#0" expanded="true" />
+            <element signature="e#10893#10982#0" expanded="true" />
+            <element signature="e#12748#12911#0" expanded="true" />
+            <element signature="e#12910#12911#0" expanded="true" />
+            <element signature="e#13178#13179#0" expanded="true" />
+            <element signature="e#13232#13233#0" expanded="true" />
+            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13354#13355#0" expanded="true" />
+            <element signature="e#13418#13419#0" expanded="true" />
+            <element signature="e#13470#13471#0" expanded="true" />
+            <element signature="e#15001#15173#0" expanded="true" />
+            <element signature="e#15172#15173#0" expanded="true" />
+            <element signature="e#15321#15322#0" expanded="true" />
+            <element signature="e#15381#15382#0" expanded="true" />
+            <element signature="e#15666#15667#0" expanded="true" />
+            <element signature="e#15723#15724#0" expanded="true" />
+            <element signature="e#15793#15794#0" expanded="true" />
+            <element signature="e#15850#15851#0" expanded="true" />
+            <element signature="e#15921#15922#0" expanded="true" />
+            <element signature="e#15979#15980#0" expanded="true" />
+            <element signature="e#16025#16189#0" expanded="true" />
+            <element signature="e#16188#16189#0" expanded="true" />
+            <element signature="e#16463#16464#0" expanded="true" />
+            <element signature="e#16520#16521#0" expanded="true" />
+            <element signature="e#16591#16592#0" expanded="true" />
+            <element signature="e#16649#16650#0" expanded="true" />
+            <element signature="e#16934#16935#0" expanded="true" />
+            <element signature="e#16991#16992#0" expanded="true" />
+            <element signature="e#17062#17063#0" expanded="true" />
+            <element signature="e#17120#17121#0" expanded="true" />
+            <element signature="e#17405#17406#0" expanded="true" />
+            <element signature="e#17462#17463#0" expanded="true" />
+            <element signature="e#17533#17534#0" expanded="true" />
+            <element signature="e#17591#17592#0" expanded="true" />
+            <element signature="e#17876#17877#0" expanded="true" />
+            <element signature="e#17933#17934#0" expanded="true" />
+            <element signature="e#18004#18005#0" expanded="true" />
+            <element signature="e#18062#18063#0" expanded="true" />
+            <element signature="e#18221#18222#0" expanded="true" />
+            <element signature="e#18281#18282#0" expanded="true" />
+            <element signature="e#18465#18637#0" expanded="true" />
+            <element signature="e#18636#18637#0" expanded="true" />
+            <element signature="e#18808#18980#0" expanded="true" />
+            <element signature="e#18979#18980#0" expanded="true" />
+            <element signature="e#19128#19129#0" expanded="true" />
+            <element signature="e#19188#19189#0" expanded="true" />
+            <element signature="e#19370#19542#0" expanded="true" />
+            <element signature="e#19541#19542#0" expanded="true" />
+            <element signature="e#19818#19819#0" expanded="true" />
+            <element signature="e#19876#19877#0" expanded="true" />
+            <element signature="e#19947#19948#0" expanded="true" />
+            <element signature="e#20006#20007#0" expanded="true" />
+            <element signature="e#20192#20365#0" expanded="true" />
+            <element signature="e#20364#20365#0" expanded="true" />
+            <element signature="e#20541#20714#0" expanded="true" />
+            <element signature="e#20713#20714#0" expanded="true" />
+            <element signature="e#20888#21061#0" expanded="true" />
+            <element signature="e#21060#21061#0" expanded="true" />
+            <element signature="e#21361#21362#0" expanded="true" />
+            <element signature="e#21424#21425#0" expanded="true" />
+            <element signature="e#21478#21656#0" expanded="true" />
+            <element signature="e#21655#21656#0" expanded="true" />
+            <element signature="e#21839#22012#0" expanded="true" />
+            <element signature="e#22011#22012#0" expanded="true" />
+            <element signature="e#22323#22324#0" expanded="true" />
+            <element signature="e#22381#22382#0" expanded="true" />
+            <element signature="e#22448#22449#0" expanded="true" />
+            <element signature="e#22504#22505#0" expanded="true" />
+            <element signature="e#24381#24382#0" expanded="true" />
+            <element signature="e#24446#24447#0" expanded="true" />
+            <element signature="e#24925#24926#0" expanded="true" />
+            <element signature="e#24989#24990#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -597,25 +854,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#8107#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#8107#0" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java">
@@ -626,41 +871,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+        <state relative-caret-position="322">
+          <caret line="826" column="73" lean-forward="false" selection-start-line="826" selection-start-column="73" selection-end-line="826" selection-end-column="73" />
+          <folding>
+            <element signature="e#2670#2757#0" expanded="true" />
+            <element signature="e#4253#4254#0" expanded="true" />
+            <element signature="e#4311#4312#0" expanded="true" />
+            <element signature="e#10893#10982#0" expanded="true" />
+            <element signature="e#12748#12911#0" expanded="true" />
+            <element signature="e#12910#12911#0" expanded="true" />
+            <element signature="e#13178#13179#0" expanded="true" />
+            <element signature="e#13232#13233#0" expanded="true" />
+            <element signature="e#13299#13300#0" expanded="true" />
+            <element signature="e#13354#13355#0" expanded="true" />
+            <element signature="e#13418#13419#0" expanded="true" />
+            <element signature="e#13470#13471#0" expanded="true" />
+            <element signature="e#15001#15173#0" expanded="true" />
+            <element signature="e#15172#15173#0" expanded="true" />
+            <element signature="e#15321#15322#0" expanded="true" />
+            <element signature="e#15381#15382#0" expanded="true" />
+            <element signature="e#15666#15667#0" expanded="true" />
+            <element signature="e#15723#15724#0" expanded="true" />
+            <element signature="e#15793#15794#0" expanded="true" />
+            <element signature="e#15850#15851#0" expanded="true" />
+            <element signature="e#15921#15922#0" expanded="true" />
+            <element signature="e#15979#15980#0" expanded="true" />
+            <element signature="e#16025#16189#0" expanded="true" />
+            <element signature="e#16188#16189#0" expanded="true" />
+            <element signature="e#16463#16464#0" expanded="true" />
+            <element signature="e#16520#16521#0" expanded="true" />
+            <element signature="e#16591#16592#0" expanded="true" />
+            <element signature="e#16649#16650#0" expanded="true" />
+            <element signature="e#16934#16935#0" expanded="true" />
+            <element signature="e#16991#16992#0" expanded="true" />
+            <element signature="e#17062#17063#0" expanded="true" />
+            <element signature="e#17120#17121#0" expanded="true" />
+            <element signature="e#17405#17406#0" expanded="true" />
+            <element signature="e#17462#17463#0" expanded="true" />
+            <element signature="e#17533#17534#0" expanded="true" />
+            <element signature="e#17591#17592#0" expanded="true" />
+            <element signature="e#17876#17877#0" expanded="true" />
+            <element signature="e#17933#17934#0" expanded="true" />
+            <element signature="e#18004#18005#0" expanded="true" />
+            <element signature="e#18062#18063#0" expanded="true" />
+            <element signature="e#18221#18222#0" expanded="true" />
+            <element signature="e#18281#18282#0" expanded="true" />
+            <element signature="e#18465#18637#0" expanded="true" />
+            <element signature="e#18636#18637#0" expanded="true" />
+            <element signature="e#18808#18980#0" expanded="true" />
+            <element signature="e#18979#18980#0" expanded="true" />
+            <element signature="e#19128#19129#0" expanded="true" />
+            <element signature="e#19188#19189#0" expanded="true" />
+            <element signature="e#19370#19542#0" expanded="true" />
+            <element signature="e#19541#19542#0" expanded="true" />
+            <element signature="e#19818#19819#0" expanded="true" />
+            <element signature="e#19876#19877#0" expanded="true" />
+            <element signature="e#19947#19948#0" expanded="true" />
+            <element signature="e#20006#20007#0" expanded="true" />
+            <element signature="e#20192#20365#0" expanded="true" />
+            <element signature="e#20364#20365#0" expanded="true" />
+            <element signature="e#20541#20714#0" expanded="true" />
+            <element signature="e#20713#20714#0" expanded="true" />
+            <element signature="e#20888#21061#0" expanded="true" />
+            <element signature="e#21060#21061#0" expanded="true" />
+            <element signature="e#21361#21362#0" expanded="true" />
+            <element signature="e#21424#21425#0" expanded="true" />
+            <element signature="e#21478#21656#0" expanded="true" />
+            <element signature="e#21655#21656#0" expanded="true" />
+            <element signature="e#21839#22012#0" expanded="true" />
+            <element signature="e#22011#22012#0" expanded="true" />
+            <element signature="e#22323#22324#0" expanded="true" />
+            <element signature="e#22381#22382#0" expanded="true" />
+            <element signature="e#22448#22449#0" expanded="true" />
+            <element signature="e#22504#22505#0" expanded="true" />
+            <element signature="e#24381#24382#0" expanded="true" />
+            <element signature="e#24446#24447#0" expanded="true" />
+            <element signature="e#24925#24926#0" expanded="true" />
+            <element signature="e#24989#24990#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/ncConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="631" column="0" lean-forward="true" selection-start-line="631" selection-start-column="0" selection-end-line="631" selection-end-column="0" />
-          <folding>
-            <element signature="e#10931#11020#0" expanded="true" />
-            <element signature="e#12786#12949#0" expanded="true" />
-            <element signature="e#12948#12949#0" expanded="true" />
-            <element signature="e#15039#15211#0" expanded="true" />
-            <element signature="e#15210#15211#0" expanded="true" />
-            <element signature="e#16063#16227#0" expanded="true" />
-            <element signature="e#16226#16227#0" expanded="true" />
-            <element signature="e#18503#18675#0" expanded="true" />
-            <element signature="e#18674#18675#0" expanded="true" />
-            <element signature="e#18846#19018#0" expanded="true" />
-            <element signature="e#19017#19018#0" expanded="true" />
-            <element signature="e#19408#19580#0" expanded="true" />
-            <element signature="e#19579#19580#0" expanded="true" />
-            <element signature="e#20230#20403#0" expanded="true" />
-            <element signature="e#20402#20403#0" expanded="true" />
-            <element signature="e#20579#20752#0" expanded="true" />
-            <element signature="e#20751#20752#0" expanded="true" />
-            <element signature="e#20926#21099#0" expanded="true" />
-            <element signature="e#21098#21099#0" expanded="true" />
-            <element signature="e#21877#22050#0" expanded="true" />
-            <element signature="e#22049#22050#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="45">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="54" column="23" lean-forward="false" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
