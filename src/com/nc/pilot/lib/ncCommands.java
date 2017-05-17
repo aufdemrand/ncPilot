@@ -16,24 +16,24 @@ public class ncCommands {
     public static String QueFlush = "$clear\r\n%\r\n";
     
     //Y Jogging
-    public static String StartJogYPlus = "G53 G0 " + ncConfig.YMaxTravel +"\r\n";
+    public static String StartJogYPlus = "G53 G0 Y" + ncConfig.YMaxTravel +"\r\n";
     public static String StopJogYPlus = "!%\r\n";
     
-    public static String StartJogYMinus = "G53 G0 " + ncConfig.YMinTravel +"\r\n";
+    public static String StartJogYMinus = "G53 G0 Y" + ncConfig.YMinTravel +"\r\n";
     public static String StopJogYMinus = "!%\r\n";
     
     //X Jogging
-    public static String StartJogXPlus = "G53 G0 " + ncConfig.XMaxTravel +"\r\n";
+    public static String StartJogXPlus = "G53 G0 X" + ncConfig.XMaxTravel +"\r\n";
     public static String StopJogXPlus = "!%\r\n";
     
-    public static String StartJogXMinus = "G53 G0 " + ncConfig.XMinTravel +"\r\n";
+    public static String StartJogXMinus = "G53 G0 X" + ncConfig.XMinTravel +"\r\n";
     public static String StopJogXMinus = "!%\r\nG90\r\n";
     
     //Z Jogging
-    public static String StartJogZPlus = "G90 G0 Z100\r\n";
+    public static String StartJogZPlus = "G91 G0 Z100\r\n";
     public static String StopJogZPlus = "!%\r\nG90\r\n";
     
-    public static String StartJogZMinus = "G90 G0 Z-100\r\n";
+    public static String StartJogZMinus = "G91 G0 Z-100\r\n";
     public static String StopJogZMinus = "!%\r\nG90\r\n";
     
     //Set origins
