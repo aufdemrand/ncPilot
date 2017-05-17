@@ -1,0 +1,17 @@
+$ST=0
+$SL=1
+
+$YSN=1
+$YSX=0
+$yJH=2000
+$yTN=0
+$yTM=60
+$ySV=30
+$yLV=5
+$yLB=1
+$yZB=0.1
+
+$ZSN=0
+$ZSX=0
+
+$ej=1
