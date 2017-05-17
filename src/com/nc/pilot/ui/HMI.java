@@ -582,7 +582,7 @@ public class HMI extends JFrame{
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        serial.write(ncCommands.GoToOrigin);
+        serial.write(ncCommands.Home);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked

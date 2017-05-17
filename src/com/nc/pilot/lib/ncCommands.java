@@ -11,6 +11,9 @@ package com.nc.pilot.lib;
  */
 public class ncCommands {
     public static String GoToOrigin = "G90 G0 X0 Y0\r\n";
+
+    public static String Home = "G28.2 Y0 X0\r\n";
+
     public static String FeedHold = "!\r\n";
     public static String CycleStart = "~\r\n";
     public static String QueFlush = "$clear\r\n%\r\n";
@@ -37,9 +40,9 @@ public class ncCommands {
     public static String StopJogZMinus = "!%\r\nG90\r\n";
     
     //Set origins
-    public static String SetXOrigin = "G92 X=0\r\nG53\r\nG28.3 X=0.000\r\n";
-    public static String SetYOrigin = "G92 Y=0\r\nG53\r\nG28.3 Y=0.000\r\n";
-    public static String SetZOrigin = "G92 Z=0\r\nG53\r\nG28.3 Z=0.000\r\n";
+    public static String SetXOrigin = "G92 X=0\r\nG54\r\nG28.3 X=0.000\r\n";
+    public static String SetYOrigin = "G92 Y=0\r\nG54\r\nG28.3 Y=0.000\r\n";
+    public static String SetZOrigin = "G92 Z=0\r\nG54\r\nG28.3 Z=0.000\r\n";
     
     //M Codes
     public static String TorchOn = "M3\r\n";
