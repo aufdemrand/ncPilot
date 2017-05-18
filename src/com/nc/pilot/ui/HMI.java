@@ -595,6 +595,7 @@ public class HMI extends JFrame{
         {
             //Start feeding code
             GlobalData.Auto = true;
+            GlobalData.HMC_Auto = true;
             GlobalData.LinePosition = 0;
             GlobalData.NC_Code = jTextArea1.getText();
             ncCommands.AutoMode(serial);

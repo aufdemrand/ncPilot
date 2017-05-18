@@ -30,7 +30,8 @@ public class GlobalData {
     public static String NC_Code;
     public static Integer NC_Lines;
     
-    public static Boolean Auto = false;
+    public static Boolean Auto = false; //ncPilot exits "Auto mode" after file is fully sent but HMC usually is still in cycle because moves are left in the planner.
+    public static Boolean HMC_Auto = false; //HMC_Auto returns to false after machine state from changes to "3" (stop)
     
     public static int LinePosition = 0;
     public static int FreeBuffers = 0;
