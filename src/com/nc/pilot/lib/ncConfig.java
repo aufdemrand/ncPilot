@@ -13,6 +13,6 @@ public class ncConfig {
     public static Integer YMaxTravel = 82;
     public static Integer YMinTravel = 0;
 
-    public static Integer ZMaxTravel = 0;
-    public static Integer ZMinTravel = -3;
+    public static Integer ZMaxTravel = 10;
+    public static Integer ZMinTravel = -10;
 }

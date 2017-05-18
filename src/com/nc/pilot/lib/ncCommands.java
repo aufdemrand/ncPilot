@@ -33,10 +33,10 @@ public class ncCommands {
     public static String StopJogXMinus = "!%\r\nG54\r\n";
     
     //Z Jogging
-    public static String StartJogZPlus = "G91 G0 Z100\r\n";
+    public static String StartJogZPlus = "G53 G0 Z" + ncConfig.ZMaxTravel +"\r\n";
     public static String StopJogZPlus = "!%\r\nG54\r\n";
     
-    public static String StartJogZMinus = "G91 G0 Z-100\r\n";
+    public static String StartJogZMinus = "G53 G0 Z" + ncConfig.XMinTravel +"\r\n";
     public static String StopJogZMinus = "!%\r\nG54\r\n";
     
     //Set origins
