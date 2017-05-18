@@ -194,7 +194,7 @@ public class SerialIO implements SerialPortEventListener {
                                 {
                                     if (json.sr != null)
                                     {
-                                        if (GlobalData.HMC_Auto == true || Integer.parseInt(json.sr.stat) == 9)  //Only update DRO when in auto mode or if stat is stop (3)
+                                        if (GlobalData.HMC_Auto == true || Integer.parseInt(json.sr.stat) == 9 ||Integer.parseInt(json.sr.stat) == 3)  //Only update DRO when in auto mode or if stat is stop (3)
                                         {
                                             if (json.sr.posx != null) {
                                                 GlobalData.X = json.sr.posx;

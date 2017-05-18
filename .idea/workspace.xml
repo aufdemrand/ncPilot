@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8907f65-b5b3-4349-933e-bf222ba0f9b3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="202">
-              <caret line="597" column="39" lean-forward="true" selection-start-line="597" selection-start-column="39" selection-end-line="597" selection-end-column="39" />
+              <caret line="597" column="39" lean-forward="false" selection-start-line="597" selection-start-column="39" selection-end-line="597" selection-end-column="39" />
               <folding>
                 <element signature="e#10894#10983#0" expanded="true" />
                 <element signature="e#12749#12912#0" expanded="true" />
@@ -137,8 +135,8 @@
       <file leaf-file-name="SerialIO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="209" column="76" lean-forward="true" selection-start-line="209" selection-start-column="76" selection-end-line="209" selection-end-column="76" />
+            <state relative-caret-position="176">
+              <caret line="196" column="148" lean-forward="false" selection-start-line="196" selection-start-column="148" selection-end-line="196" selection-end-column="148" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1381,7 +1379,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/HMI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
-          <caret line="597" column="39" lean-forward="true" selection-start-line="597" selection-start-column="39" selection-end-line="597" selection-end-column="39" />
+          <caret line="597" column="39" lean-forward="false" selection-start-line="597" selection-start-column="39" selection-end-line="597" selection-end-column="39" />
           <folding>
             <element signature="e#10894#10983#0" expanded="true" />
             <element signature="e#12749#12912#0" expanded="true" />
@@ -1460,8 +1458,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="209" column="76" lean-forward="true" selection-start-line="209" selection-start-column="76" selection-end-line="209" selection-end-column="76" />
+        <state relative-caret-position="176">
+          <caret line="196" column="148" lean-forward="false" selection-start-line="196" selection-start-column="148" selection-end-line="196" selection-end-column="148" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
