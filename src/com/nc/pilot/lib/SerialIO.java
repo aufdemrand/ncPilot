@@ -149,6 +149,7 @@ public class SerialIO implements SerialPortEventListener {
             public String posz;
             public String coor;
             public String vel;
+            public String stat;
         }
         private class Report{
             public String qr;
@@ -193,7 +194,7 @@ public class SerialIO implements SerialPortEventListener {
                                 {
                                     if (json.sr != null)
                                     {
-                                        if (Integer.parseInt(json.sr.coor) == 1)  //Only update DRO when G54 is active
+                                        if (GlobalData.Auto == true || Integer.parseInt(json.sr.stat) == 3)  //Only update DRO when in automode or if stat is stop (3)
                                         {
                                             if (json.sr.posx != null) {
                                                 GlobalData.X = json.sr.posx;
