@@ -40,8 +40,8 @@ public class ncCommands {
     public static String StopJogZMinus = "!%\r\nG54\r\n";
     
     //Set origins
-    public static String SetXOrigin = "GG54\r\nG28.3 X=0.000\r\n";
-    public static String SetYOrigin = "G54\r\nG28.3 Y=0.000\r\n";
+    public static String SetXOrigin = "G54\r\nG92 X0.000\r\n";
+    public static String SetYOrigin = "G54\r\nG92 Y0.000\r\n";
     public static String SetZOrigin = "G92 Z=0\r\nG54\r\nG28.3 Z=0.000\r\n";
     
     //M Codes
