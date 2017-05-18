@@ -29,7 +29,7 @@ public class SerialIO implements SerialPortEventListener {
         /** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
 			"COM1",
-                        "COM2",
+                "COM2",
 			"COM3",
 			"COM4",
                         "COM17"
@@ -192,22 +192,21 @@ public class SerialIO implements SerialPortEventListener {
                                 {
                                     if (json.sr != null)
                                     {
-                                        if (json.sr.posx != null)
+                                        if (GlobalData.Jogging == false)  //Don't update the DRO when jogging because sr will report absolute coordinates
                                         {
-                                            GlobalData.X = json.sr.posx;
+                                            if (json.sr.posx != null) {
+                                                GlobalData.X = json.sr.posx;
+                                            }
+                                            if (json.sr.posy != null) {
+                                                GlobalData.Y = json.sr.posy;
+                                            }
+                                            if (json.sr.posz != null) {
+                                                GlobalData.Z = json.sr.posz;
+                                            }
                                         }
-                                        if (json.sr.posy != null)
-                                        {
-                                            GlobalData.Y = json.sr.posy;
-                                        }
-                                        if (json.sr.posz != null)
-                                        {
-                                            GlobalData.Z = json.sr.posz;
-                                        }
-                                        if (json.sr.vel != null)
-                                        {
+                                        if (json.sr.vel != null) {
                                             GlobalData.F = json.sr.vel;
-                                        } 
+                                        }
                                     }
                                     if (json.r != null)
                                     {
