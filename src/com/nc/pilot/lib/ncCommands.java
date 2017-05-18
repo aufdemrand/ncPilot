@@ -12,32 +12,32 @@ package com.nc.pilot.lib;
 public class ncCommands {
     public static String GoToOrigin = "G90 G0 X0 Y0\r\n";
 
-    public static String Home = "G28.2 Y0\r\nG28.2 X0\r\n";
+    public static String Home = "G53\r\nG28.2 Y0\r\nG28.2 X0\r\n";
 
     public static String FeedHold = "!\r\n";
     public static String CycleStart = "~\r\n";
     public static String QueFlush = "$clear\r\n%\r\n";
     
     //Y Jogging
-    public static String StartJogYPlus = "G53 G0 Y" + ncConfig.YMaxTravel +"\r\n";
-    public static String StopJogYPlus = "!%\r\n";
+    public static String StartJogYPlus = "G53\r\nG0 Y" + ncConfig.YMaxTravel +"\r\n";
+    public static String StopJogYPlus = "!%\r\nG54\r\n";
     
-    public static String StartJogYMinus = "G53 G0 Y" + ncConfig.YMinTravel +"\r\n";
-    public static String StopJogYMinus = "!%\r\n";
+    public static String StartJogYMinus = "G53\r\n G0 Y" + ncConfig.YMinTravel +"\r\n";
+    public static String StopJogYMinus = "!%\r\nG54\r\n";
     
     //X Jogging
-    public static String StartJogXPlus = "G53 G0 X" + ncConfig.XMaxTravel +"\r\n";
-    public static String StopJogXPlus = "!%\r\n";
+    public static String StartJogXPlus = "G53\r\nG0 X" + ncConfig.XMaxTravel +"\r\n";
+    public static String StopJogXPlus = "!%\r\nG54\r\n";
     
-    public static String StartJogXMinus = "G53 G0 X" + ncConfig.XMinTravel +"\r\n";
-    public static String StopJogXMinus = "!%\r\nG90\r\n";
+    public static String StartJogXMinus = "G53\r\nG0 X" + ncConfig.XMinTravel +"\r\n";
+    public static String StopJogXMinus = "!%\r\nG54\r\n";
     
     //Z Jogging
     public static String StartJogZPlus = "G91 G0 Z100\r\n";
-    public static String StopJogZPlus = "!%\r\nG90\r\n";
+    public static String StopJogZPlus = "!%\r\nG54\r\n";
     
     public static String StartJogZMinus = "G91 G0 Z-100\r\n";
-    public static String StopJogZMinus = "!%\r\nG90\r\n";
+    public static String StopJogZMinus = "!%\r\nG54\r\n";
     
     //Set origins
     public static String SetXOrigin = "G92 X=0\r\nG54\r\nG28.3 X=0.000\r\n";
