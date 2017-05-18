@@ -19,17 +19,17 @@ public class ncCommands {
     public static String QueFlush = "$clear\r\n%\r\n";
     
     //Y Jogging
-    public static String StartJogYPlus = "G53\r\nG0 Y" + ncConfig.YMaxTravel +"\r\n";
+    public static String StartJogYPlus = "G53 G0 Y" + ncConfig.YMaxTravel +"\r\n";
     public static String StopJogYPlus = "!%\r\nG54\r\n";
     
-    public static String StartJogYMinus = "G53\r\n G0 Y" + ncConfig.YMinTravel +"\r\n";
+    public static String StartJogYMinus = "G53 G0 Y" + ncConfig.YMinTravel +"\r\n";
     public static String StopJogYMinus = "!%\r\nG54\r\n";
     
     //X Jogging
-    public static String StartJogXPlus = "G53\r\nG0 X" + ncConfig.XMaxTravel +"\r\n";
+    public static String StartJogXPlus = "G53 G0 X" + ncConfig.XMaxTravel +"\r\n";
     public static String StopJogXPlus = "!%\r\nG54\r\n";
     
-    public static String StartJogXMinus = "G53\r\nG0 X" + ncConfig.XMinTravel +"\r\n";
+    public static String StartJogXMinus = "G53 G0 X" + ncConfig.XMinTravel +"\r\n";
     public static String StopJogXMinus = "!%\r\nG54\r\n";
     
     //Z Jogging
@@ -40,8 +40,8 @@ public class ncCommands {
     public static String StopJogZMinus = "!%\r\nG54\r\n";
     
     //Set origins
-    public static String SetXOrigin = "G54\r\nG92 X0.000\r\n";
-    public static String SetYOrigin = "G54\r\nG92 Y0.000\r\n";
+    public static String SetXOrigin = "G54 G92 X0.000\r\n";
+    public static String SetYOrigin = "G54 G92 Y0.000\r\n";
     public static String SetZOrigin = "G92 Z=0\r\nG54\r\nG28.3 Z=0.000\r\n";
     
     //M Codes
