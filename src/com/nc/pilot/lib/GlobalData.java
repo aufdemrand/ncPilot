@@ -31,7 +31,6 @@ public class GlobalData {
     public static Integer NC_Lines;
     
     public static Boolean Auto = false;
-    public static Boolean Jogging = false;
     
     public static int LinePosition = 0;
     public static int FreeBuffers = 0;

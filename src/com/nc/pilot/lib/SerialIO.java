@@ -147,6 +147,7 @@ public class SerialIO implements SerialPortEventListener {
             public String posy;
             public String posx;
             public String posz;
+            public String coor;
             public String vel;
         }
         private class Report{
@@ -192,7 +193,7 @@ public class SerialIO implements SerialPortEventListener {
                                 {
                                     if (json.sr != null)
                                     {
-                                        if (GlobalData.Jogging == false)  //Don't update the DRO when jogging because sr will report absolute coordinates
+                                        if (Integer.parseInt(json.sr.coor) == 1)  //Only update DRO when G54 is active
                                         {
                                             if (json.sr.posx != null) {
                                                 GlobalData.X = json.sr.posx;
