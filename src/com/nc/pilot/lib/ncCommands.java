@@ -57,7 +57,7 @@ public class ncCommands {
     }
     public static void ManualMode(SerialIO s)
     {
-        s.write("$sl=1\r\n"); //Enable Soft Limits
+        s.write("$sl=0\r\n"); //Disable Soft Limits
         ncCommands.WriteWait();
         s.write("$xjm=" + ncConfig.ManualModeAcceleration + "\r\n");
         ncCommands.WriteWait();
