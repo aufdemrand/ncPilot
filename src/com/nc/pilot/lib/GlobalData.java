@@ -38,6 +38,13 @@ public class GlobalData {
     public static int FreeBuffers = 0;
     public static boolean PlannerReady = false;
     public static boolean SendOnce = true;
+
+    public static float ViewerZoom = 1;
+    public static float MinViewerZoom = 0.005f;
+    public static float MaxViewerZoom = 20;
+    public static float[] ViewerPan;
+    public static int MousePositionX;
+    public static int MousePositionY;
     
     public static String readFile(String path) throws IOException 
     {
