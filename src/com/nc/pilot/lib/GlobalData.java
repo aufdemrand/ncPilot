@@ -5,6 +5,7 @@
  */
 package com.nc.pilot.lib;
 
+import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
