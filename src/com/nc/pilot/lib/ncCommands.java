@@ -10,6 +10,8 @@ package com.nc.pilot.lib;
  * @author travis
  */
 public class ncCommands {
+
+    public static String SatusReport = "?\n";
     public static String GoToOrigin = "G90 G0 X0 Y0\r\n";
 
     public static String Home = "G53\r\nG28.2 Y0\r\nG28.2 X0\r\n";

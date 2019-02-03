@@ -16,17 +16,22 @@ import java.nio.file.Paths;
  * @author travis
  */
 public class GlobalData {
+    /* Depricated but still here so HMI.java compiles */
     public static String X = "0.000";
     public static String Y = "0.000";
     public static String Z = "0.000";
     public static String F = "0.000";
-    
+
+    public static float[] dro = {0, 0, 0};
+    public static String status;
+    public static boolean IsHomed = false;
+
     public static Boolean KeycodeExecute = false;
     public static Boolean AltPressed = false;
     public static Boolean GCodeWindowFocused = false;
-    
+
     public static Boolean TorchOn = false;
-    
+
     public static String NCFile;
     public static String NC_Code;
     public static Integer NC_Lines;
@@ -45,6 +50,7 @@ public class GlobalData {
     public static float[] ViewerPan;
     public static int MousePositionX;
     public static int MousePositionY;
+
     
     public static String readFile(String path) throws IOException 
     {

@@ -28,11 +28,7 @@ public class SerialIO implements SerialPortEventListener {
 	SerialPort serialPort;
         /** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
-			"COM1",
-                "COM2",
-			"COM3",
-			"COM4",
-                        "COM17"
+			"COM3"
 	};
 	/**
 	* A BufferedReader which will be fed by a InputStreamReader 
@@ -143,92 +139,36 @@ public class SerialIO implements SerialPortEventListener {
 	/**
 	 * Handle an event on the serial port. Read the data and print it.
 	 */
-        private class StatusReport{
-            public String posy;
-            public String posx;
-            public String posz;
-            public String coor;
-            public String vel;
-            public String stat;
-        }
-        private class Report{
-            public String qr;
-        }
-        private class JSON_Data{
-            public StatusReport sr;
-            public Report r;
-        }
-        private void ParseQueReport(Integer q)
-        {
-            System.out.println("Buffer Available: " + q);
-            GlobalData.FreeBuffers = q;
-            if (q > 10) //If qr is > 30
-            {
-                GlobalData.PlannerReady = true;
+        public synchronized void serialEvent(SerialPortEvent oEvent) {
+            if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
+                try {
+                    String inputLine=input.readLine();
+                    //System.out.println(inputLine);
+                    if (inputLine.equals("ok"))
+                    {
+                        //System.out.println("OK Recieved!");
+                    }
+                    else if (inputLine.contains("<") && inputLine.contains(">")) //Status Report
+                    {
+                        String status_output = inputLine.substring(inputLine.indexOf("<") + 1, inputLine.indexOf(">"));
+                        String[] status = status_output.split("\\|");
+
+                        GlobalData.status = status[0];
+                        //System.out.println("Status: " + GlobalData.status);
+
+                        String mpos = status[1].substring(status[1].indexOf("MPos:") + 5, status[1].length());
+                        //System.out.println("pos data: " + mpos);
+                        String[] dro = mpos.split(",");
+                        GlobalData.dro[0] = Float.parseFloat(dro[0]);
+                        GlobalData.dro[1] = Float.parseFloat(dro[1]);
+                        GlobalData.dro[2] = Float.parseFloat(dro[2]);
+                        //System.out.println("X: " + GlobalData.dro[0] + " Y: " + GlobalData.dro[1] + " Z: " + GlobalData.dro[2]);
+                    }
+
+                } catch (Exception e) {
+                    System.err.println(e.toString());
+                }
             }
-            else
-            {
-                GlobalData.PlannerReady = false;
-            }
-        }
-	public synchronized void serialEvent(SerialPortEvent oEvent) {
-                Gson g = new Gson();
-                Gson qr = new Gson();
-		if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
-			try {
-				String inputLine=input.readLine();
-				System.out.println(inputLine);
-                                
-                                Report report = qr.fromJson(inputLine, Report.class);
-                                if (report != null)
-                                {
-                                    if (report.qr != null)
-                                    {
-                                        ParseQueReport(Integer.parseInt(report.qr));
-                                    }
-                                }
-                                
-                                JSON_Data json = g.fromJson(inputLine, JSON_Data.class);
-                                //System.out.println(json.posy);
-                                if (json != null)
-                                {
-                                    if (json.sr != null)
-                                    {
-                                        if (GlobalData.HMC_Auto == true || Integer.parseInt(json.sr.stat) == 9 ||Integer.parseInt(json.sr.stat) == 3)  //Only update DRO when in auto mode or if stat is stop (3)
-                                        {
-                                            if (json.sr.posx != null) {
-                                                GlobalData.X = json.sr.posx;
-                                            }
-                                            if (json.sr.posy != null) {
-                                                GlobalData.Y = json.sr.posy;
-                                            }
-                                            if (json.sr.posz != null) {
-                                                GlobalData.Z = json.sr.posz;
-                                            }
-                                            if (Integer.parseInt(json.sr.stat) == 3) //Found Stop
-                                            {
-                                                GlobalData.HMC_Auto = false;
-                                            }
-                                        }
-                                        if (json.sr.vel != null) {
-                                            GlobalData.F = json.sr.vel;
-                                        }
-                                    }
-                                    if (json.r != null)
-                                    {
-                                        if (json.r.qr != null)
-                                        {
-                                            ParseQueReport(Integer.parseInt(json.r.qr));
-                                        }
-                                    }
-                                }
-                                
-                                
-                                
-			} catch (Exception e) {
-				System.err.println(e.toString());
-			}
-		}
-		// Ignore all the other eventTypes, but you should consider the other ones.
-	}
+        // Ignore all the other eventTypes, but you should consider the other ones.
+    }
 }
