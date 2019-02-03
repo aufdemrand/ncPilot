@@ -3,7 +3,7 @@ package com.nc.pilot.ui;
 import com.nc.pilot.lib.GlobalData;
 import com.nc.pilot.lib.SerialIO;
 import com.nc.pilot.lib.ViewerEntity;
-import com.nc.pilot.lib.ncCommands;
+import com.nc.pilot.lib.MotionController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,6 +23,7 @@ public class XmotionGen3 extends JFrame {
     ArrayList<ViewerEntity> ViewerEntityStack = new ArrayList();
     private SerialIO serial;
     Timer repaint_timer = new Timer();
+    MotionController motion_controller;
     public int move_lines = 0;
     public XmotionGen3() {
 
@@ -33,12 +34,14 @@ public class XmotionGen3 extends JFrame {
         setLocationRelativeTo(null);
         serial = new SerialIO();
         serial.initialize();
+        motion_controller = new MotionController(serial);
+        motion_controller.InitMotionController();
         GcodeViewerPanel panel = new GcodeViewerPanel();
         add(panel);
         repaint_timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                serial.write(ncCommands.SatusReport);
+                serial.write(MotionController.SatusReport);
                 repaint();
             }
         }, 0, 100);
@@ -94,10 +97,16 @@ public class XmotionGen3 extends JFrame {
                         switch (ke.getID()) {
                             case KeyEvent.KEY_PRESSED:
                                 if (ke.getKeyCode() == KeyEvent.VK_UP) {
-                                    //move_lines++;
+                                    MotionController.JogY_Plus();
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
-                                    //move_lines--;
+                                    MotionController.JogY_Minus();
+                                }
+                                if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+                                    MotionController.JogX_Plus();
+                                }
+                                if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+                                    MotionController.JogX_Minus();
                                 }
                                 //System.out.println("Move_Lines: " + move_lines);
                                 //repaint();
@@ -105,18 +114,16 @@ public class XmotionGen3 extends JFrame {
 
                             case KeyEvent.KEY_RELEASED:
                                 if (ke.getKeyCode() == KeyEvent.VK_UP) {
-                                    //serial.write("?\n");
-                                    GlobalData.ViewerPan[1] += 10;
+                                    MotionController.EndJog();
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
-                                    //serial.write("G1X10F10\n");
-                                    GlobalData.ViewerPan[1] -= 10;
+                                    MotionController.EndJog();
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
-                                    GlobalData.ViewerPan[0] -= 10;
+                                    MotionController.EndJog();
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
-                                    GlobalData.ViewerPan[0] += 10;
+                                    MotionController.EndJog();
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
                                     //Load up a bunch of lines onto viewer entity stack and repaint
@@ -127,13 +134,10 @@ public class XmotionGen3 extends JFrame {
                                     entity = new ViewerEntity();
                                     entity.setLine(new float[]{10, 0}, new float[]{10, 10});
                                     ViewerEntityStack.add(entity);
-
-
                                     repaint();
-                                    System.out.println("Zoom: " + GlobalData.ViewerZoom);
-                                    System.out.println("PaxX: " + GlobalData.ViewerPan[0]);
-                                    System.out.println("PaxY: " + GlobalData.ViewerPan[1]);
 
+                                    serial.write("$#\n");
+                                    MotionController.FeedHold();
                                 }
 
                                 break;

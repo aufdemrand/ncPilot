@@ -16,20 +16,29 @@ import java.nio.file.Paths;
  * @author travis
  */
 public class GlobalData {
-    /* Depricated but still here so HMI.java compiles */
-    public static String X = "0.000";
-    public static String Y = "0.000";
-    public static String Z = "0.000";
-    public static String F = "0.000";
 
     public static float[] dro = {0, 0, 0};
+    public static float[] last_dro = {0, 0, 0};
     public static float[] work_offset = {20, 20, 0};
     public static String status;
     public static boolean IsHomed = false;
+    public static boolean IsInMotion = false;
+    public static boolean pendingReset = false;
 
+    public static float X_Scale = 635f; //Steps/Inch
+    public static float Y_Scale = 635f; //Steps/Inch
+    public static float Z_Scale = 635f; //Steps/Inch
+    public static float X_Accel = 15f; //Inch/Sec^2
+    public static float Y_Accel = 15f; //Inch/Sec^2
+    public static float Z_Accel = 5f; //Inch/Sec^2
+    public static float X_Max_Vel = 600f; //Inch/Min
+    public static float Y_Max_Vel = 600f; //Inch/Min
+    public static float Z_Max_Vel = 60f; //Inch/Min
     public static float X_Extents = 48.250f;
     public static float Y_Extents = 45.500f;
-    public static float Z_Extents = 4.000f;
+    public static float Z_Extents = -4.000f;
+
+
 
 
     public static Boolean KeycodeExecute = false;

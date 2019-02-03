@@ -143,13 +143,16 @@ public class SerialIO implements SerialPortEventListener {
             if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
                 try {
                     String inputLine=input.readLine();
-                    //System.out.println(inputLine);
+                    System.out.println(inputLine);
                     if (inputLine.equals("ok"))
                     {
                         //System.out.println("OK Recieved!");
                     }
                     else if (inputLine.contains("<") && inputLine.contains(">")) //Status Report
                     {
+                        GlobalData.last_dro[0] = GlobalData.dro[0];
+                        GlobalData.last_dro[1] = GlobalData.dro[1];
+                        GlobalData.last_dro[2] = GlobalData.dro[2];
                         String status_output = inputLine.substring(inputLine.indexOf("<") + 1, inputLine.indexOf(">"));
                         String[] status = status_output.split("\\|");
 
@@ -163,6 +166,33 @@ public class SerialIO implements SerialPortEventListener {
                         GlobalData.dro[1] = Float.parseFloat(dro[1]);
                         GlobalData.dro[2] = Float.parseFloat(dro[2]);
                         //System.out.println("X: " + GlobalData.dro[0] + " Y: " + GlobalData.dro[1] + " Z: " + GlobalData.dro[2]);
+                        if (GlobalData.last_dro[0] == GlobalData.dro[0] && GlobalData.last_dro[1] == GlobalData.dro[1] && GlobalData.last_dro[2] == GlobalData.dro[2])
+                        {
+                            GlobalData.IsInMotion = false;
+                            if (GlobalData.pendingReset == true)
+                            {
+                                MotionController.SoftResetNow();
+                            }
+                        }
+                        else
+                        {
+                            GlobalData.IsInMotion = true;
+                        }
+                        System.out.println("IsInMotion: " + GlobalData.IsInMotion);
+
+                    }
+                    else if (inputLine.contains("[") && inputLine.contains("]")) //Work Offset Parameters
+                    {
+                        String parameter_output = inputLine.substring(inputLine.indexOf("[") + 1, inputLine.indexOf("]"));
+                        String[] g_param = parameter_output.split(":");
+                        //System.out.println("Param: " + g_param[0]);
+                        if (g_param[0].equals("G92"))
+                        {
+                            String[] pos = g_param[1].split(",");
+                            GlobalData.work_offset[0] = Float.parseFloat(pos[0]);
+                            GlobalData.work_offset[1] = Float.parseFloat(pos[1]);
+                            GlobalData.work_offset[2] = Float.parseFloat(pos[2]);
+                        }
                     }
 
                 } catch (Exception e) {
