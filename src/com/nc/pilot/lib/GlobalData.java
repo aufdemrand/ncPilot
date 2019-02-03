@@ -23,6 +23,7 @@ public class GlobalData {
     public static String F = "0.000";
 
     public static float[] dro = {0, 0, 0};
+    public static float[] work_offset = {20, 20, 0};
     public static String status;
     public static boolean IsHomed = false;
 
@@ -49,10 +50,10 @@ public class GlobalData {
     public static boolean PlannerReady = false;
     public static boolean SendOnce = true;
 
-    public static float ViewerZoom = 1;
+    public static float ViewerZoom = 19f;
     public static float MinViewerZoom = 0.005f;
-    public static float MaxViewerZoom = 20;
-    public static float[] ViewerPan = {0, 0};
+    public static float MaxViewerZoom = 300;
+    public static float[] ViewerPan = {438, 900};
     public static int MousePositionX;
     public static int MousePositionY;
     public static float MousePositionX_MCS;

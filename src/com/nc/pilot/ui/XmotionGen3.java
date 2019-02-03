@@ -121,16 +121,18 @@ public class XmotionGen3 extends JFrame {
                                 if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
                                     //Load up a bunch of lines onto viewer entity stack and repaint
                                     ViewerEntity entity = new ViewerEntity();
-                                    entity.setLine(new float[]{0, 0}, new float[]{500, 0});
+                                    entity.setLine(new float[]{0, 0}, new float[]{10, 0});
                                     ViewerEntityStack.add(entity);
 
                                     entity = new ViewerEntity();
-                                    entity.setLine(new float[]{500, 0}, new float[]{500, 500});
+                                    entity.setLine(new float[]{10, 0}, new float[]{10, 10});
                                     ViewerEntityStack.add(entity);
 
 
                                     repaint();
-                                    System.out.println("Added Entities!");
+                                    System.out.println("Zoom: " + GlobalData.ViewerZoom);
+                                    System.out.println("PaxX: " + GlobalData.ViewerPan[0]);
+                                    System.out.println("PaxY: " + GlobalData.ViewerPan[1]);
 
                                 }
 
@@ -159,7 +161,14 @@ public class XmotionGen3 extends JFrame {
 
             /* Begin machine boundry outline */
             g.setColor(Color.red);
-            //We can't do this until we have pan zooming
+            //0,0,X_Extent,0
+            //X_Extent,0,X_Extent,Y_Extent
+            //X_Extent,Y_Extent,0,Y_Extent
+            //0,Y_Extent,0,0
+            g2d.draw(new Line2D.Float((0 * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0 * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0 * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
+            g2d.draw(new Line2D.Float((GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0 * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents  * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
+            g2d.draw(new Line2D.Float((GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (0 * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents  * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
+            g2d.draw(new Line2D.Float((0 * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (0 * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0  * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
             g.setColor(Color.white);
             /* End machine boundry outline */
 
@@ -170,7 +179,7 @@ public class XmotionGen3 extends JFrame {
                 {
                     g.setColor(Color.white);
                     //g.drawLine(entity.start[0], entity.start[1], entity.end[0], entity.end[1]);
-                    g2d.draw(new Line2D.Float((entity.start[0] * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], (((entity.start[1]) * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (entity.end[0] * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], (((entity.end[1]) * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
+                    g2d.draw(new Line2D.Float(((entity.start[0] + GlobalData.work_offset[0]) * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], (((entity.start[1] + GlobalData.work_offset[1]) * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], ((entity.end[0] + GlobalData.work_offset[0]) * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], (((entity.end[1] + GlobalData.work_offset[1]) * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
 
                     //System.out.println("(" + i + ") Drawing Line Move: start: (" + entity.start[0] + ", " + entity.start[1] + ") end (" + entity.end[0] + ", " + entity.end[1] + ")");
                 }

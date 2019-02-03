@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b8907f65-b5b3-4349-933e-bf222ba0f9b3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,11 +24,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GlobalData.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GlobalData.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="58" column="23" lean-forward="false" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+            <state relative-caret-position="568">
+              <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -57,17 +56,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XmotionGen3.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="XmotionGen3.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="149" column="44" lean-forward="true" selection-start-line="149" selection-start-column="44" selection-end-line="149" selection-end-column="44" />
+            <state relative-caret-position="595">
+              <caret line="134" column="91" lean-forward="true" selection-start-line="134" selection-start-column="91" selection-end-line="134" selection-end-column="91" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1071#1247#0" expanded="true" />
                 <element signature="e#1246#1247#0" expanded="true" />
-                <marker date="1549225867892" expanded="false" signature="9194:9213" ph=" { " />
-                <marker date="1549225867892" expanded="false" signature="9248:9262" ph=" }" />
+                <marker date="1549227355724" expanded="false" signature="10843:10862" ph=" { " />
+                <marker date="1549227355724" expanded="false" signature="10897:10911" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -120,8 +119,8 @@
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO_TinyG.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java" />
-        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" />
       </list>
     </option>
   </component>
@@ -927,25 +926,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="58" column="23" lean-forward="false" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="149" column="44" lean-forward="true" selection-start-line="149" selection-start-column="44" selection-end-line="149" selection-end-column="44" />
+        <state relative-caret-position="595">
+          <caret line="134" column="91" lean-forward="true" selection-start-line="134" selection-start-column="91" selection-end-line="134" selection-end-column="91" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1071#1247#0" expanded="true" />
             <element signature="e#1246#1247#0" expanded="true" />
-            <marker date="1549225867892" expanded="false" signature="9194:9213" ph=" { " />
-            <marker date="1549225867892" expanded="false" signature="9248:9262" ph=" }" />
+            <marker date="1549227355724" expanded="false" signature="10843:10862" ph=" { " />
+            <marker date="1549227355724" expanded="false" signature="10897:10911" ph=" }" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="55" column="49" lean-forward="true" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
