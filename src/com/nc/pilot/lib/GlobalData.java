@@ -26,6 +26,11 @@ public class GlobalData {
     public static String status;
     public static boolean IsHomed = false;
 
+    public static float X_Extents = 48.250f;
+    public static float Y_Extents = 45.500f;
+    public static float Z_Extents = 4.000f;
+
+
     public static Boolean KeycodeExecute = false;
     public static Boolean AltPressed = false;
     public static Boolean GCodeWindowFocused = false;
@@ -47,9 +52,11 @@ public class GlobalData {
     public static float ViewerZoom = 1;
     public static float MinViewerZoom = 0.005f;
     public static float MaxViewerZoom = 20;
-    public static float[] ViewerPan;
+    public static float[] ViewerPan = {0, 0};
     public static int MousePositionX;
     public static int MousePositionY;
+    public static float MousePositionX_MCS;
+    public static float MousePositionY_MCS;
 
     
     public static String readFile(String path) throws IOException 

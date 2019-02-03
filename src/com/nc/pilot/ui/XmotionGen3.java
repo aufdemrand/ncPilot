@@ -60,6 +60,7 @@ public class XmotionGen3 extends JFrame {
             @Override
             public void mouseWheelMoved(MouseWheelEvent e)
             {
+                float old_zoom = GlobalData.ViewerZoom;
                 if (e.getWheelRotation() < 0) {
                     GlobalData.ViewerZoom *= 1.1;
                     //System.out.println("ViewerZoom: " + GlobalData.ViewerZoom);
@@ -75,6 +76,13 @@ public class XmotionGen3 extends JFrame {
                         GlobalData.ViewerZoom = GlobalData.MinViewerZoom;
                     }
                 }
+                float scalechange = GlobalData.ViewerZoom - old_zoom;
+                //printf("Scale change: %0.4f\n", scalechange);
+                float pan_x = (GlobalData.MousePositionX_MCS * scalechange) * -1;
+                float pan_y = (GlobalData.MousePositionY_MCS * scalechange);
+                //System.out.println("Pan_x: " + pan_x + " Pan_y: " + pan_y);
+                GlobalData.ViewerPan[0] += pan_x;
+                GlobalData.ViewerPan[1] += pan_y;
                 repaint();
             }
         });
@@ -97,28 +105,29 @@ public class XmotionGen3 extends JFrame {
 
                             case KeyEvent.KEY_RELEASED:
                                 if (ke.getKeyCode() == KeyEvent.VK_UP) {
-                                    serial.write("?\n");
+                                    //serial.write("?\n");
+                                    GlobalData.ViewerPan[1] += 10;
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
-                                    serial.write("G1X10F10\n");
+                                    //serial.write("G1X10F10\n");
+                                    GlobalData.ViewerPan[1] -= 10;
+                                }
+                                if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+                                    GlobalData.ViewerPan[0] -= 10;
+                                }
+                                if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+                                    GlobalData.ViewerPan[0] += 10;
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
                                     //Load up a bunch of lines onto viewer entity stack and repaint
                                     ViewerEntity entity = new ViewerEntity();
-                                    entity.setLine(new float[]{50, 50}, new float[]{500, 50});
+                                    entity.setLine(new float[]{0, 0}, new float[]{500, 0});
                                     ViewerEntityStack.add(entity);
 
                                     entity = new ViewerEntity();
-                                    entity.setLine(new float[]{500, 50}, new float[]{500.5f, 500.5f});
+                                    entity.setLine(new float[]{500, 0}, new float[]{500, 500});
                                     ViewerEntityStack.add(entity);
 
-                                    entity = new ViewerEntity();
-                                    entity.setLine(new float[]{500, 500}, new float[]{50, 500});
-                                    ViewerEntityStack.add(entity);
-
-                                    entity = new ViewerEntity();
-                                    entity.setLine(new float[]{50, 500}, new float[]{50, 50});
-                                    ViewerEntityStack.add(entity);
 
                                     repaint();
                                     System.out.println("Added Entities!");
@@ -135,6 +144,9 @@ public class XmotionGen3 extends JFrame {
     class GcodeViewerPanel extends JPanel {
         public void paint(Graphics g) {
             Rectangle Frame_Bounds = this.getParent().getBounds();
+            GlobalData.MousePositionX_MCS = (GlobalData.MousePositionX - GlobalData.ViewerPan[0]) / GlobalData.ViewerZoom;
+            GlobalData.MousePositionY_MCS = ((GlobalData.MousePositionY - GlobalData.ViewerPan[1]) / GlobalData.ViewerZoom) * -1;
+            //System.out.println("Mouse X: " + GlobalData.MousePositionX + " Mouse Y: " + GlobalData.MousePositionY + " Mouse X MCS: " + GlobalData.MousePositionX_MCS + " Mouse Y MCS: " + GlobalData.MousePositionY_MCS + " Frame Width: " + Frame_Bounds.width + " Frame Height: " + Frame_Bounds.height);
             Graphics2D g2d = (Graphics2D) g;
             /* Begin Wallpaper */
             g.setColor(Color.black);
@@ -144,18 +156,27 @@ public class XmotionGen3 extends JFrame {
             g.setColor(Color.white);
 
             //g.fillRect(10,10,100,100);
+
+            /* Begin machine boundry outline */
+            g.setColor(Color.red);
+            //We can't do this until we have pan zooming
+            g.setColor(Color.white);
+            /* End machine boundry outline */
+
             for(int i=0;i< ViewerEntityStack.size();i++)
             {
                 ViewerEntity entity = ViewerEntityStack.get(i);
                 if (entity.type == 1) //We are a line move
                 {
+                    g.setColor(Color.white);
                     //g.drawLine(entity.start[0], entity.start[1], entity.end[0], entity.end[1]);
-                    g2d.draw(new Line2D.Float(entity.start[0] * GlobalData.ViewerZoom, entity.start[1] * GlobalData.ViewerZoom, entity.end[0] * GlobalData.ViewerZoom, entity.end[1] * GlobalData.ViewerZoom));
+                    g2d.draw(new Line2D.Float((entity.start[0] * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], (((entity.start[1]) * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (entity.end[0] * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], (((entity.end[1]) * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
+
                     //System.out.println("(" + i + ") Drawing Line Move: start: (" + entity.start[0] + ", " + entity.start[1] + ") end (" + entity.end[0] + ", " + entity.end[1] + ")");
                 }
             }
 
-            g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+            g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
             if (GlobalData.IsHomed == false)
             {
                 g.setColor(Color.red);
@@ -164,14 +185,14 @@ public class XmotionGen3 extends JFrame {
             {
                 g.setColor(Color.green);
             }
+            int DRO_X_Offset = -30;
+            g.drawString("X:", Frame_Bounds.width - 350 - DRO_X_Offset, 70);
+            g.drawString("Y:", Frame_Bounds.width - 350 - DRO_X_Offset, 140);
+            g.drawString("Z:", Frame_Bounds.width - 350 - DRO_X_Offset, 210);
 
-            g.drawString("X:", Frame_Bounds.width - 250, 50);
-            g.drawString("Y:", Frame_Bounds.width - 250, 90);
-            g.drawString("Z:", Frame_Bounds.width - 250, 130);
-
-            g.drawString(String.format("%.4f", GlobalData.dro[0]), Frame_Bounds.width - 220, 50);
-            g.drawString(String.format("%.4f", GlobalData.dro[1]), Frame_Bounds.width - 220, 90);
-            g.drawString(String.format("%.4f", GlobalData.dro[2]), Frame_Bounds.width - 220, 130);
+            g.drawString(String.format("%.4f", GlobalData.dro[0]), Frame_Bounds.width - 220 - DRO_X_Offset, 70);
+            g.drawString(String.format("%.4f", GlobalData.dro[1]), Frame_Bounds.width - 220 - DRO_X_Offset, 140);
+            g.drawString(String.format("%.4f", GlobalData.dro[2]), Frame_Bounds.width - 220 - DRO_X_Offset, 210);
 
         }
     }

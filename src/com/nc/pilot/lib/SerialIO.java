@@ -166,7 +166,7 @@ public class SerialIO implements SerialPortEventListener {
                     }
 
                 } catch (Exception e) {
-                    System.err.println(e.toString());
+                    //System.err.println(e.toString());
                 }
             }
         // Ignore all the other eventTypes, but you should consider the other ones.
