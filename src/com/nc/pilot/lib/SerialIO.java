@@ -19,6 +19,7 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.nio.charset.Charset;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.logging.Level;
@@ -27,6 +28,8 @@ import java.util.logging.Logger;
 
 public class SerialIO implements SerialPortEventListener {
 	SerialPort serialPort;
+    long last_write;
+    int write_wait = 50; //Don't write to port any faster that 100m/s between writes
         /** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
 			"COM3",
@@ -46,7 +49,6 @@ public class SerialIO implements SerialPortEventListener {
 	private static final int DATA_RATE = 115200;
 
 	public void initialize() {
-
 		CommPortIdentifier portId = null;
 		Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
 
@@ -117,7 +119,23 @@ public class SerialIO implements SerialPortEventListener {
                  try {
                      w = new OutputStreamWriter(output, "Cp1252");
                          try {
+                             long current_write = System.currentTimeMillis();
+                             if (current_write > last_write + write_wait)
+                             {
+                                 //System.out.println("Write Succesions are more that 100ms in between!");
+                             }
+                             else
+                             {
+                                 //System.out.println("Write Succesions are less than 100ms in between! waiting");
+                                 try {
+                                     Thread.sleep(write_wait);
+                                 } catch (InterruptedException ex) {
+                                     Thread.currentThread().interrupt();
+                                 }
+                             }
                              w.write(data);
+                             last_write = System.currentTimeMillis();
+
                          } catch (IOException ex) {
                              Logger.getLogger(SerialIO.class.getName()).log(Level.SEVERE, null, ex);
                          }
@@ -145,11 +163,11 @@ public class SerialIO implements SerialPortEventListener {
             if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
                 try {
                     String inputLine=input.readLine();
-                    //System.out.println(inputLine);
+                    System.out.println(inputLine);
                     if (inputLine.equals("ok"))
                     {
                         //System.out.println("OK Recieved!");
-                        if (GlobalData.WriteBuffer.size() > 0)
+                        /*if (GlobalData.WriteBuffer.size() > 0)
                         {
                             //System.out.println(GlobalData.WriteBuffer.size() + " Writing: " + GlobalData.WriteBuffer.get(0));
                             try {
@@ -169,7 +187,7 @@ public class SerialIO implements SerialPortEventListener {
                                 GlobalData.WriteBuffer.add(TmpBuffer.get(x));
                             }
 
-                        }
+                        }*/
                     }
                     else if (inputLine.contains("<") && inputLine.contains(">")) //Status Report
                     {

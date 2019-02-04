@@ -92,7 +92,8 @@ public class MotionController {
     public static String TorchOff = "M5\r\n";
 
     public static void WriteBuffer(String data){
-        GlobalData.WriteBuffer.add(data);
+        //GlobalData.WriteBuffer.add(data);
+        serial.write(data);
     }
     public static void WriteWait() {
         try {
@@ -188,11 +189,11 @@ public class MotionController {
     {
         WriteBuffer("$13=" + report_inches + "\n");
 
-        x_step_scale = GlobalData.X_Scale / 25.4f;
+        x_step_scale = GlobalData.X_Scale * 25.4f;
         WriteBuffer("$100=" + x_step_scale + "\n");
-        y_step_scale = GlobalData.Y_Scale / 25.4f;
+        y_step_scale = GlobalData.Y_Scale * 25.4f;
         WriteBuffer("$101=" + y_step_scale + "\n");
-        z_step_scale = GlobalData.Z_Scale / 25.4f;
+        z_step_scale = GlobalData.Z_Scale * 25.4f;
         WriteBuffer("$102=" + z_step_scale + "\n");
 
         x_max_velocity = GlobalData.X_Max_Vel * 25.4f;
