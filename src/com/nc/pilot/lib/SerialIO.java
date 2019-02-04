@@ -151,7 +151,7 @@ public class SerialIO implements SerialPortEventListener {
                         //System.out.println("OK Recieved!");
                         if (GlobalData.WriteBuffer.size() > 0)
                         {
-                            System.out.println(GlobalData.WriteBuffer.size() + " Writing: " + GlobalData.WriteBuffer.get(0));
+                            //System.out.println(GlobalData.WriteBuffer.size() + " Writing: " + GlobalData.WriteBuffer.get(0));
                             try {
                                 Thread.sleep(100);
                             } catch (InterruptedException ex) {

@@ -33,8 +33,8 @@ public class GlobalData {
     public static float X_Scale = 635f; //Steps/Inch
     public static float Y_Scale = 635f; //Steps/Inch
     public static float Z_Scale = 635f; //Steps/Inch
-    public static float X_Accel = 15f; //Inch/Sec^2
-    public static float Y_Accel = 15f; //Inch/Sec^2
+    public static float X_Accel = 40f; //Inch/Sec^2
+    public static float Y_Accel = 40f; //Inch/Sec^2
     public static float Z_Accel = 5f; //Inch/Sec^2
     public static float X_Max_Vel = 600f; //Inch/Min
     public static float Y_Max_Vel = 600f; //Inch/Min

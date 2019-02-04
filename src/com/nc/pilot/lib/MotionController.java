@@ -108,6 +108,7 @@ public class MotionController {
     public static void FeedHold()
     {
         WriteBuffer("!\n");
+        //serial.write("!\n");
     }
     public static void SoftResetNow()
     {
@@ -129,22 +130,20 @@ public class MotionController {
 
     public static void JogX_Plus()
     {
-        WriteBuffer("$J=G91 F100 G20 X20\n");
-        System.out.println("Jogging X Plus!");
+        WriteBuffer("$J=G91 F10 G20 X20\n");
     }
     public static void JogX_Minus()
     {
-        WriteBuffer("$J=G91 F100 G20 X-20\n");
-        System.out.println("Jogging X Minus!");
+        WriteBuffer("$J=G91 F10 G20 X-20\n");
     }
 
     public static void JogY_Plus()
     {
-        WriteBuffer("$J=G91 F100 G20 Y20\n");
+        WriteBuffer("$J=G91 F10 G20 Y20\n");
     }
     public static void JogY_Minus()
     {
-        WriteBuffer("$J=G91 F100 G20 Y-20\n");
+        WriteBuffer("$J=G91 F10 G20 Y-20\n");
     }
 
     public static void EndJog()
