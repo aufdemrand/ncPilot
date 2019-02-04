@@ -19,6 +19,7 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +29,8 @@ public class SerialIO implements SerialPortEventListener {
 	SerialPort serialPort;
         /** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
-			"COM3"
+			"COM3",
+                "/dev/tty.usbmodem1411"
 	};
 	/**
 	* A BufferedReader which will be fed by a InputStreamReader 
@@ -143,10 +145,26 @@ public class SerialIO implements SerialPortEventListener {
             if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
                 try {
                     String inputLine=input.readLine();
-                    System.out.println(inputLine);
+                    //System.out.println(inputLine);
                     if (inputLine.equals("ok"))
                     {
                         //System.out.println("OK Recieved!");
+                        if (GlobalData.WriteBuffer.size() > 0)
+                        {
+                            System.out.println(GlobalData.WriteBuffer.size() + " Writing: " + GlobalData.WriteBuffer.get(0));
+                            write(GlobalData.WriteBuffer.get(0));
+                            ArrayList<String> TmpBuffer = new ArrayList();
+                            for (int x = 1; x < GlobalData.WriteBuffer.size(); x++)
+                            {
+                                TmpBuffer.add(GlobalData.WriteBuffer.get(x));
+                            }
+                            GlobalData.WriteBuffer.clear();
+                            for (int x = 0; x < TmpBuffer.size(); x++)
+                            {
+                                GlobalData.WriteBuffer.add(TmpBuffer.get(x));
+                            }
+
+                        }
                     }
                     else if (inputLine.contains("<") && inputLine.contains(">")) //Status Report
                     {
@@ -178,7 +196,31 @@ public class SerialIO implements SerialPortEventListener {
                         {
                             GlobalData.IsInMotion = true;
                         }
-                        System.out.println("IsInMotion: " + GlobalData.IsInMotion);
+                        if (GlobalData.last_dro[0] == GlobalData.dro[0])
+                        {
+                            GlobalData.IsXAxisInMotion = false;
+                        }
+                        else
+                        {
+                            GlobalData.IsXAxisInMotion = true;
+                        }
+                        if (GlobalData.last_dro[1] == GlobalData.dro[1])
+                        {
+                            GlobalData.IsYAxisInMotion = false;
+                        }
+                        else
+                        {
+                            GlobalData.IsYAxisInMotion = true;
+                        }
+                        if (GlobalData.last_dro[2] == GlobalData.dro[2])
+                        {
+                            GlobalData.IsZAxisInMotion = false;
+                        }
+                        else
+                        {
+                            GlobalData.IsZAxisInMotion = true;
+                        }
+                        //System.out.println("IsInMotion: " + GlobalData.IsInMotion);
 
                     }
                     else if (inputLine.contains("[") && inputLine.contains("]")) //Work Offset Parameters

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,7 +24,11 @@ public class GlobalData {
     public static String status;
     public static boolean IsHomed = false;
     public static boolean IsInMotion = false;
+    public static boolean IsXAxisInMotion = false;
+    public static boolean IsYAxisInMotion = false;
+    public static boolean IsZAxisInMotion = false;
     public static boolean pendingReset = false;
+    public static ArrayList<String> WriteBuffer = new ArrayList();
 
     public static float X_Scale = 635f; //Steps/Inch
     public static float Y_Scale = 635f; //Steps/Inch
@@ -38,6 +43,11 @@ public class GlobalData {
     public static float Y_Extents = 45.500f;
     public static float Z_Extents = -4.000f;
 
+    //Used to ignore Pressed repeats!
+    public static Boolean UpArrowKeyState = false;
+    public static Boolean DownArrowKeyState= false;
+    public static Boolean LeftArrowKeyState = false;
+    public static Boolean RightArrowKeyState = false;
 
 
 

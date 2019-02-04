@@ -24,7 +24,6 @@ public class XmotionGen3 extends JFrame {
     private SerialIO serial;
     Timer repaint_timer = new Timer();
     MotionController motion_controller;
-    public int move_lines = 0;
     public XmotionGen3() {
 
         super("ncPilot Xmotion Gen3");
@@ -44,7 +43,7 @@ public class XmotionGen3 extends JFrame {
                 serial.write(MotionController.SatusReport);
                 repaint();
             }
-        }, 0, 100);
+        }, 0, 200);
         panel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -97,32 +96,52 @@ public class XmotionGen3 extends JFrame {
                         switch (ke.getID()) {
                             case KeyEvent.KEY_PRESSED:
                                 if (ke.getKeyCode() == KeyEvent.VK_UP) {
-                                    MotionController.JogY_Plus();
+                                    if (GlobalData.UpArrowKeyState == false)
+                                    {
+                                        GlobalData.UpArrowKeyState = true;
+                                        MotionController.JogY_Plus();
+                                    }
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
-                                    MotionController.JogY_Minus();
+                                    if (GlobalData.DownArrowKeyState == false)
+                                    {
+                                        GlobalData.DownArrowKeyState = true;
+                                        MotionController.JogY_Minus();
+                                    }
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
-                                    MotionController.JogX_Plus();
+                                    if (GlobalData.RightArrowKeyState == false)
+                                    {
+                                        GlobalData.RightArrowKeyState = true;
+                                        MotionController.JogX_Plus();
+                                    }
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
-                                    MotionController.JogX_Minus();
+                                    if (GlobalData.LeftArrowKeyState == false)
+                                    {
+                                        GlobalData.LeftArrowKeyState = true;
+                                        MotionController.JogX_Minus();
+                                    }
                                 }
-                                //System.out.println("Move_Lines: " + move_lines);
                                 //repaint();
                                 break;
 
                             case KeyEvent.KEY_RELEASED:
                                 if (ke.getKeyCode() == KeyEvent.VK_UP) {
+                                    GlobalData.UpArrowKeyState = false;
                                     MotionController.EndJog();
+
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_DOWN) {
+                                    GlobalData.DownArrowKeyState = false;
                                     MotionController.EndJog();
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+                                    GlobalData.LeftArrowKeyState = false;
                                     MotionController.EndJog();
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+                                    GlobalData.RightArrowKeyState = false;
                                     MotionController.EndJog();
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -136,8 +155,9 @@ public class XmotionGen3 extends JFrame {
                                     ViewerEntityStack.add(entity);
                                     repaint();
 
-                                    serial.write("$#\n");
-                                    MotionController.FeedHold();
+                                    //serial.write("$#\n");
+                                    //MotionController.FeedHold();
+                                    MotionController.WriteBuffer("G0X10Y10\n");
                                 }
 
                                 break;

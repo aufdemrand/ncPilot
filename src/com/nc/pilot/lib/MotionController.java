@@ -91,6 +91,9 @@ public class MotionController {
     public static String TorchOn = "M3\r\n";
     public static String TorchOff = "M5\r\n";
 
+    public static void WriteBuffer(String data){
+        GlobalData.WriteBuffer.add(data);
+    }
     public static void WriteWait() {
         try {
             Thread.sleep(100);
@@ -100,17 +103,11 @@ public class MotionController {
     }
     public static void CycleStart()
     {
-        serial.write("~\n");
+        WriteBuffer("~\n");
     }
     public static void FeedHold()
     {
-        serial.write("!\n");
-        WriteWait();
-        serial.write("!\n");
-        WriteWait();
-        serial.write("!\n");
-        WriteWait();
-
+        WriteBuffer("!\n");
     }
     public static void SoftResetNow()
     {
@@ -132,20 +129,22 @@ public class MotionController {
 
     public static void JogX_Plus()
     {
-        serial.write("$J=G91 F100 G20 X20\n");
+        WriteBuffer("$J=G91 F100 G20 X20\n");
+        System.out.println("Jogging X Plus!");
     }
     public static void JogX_Minus()
     {
-        serial.write("$J=G91 F100 G20 X-20\n");
+        WriteBuffer("$J=G91 F100 G20 X-20\n");
+        System.out.println("Jogging X Minus!");
     }
 
     public static void JogY_Plus()
     {
-        serial.write("$J=G91 F100 G20 Y20\n");
+        WriteBuffer("$J=G91 F100 G20 Y20\n");
     }
     public static void JogY_Minus()
     {
-        serial.write("$J=G91 F100 G20 Y-20\n");
+        WriteBuffer("$J=G91 F100 G20 Y-20\n");
     }
 
     public static void EndJog()
@@ -188,34 +187,34 @@ public class MotionController {
 
     public static void InitMotionController()
     {
-        serial.write("$l3=" + report_inches + "\n");
+        WriteBuffer("$13=" + report_inches + "\n");
 
         x_step_scale = GlobalData.X_Scale / 25.4f;
-        serial.write("$l00=" + x_step_scale + "\n");
+        WriteBuffer("$100=" + x_step_scale + "\n");
         y_step_scale = GlobalData.Y_Scale / 25.4f;
-        serial.write("$l01=" + y_step_scale + "\n");
+        WriteBuffer("$101=" + y_step_scale + "\n");
         z_step_scale = GlobalData.Z_Scale / 25.4f;
-        serial.write("$l02=" + z_step_scale + "\n");
+        WriteBuffer("$102=" + z_step_scale + "\n");
 
         x_max_velocity = GlobalData.X_Max_Vel * 25.4f;
-        serial.write("$l10=" + x_max_velocity + "\n");
+        WriteBuffer("$110=" + x_max_velocity + "\n");
         y_max_velocity = GlobalData.Y_Max_Vel * 25.4f;
-        serial.write("$l11=" + y_max_velocity + "\n");
+        WriteBuffer("$111=" + y_max_velocity + "\n");
         z_max_velocity = GlobalData.Z_Max_Vel * 25.4f;
-        serial.write("$l12=" + z_max_velocity + "\n");
+        WriteBuffer("$112=" + z_max_velocity + "\n");
 
         x_accel = GlobalData.X_Accel * 25.4f;
-        serial.write("$l10=" + x_accel + "\n");
+        WriteBuffer("$110=" + x_accel + "\n");
         y_accel = GlobalData.Y_Accel * 25.4f;
-        serial.write("$l11=" + y_accel + "\n");
+        WriteBuffer("$111=" + y_accel + "\n");
         z_accel = GlobalData.Z_Accel * 25.4f;
-        serial.write("$l12=" + z_accel + "\n");
+        WriteBuffer("$112=" + z_accel + "\n");
 
         x_max_travel = GlobalData.X_Extents * 25.4f;
-        serial.write("$l30=" + x_max_travel + "\n");
+        WriteBuffer("$130=" + x_max_travel + "\n");
         y_max_travel = GlobalData.Y_Extents * 25.4f;
-        serial.write("$l31=" + y_max_travel + "\n");
+        WriteBuffer("$131=" + y_max_travel + "\n");
         z_max_travel = GlobalData.Z_Extents * 25.4f;
-        serial.write("$l32=" + z_max_travel + "\n");
+        WriteBuffer("$132=" + z_max_travel + "\n");
     }
 }
