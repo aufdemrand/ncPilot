@@ -10,11 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8907f65-b5b3-4349-933e-bf222ba0f9b3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/MotionController.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/MotionController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +36,8 @@
       <file leaf-file-name="MotionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="993">
-              <caret line="94" column="43" lean-forward="true" selection-start-line="94" selection-start-column="43" selection-end-line="94" selection-end-column="43" />
+            <state relative-caret-position="211">
+              <caret line="93" column="4" lean-forward="false" selection-start-line="93" selection-start-column="4" selection-end-line="96" selection-end-column="5" />
               <folding>
                 <element signature="e#1368#1369#0" expanded="true" />
                 <element signature="e#1394#1395#0" expanded="true" />
@@ -76,21 +72,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XmotionGen3.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="XmotionGen3.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2353">
-              <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+            <state relative-caret-position="469">
+              <caret line="227" column="60" lean-forward="true" selection-start-line="227" selection-start-column="60" selection-end-line="227" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1194#1376#0" expanded="true" />
-                <element signature="e#1375#1376#0" expanded="true" />
-                <element signature="e#1418#1602#0" expanded="true" />
-                <element signature="e#1601#1602#0" expanded="true" />
-                <element signature="e#1642#1971#0" expanded="true" />
-                <element signature="e#1970#1971#0" expanded="true" />
-                <marker date="1549291874496" expanded="false" signature="12298:12317" ph=" { " />
-                <marker date="1549291874496" expanded="false" signature="12352:12366" ph=" }" />
+                <element signature="e#1071#1253#0" expanded="true" />
+                <element signature="e#1252#1253#0" expanded="true" />
+                <element signature="e#1295#1479#0" expanded="true" />
+                <element signature="e#1478#1479#0" expanded="true" />
+                <element signature="e#1519#1848#0" expanded="true" />
+                <element signature="e#1847#1848#0" expanded="true" />
+                <marker date="1549315166383" expanded="false" signature="12291:12310" ph=" { " />
+                <marker date="1549315166383" expanded="false" signature="12345:12359" ph=" }" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIWidgets.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/UIWidgets.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="58" lean-forward="true" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+              <folding>
+                <element signature="e#193#194#0" expanded="true" />
+                <element signature="e#221#222#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,10 +153,11 @@
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ViewerEntity.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO_TinyG.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java" />
-        <option value="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/UIWidgets.java" />
       </list>
     </option>
   </component>
@@ -633,16 +643,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
@@ -947,10 +947,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="993">
-          <caret line="94" column="43" lean-forward="true" selection-start-line="94" selection-start-column="43" selection-end-line="94" selection-end-column="43" />
+        <state relative-caret-position="211">
+          <caret line="93" column="4" lean-forward="false" selection-start-line="93" selection-start-column="4" selection-end-line="96" selection-end-column="5" />
           <folding>
             <element signature="e#1368#1369#0" expanded="true" />
             <element signature="e#1394#1395#0" expanded="true" />
@@ -972,30 +982,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        <state relative-caret-position="469">
+          <caret line="227" column="60" lean-forward="true" selection-start-line="227" selection-start-column="60" selection-end-line="227" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1071#1253#0" expanded="true" />
+            <element signature="e#1252#1253#0" expanded="true" />
+            <element signature="e#1295#1479#0" expanded="true" />
+            <element signature="e#1478#1479#0" expanded="true" />
+            <element signature="e#1519#1848#0" expanded="true" />
+            <element signature="e#1847#1848#0" expanded="true" />
+            <marker date="1549315166383" expanded="false" signature="12291:12310" ph=" { " />
+            <marker date="1549315166383" expanded="false" signature="12345:12359" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java">
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/UIWidgets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2353">
-          <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="14" column="58" lean-forward="true" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1194#1376#0" expanded="true" />
-            <element signature="e#1375#1376#0" expanded="true" />
-            <element signature="e#1418#1602#0" expanded="true" />
-            <element signature="e#1601#1602#0" expanded="true" />
-            <element signature="e#1642#1971#0" expanded="true" />
-            <element signature="e#1970#1971#0" expanded="true" />
-            <marker date="1549291874496" expanded="false" signature="12298:12317" ph=" { " />
-            <marker date="1549291874496" expanded="false" signature="12352:12366" ph=" }" />
+            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#221#222#0" expanded="true" />
           </folding>
         </state>
       </provider>

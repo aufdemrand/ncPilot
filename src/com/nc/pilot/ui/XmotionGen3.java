@@ -1,9 +1,6 @@
 package com.nc.pilot.ui;
 
-import com.nc.pilot.lib.GlobalData;
-import com.nc.pilot.lib.SerialIO;
-import com.nc.pilot.lib.ViewerEntity;
-import com.nc.pilot.lib.MotionController;
+import com.nc.pilot.lib.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -174,6 +171,7 @@ public class XmotionGen3 extends JFrame {
             GlobalData.MousePositionY_MCS = ((GlobalData.MousePositionY - GlobalData.ViewerPan[1]) / GlobalData.ViewerZoom) * -1;
             //System.out.println("Mouse X: " + GlobalData.MousePositionX + " Mouse Y: " + GlobalData.MousePositionY + " Mouse X MCS: " + GlobalData.MousePositionX_MCS + " Mouse Y MCS: " + GlobalData.MousePositionY_MCS + " Frame Width: " + Frame_Bounds.width + " Frame Height: " + Frame_Bounds.height);
             Graphics2D g2d = (Graphics2D) g;
+            UIWidgets ui_widgets = new UIWidgets(g2d);
             /* Begin Wallpaper */
             g.setColor(Color.black);
             g.fillRect(0,0,Frame_Bounds.width,Frame_Bounds.height);
@@ -209,7 +207,7 @@ public class XmotionGen3 extends JFrame {
                 }
             }
 
-            g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+            g.setFont(new Font("TimesRoman", Font.BOLD, 45));
             if (GlobalData.IsHomed == false)
             {
                 g.setColor(Color.red);
@@ -226,6 +224,8 @@ public class XmotionGen3 extends JFrame {
             g.drawString(String.format("%.4f", GlobalData.dro[0]), Frame_Bounds.width - 220 - DRO_X_Offset, 70);
             g.drawString(String.format("%.4f", GlobalData.dro[1]), Frame_Bounds.width - 220 - DRO_X_Offset, 140);
             g.drawString(String.format("%.4f", GlobalData.dro[2]), Frame_Bounds.width - 220 - DRO_X_Offset, 210);
+
+            ui_widgets.DrawButton("Test", 40, 30, 100, 100);
 
         }
     }
