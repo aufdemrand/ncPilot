@@ -152,6 +152,11 @@ public class SerialIO implements SerialPortEventListener {
                         if (GlobalData.WriteBuffer.size() > 0)
                         {
                             System.out.println(GlobalData.WriteBuffer.size() + " Writing: " + GlobalData.WriteBuffer.get(0));
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
                             write(GlobalData.WriteBuffer.get(0));
                             ArrayList<String> TmpBuffer = new ArrayList();
                             for (int x = 1; x < GlobalData.WriteBuffer.size(); x++)

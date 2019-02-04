@@ -43,7 +43,7 @@ public class XmotionGen3 extends JFrame {
                 serial.write(MotionController.SatusReport);
                 repaint();
             }
-        }, 0, 200);
+        }, 0, 100);
         panel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
