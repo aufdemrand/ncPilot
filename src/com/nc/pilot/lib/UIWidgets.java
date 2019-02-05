@@ -7,28 +7,28 @@ import java.util.ArrayList;
  * Created by travis on 2/4/2019.
  */
 class WidgetEntity {
-    public static String type;
-    public static String anchor; //Right or Left
-    public static String text;
+    public String type;
+    public String anchor; //Right or Left
+    public String text;
 
-    public static int width;
-    public static int height;
-    public static int posx;
-    public static int posy;
+    public int width;
+    public int height;
+    public int posx;
+    public int posy;
 
     //Meta data
-    public static int real_posx;
-    public static int real_posy;
-    public static boolean engaged;
+    public int real_posx;
+    public int real_posy;
+    public boolean engaged;
 }
 public class UIWidgets {
-    private static ArrayList<WidgetEntity> WidgetStack = new ArrayList();
-    private static Graphics2D g;
+    private ArrayList<WidgetEntity> WidgetStack = new ArrayList();
+    private Graphics2D g;
     public UIWidgets()
     {
 
     }
-    public static void DrawButton(String text, boolean engaged, int width, int height, int posx, int posy) {
+    public void DrawButton(String text, boolean engaged, int width, int height, int posx, int posy) {
         System.out.println("Drawing " + text);
         int button_font_size = 20;
         if (engaged == true)
@@ -46,7 +46,8 @@ public class UIWidgets {
         g.drawString(text, text_posx, text_posy);
         g.drawRect(posx, posy, width, height);
     }
-    public static void AddMomentaryButton(String text, String anchor, int width, int height, int posx, int posy){
+    public void AddMomentaryButton(String text, String anchor, int width, int height, int posx, int posy){
+        System.out.println("Adding: " + text);
         WidgetEntity w = new WidgetEntity();
         w.type = "momentary_button";
         w.anchor = anchor;
@@ -58,7 +59,7 @@ public class UIWidgets {
         w.posy = posy;
         WidgetStack.add(w);
     }
-    public static void RenderStack(Graphics2D graphics, Rectangle Frame_Bounds){
+    public void RenderStack(Graphics2D graphics, Rectangle Frame_Bounds){
         g = graphics;
         //System.out.println("WidgetStack has " + WidgetStack.size() + " Entities!");
         for (int x = 0; x < WidgetStack.size(); x++)
@@ -82,7 +83,7 @@ public class UIWidgets {
         }
 
     }
-    public static void ClickStack(int mousex, int mousey){
+    public void ClickStack(int mousex, int mousey){
 
     }
 }
