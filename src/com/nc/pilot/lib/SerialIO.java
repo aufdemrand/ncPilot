@@ -30,6 +30,7 @@ public class SerialIO implements SerialPortEventListener {
 	SerialPort serialPort;
     long last_write;
     int write_wait = 50; //Don't write to port any faster that 100m/s between writes
+    private  MotionController motion_controller;
         /** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
 			"COM3",
@@ -89,7 +90,10 @@ public class SerialIO implements SerialPortEventListener {
 			System.err.println(e.toString());
 		}
 	}
-
+    public void inherit_motion_controller(MotionController m)
+    {
+        motion_controller = m;
+    }
 	/**
 	 * This should be called when you stop using the port.
 	 * This will prevent port locking on platforms like Linux.
@@ -163,102 +167,7 @@ public class SerialIO implements SerialPortEventListener {
             if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
                 try {
                     String inputLine=input.readLine();
-                    //System.out.println(inputLine);
-                    if (inputLine.equals("ok"))
-                    {
-                        //System.out.println("OK Recieved!");
-                        /*if (GlobalData.WriteBuffer.size() > 0)
-                        {
-                            //System.out.println(GlobalData.WriteBuffer.size() + " Writing: " + GlobalData.WriteBuffer.get(0));
-                            try {
-                                Thread.sleep(100);
-                            } catch (InterruptedException ex) {
-                                Thread.currentThread().interrupt();
-                            }
-                            write(GlobalData.WriteBuffer.get(0));
-                            ArrayList<String> TmpBuffer = new ArrayList();
-                            for (int x = 1; x < GlobalData.WriteBuffer.size(); x++)
-                            {
-                                TmpBuffer.add(GlobalData.WriteBuffer.get(x));
-                            }
-                            GlobalData.WriteBuffer.clear();
-                            for (int x = 0; x < TmpBuffer.size(); x++)
-                            {
-                                GlobalData.WriteBuffer.add(TmpBuffer.get(x));
-                            }
-
-                        }*/
-                    }
-                    else if (inputLine.contains("<") && inputLine.contains(">")) //Status Report
-                    {
-                        GlobalData.last_dro[0] = GlobalData.dro[0];
-                        GlobalData.last_dro[1] = GlobalData.dro[1];
-                        GlobalData.last_dro[2] = GlobalData.dro[2];
-                        String status_output = inputLine.substring(inputLine.indexOf("<") + 1, inputLine.indexOf(">"));
-                        String[] status = status_output.split("\\|");
-
-                        GlobalData.status = status[0];
-                        //System.out.println("Status: " + GlobalData.status);
-
-                        String mpos = status[1].substring(status[1].indexOf("MPos:") + 5, status[1].length());
-                        //System.out.println("pos data: " + mpos);
-                        String[] dro = mpos.split(",");
-                        GlobalData.dro[0] = Float.parseFloat(dro[0]);
-                        GlobalData.dro[1] = Float.parseFloat(dro[1]);
-                        GlobalData.dro[2] = Float.parseFloat(dro[2]);
-                        //System.out.println("X: " + GlobalData.dro[0] + " Y: " + GlobalData.dro[1] + " Z: " + GlobalData.dro[2]);
-                        if (GlobalData.last_dro[0] == GlobalData.dro[0] && GlobalData.last_dro[1] == GlobalData.dro[1] && GlobalData.last_dro[2] == GlobalData.dro[2])
-                        {
-                            GlobalData.IsInMotion = false;
-                            if (GlobalData.pendingReset == true)
-                            {
-                                MotionController.SoftResetNow();
-                            }
-                        }
-                        else
-                        {
-                            GlobalData.IsInMotion = true;
-                        }
-                        if (GlobalData.last_dro[0] == GlobalData.dro[0])
-                        {
-                            GlobalData.IsXAxisInMotion = false;
-                        }
-                        else
-                        {
-                            GlobalData.IsXAxisInMotion = true;
-                        }
-                        if (GlobalData.last_dro[1] == GlobalData.dro[1])
-                        {
-                            GlobalData.IsYAxisInMotion = false;
-                        }
-                        else
-                        {
-                            GlobalData.IsYAxisInMotion = true;
-                        }
-                        if (GlobalData.last_dro[2] == GlobalData.dro[2])
-                        {
-                            GlobalData.IsZAxisInMotion = false;
-                        }
-                        else
-                        {
-                            GlobalData.IsZAxisInMotion = true;
-                        }
-                        //System.out.println("IsInMotion: " + GlobalData.IsInMotion);
-
-                    }
-                    else if (inputLine.contains("[") && inputLine.contains("]")) //Work Offset Parameters
-                    {
-                        String parameter_output = inputLine.substring(inputLine.indexOf("[") + 1, inputLine.indexOf("]"));
-                        String[] g_param = parameter_output.split(":");
-                        //System.out.println("Param: " + g_param[0]);
-                        if (g_param[0].equals("G92"))
-                        {
-                            String[] pos = g_param[1].split(",");
-                            GlobalData.work_offset[0] = Float.parseFloat(pos[0]);
-                            GlobalData.work_offset[1] = Float.parseFloat(pos[1]);
-                            GlobalData.work_offset[2] = Float.parseFloat(pos[2]);
-                        }
-                    }
+                    motion_controller.ReadBuffer(inputLine);
 
                 } catch (Exception e) {
                     //System.err.println(e.toString());

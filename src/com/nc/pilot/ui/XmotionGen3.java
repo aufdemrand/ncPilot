@@ -33,6 +33,7 @@ public class XmotionGen3 extends JFrame {
         serial = new SerialIO();
         serial.initialize();
         motion_controller = new MotionController(serial);
+        serial.inherit_motion_controller(motion_controller);
         //motion_controller.InitMotionController();
         ui_widgets = new UIWidgets();
         Layout_UI();
