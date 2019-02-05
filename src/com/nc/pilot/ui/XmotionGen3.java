@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Line2D;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.TimerTask;
 import java.util.Timer;
@@ -27,7 +28,7 @@ public class XmotionGen3 extends JFrame {
 
         super("ncPilot Xmotion Gen3");
         setSize(800, 600);
-        //setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         serial = new SerialIO();
@@ -176,19 +177,14 @@ public class XmotionGen3 extends JFrame {
                                     MotionController.EndJog();
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
-                                    //Load up a bunch of lines onto viewer entity stack and repaint
-                                    ViewerEntity entity = new ViewerEntity();
-                                    entity.setLine(new float[]{0, 0}, new float[]{10, 0});
-                                    ViewerEntityStack.add(entity);
 
-                                    entity = new ViewerEntity();
-                                    entity.setLine(new float[]{10, 0}, new float[]{10, 10});
-                                    ViewerEntityStack.add(entity);
+                                    MotionController.FeedHold();
+                                    //Load up a bunch of lines onto viewer entity stack and repaint
                                     repaint();
 
                                     //serial.write("$#\n");
                                     //MotionController.FeedHold();
-                                    MotionController.WriteBuffer("G0X10Y10\n");
+                                    //MotionController.WriteBuffer("G0X10Y10\n");
                                 }
 
                                 break;
@@ -202,7 +198,14 @@ public class XmotionGen3 extends JFrame {
         ui_widgets.AddMomentaryButton("Open", "bottom-right", 80, 60, 10, 10, new Runnable() {
             @Override
             public void run() {
-                System.out.println("Clicked on Open!");
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+                int result = fileChooser.showOpenDialog(getParent());
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+                    GcodeInterpreter gcode = new GcodeInterpreter(selectedFile.getAbsolutePath());
+                }
             }
         });
         ui_widgets.AddMomentaryButton("Abort", "bottom-right", 80, 60, 100, 10, new Runnable() {
@@ -294,6 +297,14 @@ public class XmotionGen3 extends JFrame {
                 System.out.println("Clicked on Continuous!");
             }
         });
+
+        ViewerEntity entity = new ViewerEntity();
+        entity.setLine(new float[]{0, 0}, new float[]{10, 0});
+        ViewerEntityStack.add(entity);
+
+        entity = new ViewerEntity();
+        entity.setLine(new float[]{10, 0}, new float[]{10, 10});
+        ViewerEntityStack.add(entity);
     }
     // create a panel that you can draw on.
     class GcodeViewerPanel extends JPanel {
@@ -339,31 +350,12 @@ public class XmotionGen3 extends JFrame {
                 }
             }
 
-            g.setFont(new Font("Arial", Font.BOLD, 45));
-            if (GlobalData.IsHomed == false)
-            {
-                g.setColor(Color.red);
-            }
-            else
-            {
-                g.setColor(Color.green);
-            }
-            int DRO_X_Offset = -30;
-            g.drawString("X:", Frame_Bounds.width - 350 - DRO_X_Offset, 70);
-            g.drawString("Y:", Frame_Bounds.width - 350 - DRO_X_Offset, 140);
-            g.drawString("Z:", Frame_Bounds.width - 350 - DRO_X_Offset, 210);
-
-            g.drawString(String.format("%.4f", GlobalData.dro[0]), Frame_Bounds.width - 220 - DRO_X_Offset, 70);
-            g.drawString(String.format("%.4f", GlobalData.dro[1]), Frame_Bounds.width - 220 - DRO_X_Offset, 140);
-            g.drawString(String.format("%.4f", GlobalData.dro[2]), Frame_Bounds.width - 220 - DRO_X_Offset, 210);
-
-
             ui_widgets.RenderStack(g2d, Frame_Bounds);
 
             //Display Mouse position in MCS and Screen Cord
-            g.setColor(Color.green);
-            g.setFont(new Font("Arial", Font.BOLD, 12));
-            g.drawString(String.format("Screen-> X: %d Y: %d MCS-> X: %.4f Y: %.4f", GlobalData.MousePositionX, GlobalData.MousePositionY, GlobalData.MousePositionX_MCS, GlobalData.MousePositionY_MCS), 10, 10);
+            //g.setColor(Color.green);
+            //g.setFont(new Font("Arial", Font.BOLD, 12));
+            //g.drawString(String.format("Screen-> X: %d Y: %d MCS-> X: %.4f Y: %.4f", GlobalData.MousePositionX, GlobalData.MousePositionY, GlobalData.MousePositionX_MCS, GlobalData.MousePositionY_MCS), 10, 10);
 
         }
     }

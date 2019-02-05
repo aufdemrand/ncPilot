@@ -27,9 +27,31 @@ class WidgetEntity {
 public class UIWidgets {
     private ArrayList<WidgetEntity> WidgetStack = new ArrayList();
     private Graphics2D g;
+    private Rectangle Frame_Bounds;
     public UIWidgets()
     {
 
+    }
+    public void DrawDRO()
+    {
+        g.setFont(new Font("Arial", Font.BOLD, 45));
+        if (GlobalData.IsHomed == false)
+        {
+            g.setColor(Color.red);
+        }
+        else
+        {
+            g.setColor(Color.green);
+        }
+        int DRO_X_Offset = -50;
+        g.drawString("X:", Frame_Bounds.width - 350 - DRO_X_Offset, 70);
+        g.drawString("Y:", Frame_Bounds.width - 350 - DRO_X_Offset, 140);
+        g.drawString("Z:", Frame_Bounds.width - 350 - DRO_X_Offset, 210);
+
+        g.drawString(String.format("%.4f", GlobalData.dro[0]), Frame_Bounds.width - 220 - DRO_X_Offset, 70);
+        g.drawString(String.format("%.4f", GlobalData.dro[1]), Frame_Bounds.width - 220 - DRO_X_Offset, 140);
+        g.drawString(String.format("%.4f", GlobalData.dro[2]), Frame_Bounds.width - 220 - DRO_X_Offset, 210);
+        g.drawRect(Frame_Bounds.width - 360, 10, 350, 240);
     }
     public void DrawButton(String text, boolean engaged, int width, int height, int posx, int posy) {
         //System.out.println("Drawing " + text);
@@ -63,8 +85,9 @@ public class UIWidgets {
         w.action = action;
         WidgetStack.add(w);
     }
-    public void RenderStack(Graphics2D graphics, Rectangle Frame_Bounds){
+    public void RenderStack(Graphics2D graphics, Rectangle f){
         g = graphics;
+        Frame_Bounds = f;
         //System.out.println("WidgetStack has " + WidgetStack.size() + " Entities!");
         for (int x = 0; x < WidgetStack.size(); x++)
         {
@@ -85,6 +108,7 @@ public class UIWidgets {
                 DrawButton(WidgetStack.get(x).text, WidgetStack.get(x).engaged, WidgetStack.get(x).width, WidgetStack.get(x).height, WidgetStack.get(x).real_posx, WidgetStack.get(x).real_posy);
             }
         }
+        DrawDRO();
 
     }
     public void ClickPressStack(int mousex, int mousey){
