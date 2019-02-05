@@ -2,6 +2,7 @@ package com.nc.pilot.lib;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 
 /**
  * Created by travis on 2/4/2019.
@@ -16,6 +17,8 @@ class WidgetEntity {
     public int posx;
     public int posy;
 
+    public Runnable action;
+
     //Meta data
     public int real_posx;
     public int real_posy;
@@ -29,7 +32,7 @@ public class UIWidgets {
 
     }
     public void DrawButton(String text, boolean engaged, int width, int height, int posx, int posy) {
-        System.out.println("Drawing " + text);
+        //System.out.println("Drawing " + text);
         int button_font_size = 20;
         if (engaged == true)
         {
@@ -46,8 +49,8 @@ public class UIWidgets {
         g.drawString(text, text_posx, text_posy);
         g.drawRect(posx, posy, width, height);
     }
-    public void AddMomentaryButton(String text, String anchor, int width, int height, int posx, int posy){
-        System.out.println("Adding: " + text);
+    public void AddMomentaryButton(String text, String anchor, int width, int height, int posx, int posy, Runnable action){
+        //System.out.println("Adding: " + text);
         WidgetEntity w = new WidgetEntity();
         w.type = "momentary_button";
         w.anchor = anchor;
@@ -57,6 +60,7 @@ public class UIWidgets {
         w.height = height;
         w.posx = posx;
         w.posy = posy;
+        w.action = action;
         WidgetStack.add(w);
     }
     public void RenderStack(Graphics2D graphics, Rectangle Frame_Bounds){
@@ -64,7 +68,7 @@ public class UIWidgets {
         //System.out.println("WidgetStack has " + WidgetStack.size() + " Entities!");
         for (int x = 0; x < WidgetStack.size(); x++)
         {
-            System.out.println("Rendering " + x + " Entity which is a " + WidgetStack.get(x).type + " with a text of " + WidgetStack.get(x).text);
+            //System.out.println("Rendering " + x + " Entity which is a " + WidgetStack.get(x).type + " with a text of " + WidgetStack.get(x).text);
             if (WidgetStack.get(x).type.equals("momentary_button")){
                 if (WidgetStack.get(x).anchor.equals("top-right")){
                     WidgetStack.get(x).real_posx = Frame_Bounds.width - WidgetStack.get(x).posx - WidgetStack.get(x).width;
@@ -83,7 +87,29 @@ public class UIWidgets {
         }
 
     }
-    public void ClickStack(int mousex, int mousey){
-
+    public void ClickPressStack(int mousex, int mousey){
+        for (int x = 0; x < WidgetStack.size(); x++)
+        {
+            if (WidgetStack.get(x).type.equals("momentary_button")){
+                if ((mousex > WidgetStack.get(x).real_posx && mousex < WidgetStack.get(x).real_posx + WidgetStack.get(x).width) && (mousey > WidgetStack.get(x).real_posy && mousey < WidgetStack.get(x).real_posy + WidgetStack.get(x).height))
+                {
+                    //System.out.println("Clicked on: " + WidgetStack.get(x).text);
+                    WidgetStack.get(x).engaged = true;
+                }
+            }
+        }
+    }
+    public void ClickReleaseStack(int mousex, int mousey){
+        for (int x = 0; x < WidgetStack.size(); x++)
+        {
+            if (WidgetStack.get(x).type.equals("momentary_button")){
+                if ((mousex > WidgetStack.get(x).real_posx && mousex < WidgetStack.get(x).real_posx + WidgetStack.get(x).width) && (mousey > WidgetStack.get(x).real_posy && mousey < WidgetStack.get(x).real_posy + WidgetStack.get(x).height))
+                {
+                    //System.out.println("Clicked on: " + WidgetStack.get(x).text);
+                    WidgetStack.get(x).engaged = false;
+                    WidgetStack.get(x).action.run();
+                }
+            }
+        }
     }
 }

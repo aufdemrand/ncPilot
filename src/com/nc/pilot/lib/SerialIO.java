@@ -163,7 +163,7 @@ public class SerialIO implements SerialPortEventListener {
             if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
                 try {
                     String inputLine=input.readLine();
-                    System.out.println(inputLine);
+                    //System.out.println(inputLine);
                     if (inputLine.equals("ok"))
                     {
                         //System.out.println("OK Recieved!");

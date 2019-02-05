@@ -9,6 +9,7 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.TimerTask;
 import java.util.Timer;
+import java.util.concurrent.Callable;
 
 /**
  * This program demonstrates how to draw lines using Graphics2D object.
@@ -48,6 +49,13 @@ public class XmotionGen3 extends JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 //System.out.println(e.getX() + "," + e.getY());
+                ui_widgets.ClickPressStack(e.getX(), e.getY());
+                repaint();
+            }
+            public void mouseReleased(MouseEvent e) {
+                //System.out.println(e.getX() + "," + e.getY());
+                ui_widgets.ClickReleaseStack(e.getX(), e.getY());
+                repaint();
             }
         });
         panel.addMouseMotionListener(new MouseAdapter() {// provides empty implementation of all
@@ -190,9 +198,44 @@ public class XmotionGen3 extends JFrame {
     }
     private void Layout_UI()
     {
-        ui_widgets.AddMomentaryButton("Start", "bottom-right", 80, 60, 10, 10);
-        ui_widgets.AddMomentaryButton("Abort", "bottom-right", 80, 60, 100, 10);
-        ui_widgets.AddMomentaryButton("Hold", "bottom-right", 80, 60, 190, 10);
+        ui_widgets.AddMomentaryButton("Open", "bottom-right", 80, 60, 10, 10, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Clicked on Open!");
+            }
+        });
+        ui_widgets.AddMomentaryButton("Abort", "bottom-right", 80, 60, 100, 10, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Clicked on Abort!");
+            }
+        });
+        ui_widgets.AddMomentaryButton("Hold", "bottom-right", 80, 60, 190, 10, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Clicked on Hold!");
+                MotionController.FeedHold();
+            }
+        });
+        ui_widgets.AddMomentaryButton("Start", "bottom-right", 80, 60, 280, 10, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Clicked on Start!");
+                MotionController.CycleStart();
+            }
+        });
+        ui_widgets.AddMomentaryButton("Torch Off", "bottom-right", 170, 60, 10, 80, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Torch Off!");
+            }
+        });
+        ui_widgets.AddMomentaryButton("Torch On", "bottom-right", 170, 60, 190, 80, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Torch On!");
+            }
+        });
     }
     // create a panel that you can draw on.
     class GcodeViewerPanel extends JPanel {
