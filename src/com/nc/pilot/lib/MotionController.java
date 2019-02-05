@@ -222,11 +222,6 @@ public class MotionController {
     {
         GlobalData.pendingReset = true;
     }
-    public static void ManualMode()
-    {
-
-    }
-
     public static void JogX_Plus()
     {
         WriteBuffer("$J=G91 F10 G20 X20\n");

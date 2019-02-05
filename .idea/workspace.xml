@@ -11,7 +11,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8907f65-b5b3-4349-933e-bf222ba0f9b3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/UIWidgets.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/UIWidgets.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$10.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$11.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$12.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$13.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$14.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$15.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$15.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$16.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$16.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$17.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$17.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$18.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$18.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$19.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$19.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$20.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$20.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$21.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$21.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$7.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$8.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$9.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$GcodeViewerPanel.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$GcodeViewerPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,8 +46,8 @@
       <file leaf-file-name="GlobalData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="37" column="50" lean-forward="false" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+            <state relative-caret-position="340">
+              <caret line="29" column="47" lean-forward="true" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -38,8 +56,8 @@
       <file leaf-file-name="MotionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="130" column="57" lean-forward="true" selection-start-line="130" selection-start-column="57" selection-end-line="130" selection-end-column="57" />
+            <state relative-caret-position="397">
+              <caret line="223" column="5" lean-forward="false" selection-start-line="223" selection-start-column="5" selection-end-line="223" selection-end-column="5" />
               <folding>
                 <element signature="e#1368#1369#0" expanded="true" />
                 <element signature="e#1394#1395#0" expanded="true" />
@@ -47,20 +65,20 @@
                 <element signature="e#7663#7664#0" expanded="true" />
                 <element signature="e#8008#8009#0" expanded="true" />
                 <element signature="e#8054#8055#0" expanded="true" />
-                <element signature="e#8145#8146#0" expanded="true" />
-                <element signature="e#8196#8197#0" expanded="true" />
-                <element signature="e#8238#8239#0" expanded="true" />
-                <element signature="e#8290#8291#0" expanded="true" />
-                <element signature="e#8332#8333#0" expanded="true" />
-                <element signature="e#8383#8384#0" expanded="true" />
-                <element signature="e#8425#8426#0" expanded="true" />
-                <element signature="e#8477#8478#0" expanded="true" />
-                <element signature="e#8519#8520#0" expanded="true" />
-                <element signature="e#8570#8571#0" expanded="true" />
-                <element signature="e#8612#8613#0" expanded="true" />
-                <element signature="e#8664#8665#0" expanded="true" />
-                <element signature="e#8703#8704#0" expanded="true" />
-                <element signature="e#8729#8730#0" expanded="true" />
+                <element signature="e#8095#8096#0" expanded="true" />
+                <element signature="e#8146#8147#0" expanded="true" />
+                <element signature="e#8188#8189#0" expanded="true" />
+                <element signature="e#8240#8241#0" expanded="true" />
+                <element signature="e#8282#8283#0" expanded="true" />
+                <element signature="e#8333#8334#0" expanded="true" />
+                <element signature="e#8375#8376#0" expanded="true" />
+                <element signature="e#8427#8428#0" expanded="true" />
+                <element signature="e#8469#8470#0" expanded="true" />
+                <element signature="e#8520#8521#0" expanded="true" />
+                <element signature="e#8562#8563#0" expanded="true" />
+                <element signature="e#8614#8615#0" expanded="true" />
+                <element signature="e#8653#8654#0" expanded="true" />
+                <element signature="e#8679#8680#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XmotionGen3.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="XmotionGen3.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="269" column="75" lean-forward="false" selection-start-line="269" selection-start-column="75" selection-end-line="269" selection-end-column="75" />
+            <state relative-caret-position="772">
+              <caret line="211" column="45" lean-forward="false" selection-start-line="211" selection-start-column="45" selection-end-line="211" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1259#1441#0" expanded="true" />
@@ -93,38 +111,36 @@
                 <element signature="e#2352#2353#0" expanded="true" />
                 <element signature="e#9512#9513#0" expanded="true" />
                 <element signature="e#9582#9583#0" expanded="true" />
-                <element signature="e#9745#9746#0" expanded="true" />
-                <element signature="e#9816#9817#0" expanded="true" />
-                <element signature="e#10541#10542#0" expanded="true" />
-                <element signature="e#10605#10606#0" expanded="true" />
-                <element signature="e#10772#10773#0" expanded="true" />
-                <element signature="e#10835#10836#0" expanded="true" />
-                <element signature="e#11001#11002#0" expanded="true" />
-                <element signature="e#11063#11064#0" expanded="true" />
-                <element signature="e#11230#11231#0" expanded="true" />
-                <element signature="e#11292#11293#0" expanded="true" />
-                <element signature="e#11454#11455#0" expanded="true" />
-                <element signature="e#11511#11512#0" expanded="true" />
-                <element signature="e#11674#11675#0" expanded="true" />
-                <element signature="e#11731#11732#0" expanded="true" />
-                <element signature="e#11894#11895#0" expanded="true" />
-                <element signature="e#11951#11952#0" expanded="true" />
-                <element signature="e#12116#12117#0" expanded="true" />
-                <element signature="e#12189#12190#0" expanded="true" />
-                <element signature="e#12921#12922#0" expanded="true" />
-                <element signature="e#12997#12998#0" expanded="true" />
-                <marker date="1549386948701" expanded="false" signature="18109:18128" ph=" { " />
-                <marker date="1549386948701" expanded="false" signature="18163:18177" ph=" }" />
+                <element signature="e#10587#10588#0" expanded="true" />
+                <element signature="e#10651#10652#0" expanded="true" />
+                <element signature="e#10818#10819#0" expanded="true" />
+                <element signature="e#10881#10882#0" expanded="true" />
+                <element signature="e#11047#11048#0" expanded="true" />
+                <element signature="e#11109#11110#0" expanded="true" />
+                <element signature="e#11276#11277#0" expanded="true" />
+                <element signature="e#11338#11339#0" expanded="true" />
+                <element signature="e#11500#11501#0" expanded="true" />
+                <element signature="e#11557#11558#0" expanded="true" />
+                <element signature="e#11720#11721#0" expanded="true" />
+                <element signature="e#11777#11778#0" expanded="true" />
+                <element signature="e#11940#11941#0" expanded="true" />
+                <element signature="e#11997#11998#0" expanded="true" />
+                <element signature="e#12162#12163#0" expanded="true" />
+                <element signature="e#12235#12236#0" expanded="true" />
+                <element signature="e#12967#12968#0" expanded="true" />
+                <element signature="e#13043#13044#0" expanded="true" />
+                <marker date="1549387259293" expanded="false" signature="18155:18174" ph=" { " />
+                <marker date="1549387259293" expanded="false" signature="18209:18223" ph=" }" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UIWidgets.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UIWidgets.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/UIWidgets.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="45" column="44" lean-forward="false" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+            <state relative-caret-position="-340">
+              <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -180,11 +196,11 @@
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ViewerEntity.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO_TinyG.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ncCommands.java" />
-        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java" />
-        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java" />
-        <option value="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/UIWidgets.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java" />
       </list>
     </option>
   </component>
@@ -699,20 +715,20 @@
             <element signature="e#7663#7664#0" expanded="true" />
             <element signature="e#8008#8009#0" expanded="true" />
             <element signature="e#8054#8055#0" expanded="true" />
-            <element signature="e#8145#8146#0" expanded="true" />
-            <element signature="e#8196#8197#0" expanded="true" />
-            <element signature="e#8238#8239#0" expanded="true" />
-            <element signature="e#8290#8291#0" expanded="true" />
-            <element signature="e#8332#8333#0" expanded="true" />
-            <element signature="e#8383#8384#0" expanded="true" />
-            <element signature="e#8425#8426#0" expanded="true" />
-            <element signature="e#8477#8478#0" expanded="true" />
-            <element signature="e#8519#8520#0" expanded="true" />
-            <element signature="e#8570#8571#0" expanded="true" />
-            <element signature="e#8612#8613#0" expanded="true" />
-            <element signature="e#8664#8665#0" expanded="true" />
-            <element signature="e#8703#8704#0" expanded="true" />
-            <element signature="e#8729#8730#0" expanded="true" />
+            <element signature="e#8095#8096#0" expanded="true" />
+            <element signature="e#8146#8147#0" expanded="true" />
+            <element signature="e#8188#8189#0" expanded="true" />
+            <element signature="e#8240#8241#0" expanded="true" />
+            <element signature="e#8282#8283#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
+            <element signature="e#8375#8376#0" expanded="true" />
+            <element signature="e#8427#8428#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
+            <element signature="e#8520#8521#0" expanded="true" />
+            <element signature="e#8562#8563#0" expanded="true" />
+            <element signature="e#8614#8615#0" expanded="true" />
+            <element signature="e#8653#8654#0" expanded="true" />
+            <element signature="e#8679#8680#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -765,20 +781,20 @@
             <element signature="e#7663#7664#0" expanded="true" />
             <element signature="e#8008#8009#0" expanded="true" />
             <element signature="e#8054#8055#0" expanded="true" />
-            <element signature="e#8145#8146#0" expanded="true" />
-            <element signature="e#8196#8197#0" expanded="true" />
-            <element signature="e#8238#8239#0" expanded="true" />
-            <element signature="e#8290#8291#0" expanded="true" />
-            <element signature="e#8332#8333#0" expanded="true" />
-            <element signature="e#8383#8384#0" expanded="true" />
-            <element signature="e#8425#8426#0" expanded="true" />
-            <element signature="e#8477#8478#0" expanded="true" />
-            <element signature="e#8519#8520#0" expanded="true" />
-            <element signature="e#8570#8571#0" expanded="true" />
-            <element signature="e#8612#8613#0" expanded="true" />
-            <element signature="e#8664#8665#0" expanded="true" />
-            <element signature="e#8703#8704#0" expanded="true" />
-            <element signature="e#8729#8730#0" expanded="true" />
+            <element signature="e#8095#8096#0" expanded="true" />
+            <element signature="e#8146#8147#0" expanded="true" />
+            <element signature="e#8188#8189#0" expanded="true" />
+            <element signature="e#8240#8241#0" expanded="true" />
+            <element signature="e#8282#8283#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
+            <element signature="e#8375#8376#0" expanded="true" />
+            <element signature="e#8427#8428#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
+            <element signature="e#8520#8521#0" expanded="true" />
+            <element signature="e#8562#8563#0" expanded="true" />
+            <element signature="e#8614#8615#0" expanded="true" />
+            <element signature="e#8653#8654#0" expanded="true" />
+            <element signature="e#8679#8680#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -859,20 +875,20 @@
             <element signature="e#7663#7664#0" expanded="true" />
             <element signature="e#8008#8009#0" expanded="true" />
             <element signature="e#8054#8055#0" expanded="true" />
-            <element signature="e#8145#8146#0" expanded="true" />
-            <element signature="e#8196#8197#0" expanded="true" />
-            <element signature="e#8238#8239#0" expanded="true" />
-            <element signature="e#8290#8291#0" expanded="true" />
-            <element signature="e#8332#8333#0" expanded="true" />
-            <element signature="e#8383#8384#0" expanded="true" />
-            <element signature="e#8425#8426#0" expanded="true" />
-            <element signature="e#8477#8478#0" expanded="true" />
-            <element signature="e#8519#8520#0" expanded="true" />
-            <element signature="e#8570#8571#0" expanded="true" />
-            <element signature="e#8612#8613#0" expanded="true" />
-            <element signature="e#8664#8665#0" expanded="true" />
-            <element signature="e#8703#8704#0" expanded="true" />
-            <element signature="e#8729#8730#0" expanded="true" />
+            <element signature="e#8095#8096#0" expanded="true" />
+            <element signature="e#8146#8147#0" expanded="true" />
+            <element signature="e#8188#8189#0" expanded="true" />
+            <element signature="e#8240#8241#0" expanded="true" />
+            <element signature="e#8282#8283#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
+            <element signature="e#8375#8376#0" expanded="true" />
+            <element signature="e#8427#8428#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
+            <element signature="e#8520#8521#0" expanded="true" />
+            <element signature="e#8562#8563#0" expanded="true" />
+            <element signature="e#8614#8615#0" expanded="true" />
+            <element signature="e#8653#8654#0" expanded="true" />
+            <element signature="e#8679#8680#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -903,20 +919,20 @@
             <element signature="e#7663#7664#0" expanded="true" />
             <element signature="e#8008#8009#0" expanded="true" />
             <element signature="e#8054#8055#0" expanded="true" />
-            <element signature="e#8145#8146#0" expanded="true" />
-            <element signature="e#8196#8197#0" expanded="true" />
-            <element signature="e#8238#8239#0" expanded="true" />
-            <element signature="e#8290#8291#0" expanded="true" />
-            <element signature="e#8332#8333#0" expanded="true" />
-            <element signature="e#8383#8384#0" expanded="true" />
-            <element signature="e#8425#8426#0" expanded="true" />
-            <element signature="e#8477#8478#0" expanded="true" />
-            <element signature="e#8519#8520#0" expanded="true" />
-            <element signature="e#8570#8571#0" expanded="true" />
-            <element signature="e#8612#8613#0" expanded="true" />
-            <element signature="e#8664#8665#0" expanded="true" />
-            <element signature="e#8703#8704#0" expanded="true" />
-            <element signature="e#8729#8730#0" expanded="true" />
+            <element signature="e#8095#8096#0" expanded="true" />
+            <element signature="e#8146#8147#0" expanded="true" />
+            <element signature="e#8188#8189#0" expanded="true" />
+            <element signature="e#8240#8241#0" expanded="true" />
+            <element signature="e#8282#8283#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
+            <element signature="e#8375#8376#0" expanded="true" />
+            <element signature="e#8427#8428#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
+            <element signature="e#8520#8521#0" expanded="true" />
+            <element signature="e#8562#8563#0" expanded="true" />
+            <element signature="e#8614#8615#0" expanded="true" />
+            <element signature="e#8653#8654#0" expanded="true" />
+            <element signature="e#8679#8680#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1001,14 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="37" column="50" lean-forward="false" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/SerialIO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="466">
@@ -1021,10 +1029,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/UIWidgets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="29" column="47" lean-forward="true" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="130" column="57" lean-forward="true" selection-start-line="130" selection-start-column="57" selection-end-line="130" selection-end-column="57" />
+        <state relative-caret-position="397">
+          <caret line="223" column="5" lean-forward="false" selection-start-line="223" selection-start-column="5" selection-end-line="223" selection-end-column="5" />
           <folding>
             <element signature="e#1368#1369#0" expanded="true" />
             <element signature="e#1394#1395#0" expanded="true" />
@@ -1032,28 +1058,28 @@
             <element signature="e#7663#7664#0" expanded="true" />
             <element signature="e#8008#8009#0" expanded="true" />
             <element signature="e#8054#8055#0" expanded="true" />
-            <element signature="e#8145#8146#0" expanded="true" />
-            <element signature="e#8196#8197#0" expanded="true" />
-            <element signature="e#8238#8239#0" expanded="true" />
-            <element signature="e#8290#8291#0" expanded="true" />
-            <element signature="e#8332#8333#0" expanded="true" />
-            <element signature="e#8383#8384#0" expanded="true" />
-            <element signature="e#8425#8426#0" expanded="true" />
-            <element signature="e#8477#8478#0" expanded="true" />
-            <element signature="e#8519#8520#0" expanded="true" />
-            <element signature="e#8570#8571#0" expanded="true" />
-            <element signature="e#8612#8613#0" expanded="true" />
-            <element signature="e#8664#8665#0" expanded="true" />
-            <element signature="e#8703#8704#0" expanded="true" />
-            <element signature="e#8729#8730#0" expanded="true" />
+            <element signature="e#8095#8096#0" expanded="true" />
+            <element signature="e#8146#8147#0" expanded="true" />
+            <element signature="e#8188#8189#0" expanded="true" />
+            <element signature="e#8240#8241#0" expanded="true" />
+            <element signature="e#8282#8283#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
+            <element signature="e#8375#8376#0" expanded="true" />
+            <element signature="e#8427#8428#0" expanded="true" />
+            <element signature="e#8469#8470#0" expanded="true" />
+            <element signature="e#8520#8521#0" expanded="true" />
+            <element signature="e#8562#8563#0" expanded="true" />
+            <element signature="e#8614#8615#0" expanded="true" />
+            <element signature="e#8653#8654#0" expanded="true" />
+            <element signature="e#8679#8680#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="269" column="75" lean-forward="false" selection-start-line="269" selection-start-column="75" selection-end-line="269" selection-end-column="75" />
+        <state relative-caret-position="772">
+          <caret line="211" column="45" lean-forward="false" selection-start-line="211" selection-start-column="45" selection-end-line="211" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1259#1441#0" expanded="true" />
@@ -1062,38 +1088,26 @@
             <element signature="e#2352#2353#0" expanded="true" />
             <element signature="e#9512#9513#0" expanded="true" />
             <element signature="e#9582#9583#0" expanded="true" />
-            <element signature="e#9745#9746#0" expanded="true" />
-            <element signature="e#9816#9817#0" expanded="true" />
-            <element signature="e#10541#10542#0" expanded="true" />
-            <element signature="e#10605#10606#0" expanded="true" />
-            <element signature="e#10772#10773#0" expanded="true" />
-            <element signature="e#10835#10836#0" expanded="true" />
-            <element signature="e#11001#11002#0" expanded="true" />
-            <element signature="e#11063#11064#0" expanded="true" />
-            <element signature="e#11230#11231#0" expanded="true" />
-            <element signature="e#11292#11293#0" expanded="true" />
-            <element signature="e#11454#11455#0" expanded="true" />
-            <element signature="e#11511#11512#0" expanded="true" />
-            <element signature="e#11674#11675#0" expanded="true" />
-            <element signature="e#11731#11732#0" expanded="true" />
-            <element signature="e#11894#11895#0" expanded="true" />
-            <element signature="e#11951#11952#0" expanded="true" />
-            <element signature="e#12116#12117#0" expanded="true" />
-            <element signature="e#12189#12190#0" expanded="true" />
-            <element signature="e#12921#12922#0" expanded="true" />
-            <element signature="e#12997#12998#0" expanded="true" />
-            <marker date="1549386948701" expanded="false" signature="18109:18128" ph=" { " />
-            <marker date="1549386948701" expanded="false" signature="18163:18177" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/UIWidgets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="45" column="44" lean-forward="false" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#10587#10588#0" expanded="true" />
+            <element signature="e#10651#10652#0" expanded="true" />
+            <element signature="e#10818#10819#0" expanded="true" />
+            <element signature="e#10881#10882#0" expanded="true" />
+            <element signature="e#11047#11048#0" expanded="true" />
+            <element signature="e#11109#11110#0" expanded="true" />
+            <element signature="e#11276#11277#0" expanded="true" />
+            <element signature="e#11338#11339#0" expanded="true" />
+            <element signature="e#11500#11501#0" expanded="true" />
+            <element signature="e#11557#11558#0" expanded="true" />
+            <element signature="e#11720#11721#0" expanded="true" />
+            <element signature="e#11777#11778#0" expanded="true" />
+            <element signature="e#11940#11941#0" expanded="true" />
+            <element signature="e#11997#11998#0" expanded="true" />
+            <element signature="e#12162#12163#0" expanded="true" />
+            <element signature="e#12235#12236#0" expanded="true" />
+            <element signature="e#12967#12968#0" expanded="true" />
+            <element signature="e#13043#13044#0" expanded="true" />
+            <marker date="1549387259293" expanded="false" signature="18155:18174" ph=" { " />
+            <marker date="1549387259293" expanded="false" signature="18209:18223" ph=" }" />
           </folding>
         </state>
       </provider>

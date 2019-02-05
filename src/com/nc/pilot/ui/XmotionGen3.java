@@ -209,6 +209,7 @@ public class XmotionGen3 extends JFrame {
             @Override
             public void run() {
                 System.out.println("Clicked on Abort!");
+                MotionController.SoftReset();
             }
         });
         ui_widgets.AddMomentaryButton("Hold", "bottom-right", 80, 60, 190, 10, new Runnable() {
