@@ -28,7 +28,7 @@ public class GlobalData {
     public static boolean IsYAxisInMotion = false;
     public static boolean IsZAxisInMotion = false;
     public static boolean pendingReset = false;
-    public static ArrayList<String> WriteBuffer = new ArrayList();
+    //public static ArrayList<String> WriteBuffer = new ArrayList();
 
     public static float X_Scale = 635f; //Steps/Inch
     public static float Y_Scale = 635f; //Steps/Inch
@@ -48,26 +48,9 @@ public class GlobalData {
     public static Boolean DownArrowKeyState= false;
     public static Boolean LeftArrowKeyState = false;
     public static Boolean RightArrowKeyState = false;
+    public static Boolean PageUpKeyState = false;
+    public static Boolean PageDownKeyState = false;
 
-
-
-    public static Boolean KeycodeExecute = false;
-    public static Boolean AltPressed = false;
-    public static Boolean GCodeWindowFocused = false;
-
-    public static Boolean TorchOn = false;
-
-    public static String NCFile;
-    public static String NC_Code;
-    public static Integer NC_Lines;
-    
-    public static Boolean Auto = false; //ncPilot exits "Auto mode" after file is fully sent but HMC usually is still in cycle because moves are left in the planner.
-    public static Boolean HMC_Auto = false; //HMC_Auto returns to false after machine state from changes to "3" (stop)
-    
-    public static int LinePosition = 0;
-    public static int FreeBuffers = 0;
-    public static boolean PlannerReady = false;
-    public static boolean SendOnce = true;
 
     public static float ViewerZoom = 19f;
     public static float MinViewerZoom = 0.005f;

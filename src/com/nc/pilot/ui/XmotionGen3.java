@@ -21,17 +21,20 @@ public class XmotionGen3 extends JFrame {
     private SerialIO serial;
     Timer repaint_timer = new Timer();
     MotionController motion_controller;
+    UIWidgets ui_widgets;
     public XmotionGen3() {
 
         super("ncPilot Xmotion Gen3");
         setSize(800, 600);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         serial = new SerialIO();
         serial.initialize();
         motion_controller = new MotionController(serial);
-        motion_controller.InitMotionController();
+        //motion_controller.InitMotionController();
+        ui_widgets = new UIWidgets();
+        Layout_UI();
         GcodeViewerPanel panel = new GcodeViewerPanel();
         add(panel);
         repaint_timer.schedule(new TimerTask() {
@@ -120,6 +123,20 @@ public class XmotionGen3 extends JFrame {
                                         MotionController.JogX_Minus();
                                     }
                                 }
+                                if (ke.getKeyCode() == KeyEvent.VK_PAGE_UP) {
+                                    if (GlobalData.RightArrowKeyState == false)
+                                    {
+                                        GlobalData.PageUpKeyState = true;
+                                        MotionController.JogZ_Plus();
+                                    }
+                                }
+                                if (ke.getKeyCode() == KeyEvent.VK_PAGE_DOWN) {
+                                    if (GlobalData.LeftArrowKeyState == false)
+                                    {
+                                        GlobalData.PageDownKeyState = true;
+                                        MotionController.JogZ_Minus();
+                                    }
+                                }
                                 //repaint();
                                 break;
 
@@ -139,6 +156,14 @@ public class XmotionGen3 extends JFrame {
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
                                     GlobalData.RightArrowKeyState = false;
+                                    MotionController.EndJog();
+                                }
+                                if (ke.getKeyCode() == KeyEvent.VK_PAGE_UP) {
+                                    GlobalData.PageUpKeyState = false;
+                                    MotionController.EndJog();
+                                }
+                                if (ke.getKeyCode() == KeyEvent.VK_PAGE_DOWN) {
+                                    GlobalData.PageDownKeyState = false;
                                     MotionController.EndJog();
                                 }
                                 if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -163,6 +188,10 @@ public class XmotionGen3 extends JFrame {
                     }
                 });
     }
+    private void Layout_UI()
+    {
+        ui_widgets.AddButton("Start", "bottom-right", 80, 60, 10, 10);
+    }
     // create a panel that you can draw on.
     class GcodeViewerPanel extends JPanel {
         public void paint(Graphics g) {
@@ -171,7 +200,7 @@ public class XmotionGen3 extends JFrame {
             GlobalData.MousePositionY_MCS = ((GlobalData.MousePositionY - GlobalData.ViewerPan[1]) / GlobalData.ViewerZoom) * -1;
             //System.out.println("Mouse X: " + GlobalData.MousePositionX + " Mouse Y: " + GlobalData.MousePositionY + " Mouse X MCS: " + GlobalData.MousePositionX_MCS + " Mouse Y MCS: " + GlobalData.MousePositionY_MCS + " Frame Width: " + Frame_Bounds.width + " Frame Height: " + Frame_Bounds.height);
             Graphics2D g2d = (Graphics2D) g;
-            UIWidgets ui_widgets = new UIWidgets(g2d);
+
             /* Begin Wallpaper */
             g.setColor(Color.black);
             g.fillRect(0,0,Frame_Bounds.width,Frame_Bounds.height);
@@ -207,7 +236,7 @@ public class XmotionGen3 extends JFrame {
                 }
             }
 
-            g.setFont(new Font("TimesRoman", Font.BOLD, 45));
+            g.setFont(new Font("Arial", Font.BOLD, 45));
             if (GlobalData.IsHomed == false)
             {
                 g.setColor(Color.red);
@@ -225,7 +254,13 @@ public class XmotionGen3 extends JFrame {
             g.drawString(String.format("%.4f", GlobalData.dro[1]), Frame_Bounds.width - 220 - DRO_X_Offset, 140);
             g.drawString(String.format("%.4f", GlobalData.dro[2]), Frame_Bounds.width - 220 - DRO_X_Offset, 210);
 
-            ui_widgets.DrawButton("Test", 40, 30, 100, 100);
+
+            ui_widgets.RenderStack(g2d, Frame_Bounds);
+
+            //Display Mouse position in MCS and Screen Cord
+            g.setColor(Color.green);
+            g.setFont(new Font("Arial", Font.BOLD, 12));
+            g.drawString(String.format("Screen-> X: %d Y: %d MCS-> X: %.4f Y: %.4f", GlobalData.MousePositionX, GlobalData.MousePositionY, GlobalData.MousePositionX_MCS, GlobalData.MousePositionY_MCS), 10, 10);
 
         }
     }

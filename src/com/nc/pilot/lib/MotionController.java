@@ -147,6 +147,15 @@ public class MotionController {
         WriteBuffer("$J=G91 F10 G20 Y-20\n");
     }
 
+    public static void JogZ_Plus()
+    {
+        WriteBuffer("$J=G91 F10 G20 Z20\n");
+    }
+    public static void JogZ_Minus()
+    {
+        WriteBuffer("$J=G91 F10 G20 Z-20\n");
+    }
+
     public static void EndJog()
     {
         FeedHold();
