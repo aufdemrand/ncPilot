@@ -33,7 +33,7 @@ public class UIWidgets {
     }
     public void DrawButton(String text, boolean engaged, int width, int height, int posx, int posy) {
         //System.out.println("Drawing " + text);
-        int button_font_size = 20;
+        int button_font_size = 15;
         if (engaged == true)
         {
             g.setColor(Color.green);
@@ -43,7 +43,7 @@ public class UIWidgets {
             g.setColor(Color.red);
         }
         g.setFont(new Font("Arial", Font.PLAIN, button_font_size));
-        int text_length = (text.length()-2) * button_font_size;
+        int text_length = (text.length() - 3) * button_font_size;
         int text_posx = posx + (width / 2) - (text_length/2);
         int text_posy = posy + (height / 2) + (button_font_size/2);
         g.drawString(text, text_posx, text_posy);

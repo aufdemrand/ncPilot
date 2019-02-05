@@ -237,6 +237,62 @@ public class XmotionGen3 extends JFrame {
                 System.out.println("Torch On!");
             }
         });
+        ui_widgets.AddMomentaryButton("Go Home", "bottom-right", 170, 60, 10, 150, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Go Home!");
+            }
+        });
+        ui_widgets.AddMomentaryButton("Probe Z", "bottom-right", 170, 60, 190, 150, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Probe Z!");
+            }
+        });
+        ui_widgets.AddMomentaryButton("X=0", "bottom-right", 110, 60, 10, 220, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("X=0");
+            }
+        });
+        ui_widgets.AddMomentaryButton("Y=0", "bottom-right", 110, 60, 130, 220, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Y=0");
+            }
+        });
+        ui_widgets.AddMomentaryButton("Z=0", "bottom-right", 110, 60, 250, 220, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Z=0");
+            }
+        });
+        ui_widgets.AddMomentaryButton("0.001\"", "bottom-right", 60, 60, 10, 290, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Clicked on 0.001\"!");
+            }
+        });
+        ui_widgets.AddMomentaryButton("0.01\"", "bottom-right", 60, 60, 80, 290, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Clicked on 0.01\"!");
+                MotionController.FeedHold();
+            }
+        });
+        ui_widgets.AddMomentaryButton("0.1\"", "bottom-right", 60, 60, 150, 290, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Clicked on 0.1\"");
+                MotionController.CycleStart();
+            }
+        });
+        ui_widgets.AddMomentaryButton("Continuous", "bottom-right", 140, 60, 220, 290, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Clicked on Continuous!");
+            }
+        });
     }
     // create a panel that you can draw on.
     class GcodeViewerPanel extends JPanel {
