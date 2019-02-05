@@ -190,7 +190,9 @@ public class XmotionGen3 extends JFrame {
     }
     private void Layout_UI()
     {
-        ui_widgets.AddButton("Start", "bottom-right", 80, 60, 10, 10);
+        ui_widgets.AddMomentaryButton("Start", "bottom-right", 80, 60, 10, 10);
+        ui_widgets.AddMomentaryButton("Abort", "bottom-right", 80, 60, 100, 10);
+        ui_widgets.AddMomentaryButton("Hold", "bottom-right", 80, 60, 190, 10);
     }
     // create a panel that you can draw on.
     class GcodeViewerPanel extends JPanel {
