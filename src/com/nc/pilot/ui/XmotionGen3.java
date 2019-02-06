@@ -73,14 +73,14 @@ public class XmotionGen3 extends JFrame {
             {
                 float old_zoom = GlobalData.ViewerZoom;
                 if (e.getWheelRotation() < 0) {
-                    GlobalData.ViewerZoom *= 1.1;
+                    GlobalData.ViewerZoom *= 1.2;
                     //System.out.println("ViewerZoom: " + GlobalData.ViewerZoom);
                     if (GlobalData.ViewerZoom > GlobalData.MaxViewerZoom)
                     {
                         GlobalData.ViewerZoom = GlobalData.MaxViewerZoom;
                     }
                 } else {
-                    GlobalData.ViewerZoom *= 0.9;
+                    GlobalData.ViewerZoom *= 0.8;
                     //System.out.println("ViewerZoom: " + GlobalData.ViewerZoom);
                     if (GlobalData.ViewerZoom < GlobalData.MinViewerZoom)
                     {
@@ -227,6 +227,7 @@ public class XmotionGen3 extends JFrame {
                     System.out.println("Selected file: " + selectedFile.getAbsolutePath());
                     GcodeInterpreter g = new GcodeInterpreter(selectedFile.getAbsolutePath());
                     ArrayList<GcodeInterpreter.GcodeMove> moves = g.GetMoves();
+                    gcode_viewer.ClearStack();
 
                     for (int x = 2; x < moves.size(); x ++)
                     {

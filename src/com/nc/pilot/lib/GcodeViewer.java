@@ -128,6 +128,7 @@ public class GcodeViewer {
         float end_angle = getAngle(center, end);
         float angle_inc = 1;
         float[] last_point = start;
+        //System.out.println("start_angle: " + start_angle + " end_angle: " + end_angle);
         if (start_angle == end_angle) //We are a circle
         {
             for (float x = 0; x < 360; x += angle_inc)
@@ -150,7 +151,7 @@ public class GcodeViewer {
                     {
                         start_angle = 360;
                     }
-                    else if (inTolerance(start_angle, end_angle, 3f))
+                    else if (inTolerance(start_angle, end_angle, angle_inc * 2))
                     {
                         //System.out.println("Found Endpoint!");
                         break; //End of arc, break loop!
@@ -173,7 +174,7 @@ public class GcodeViewer {
                     {
                         start_angle = 0;
                     }
-                    else if (inTolerance(start_angle, end_angle, 3f)) break; //End of arc, break loop!
+                    else if (inTolerance(start_angle, end_angle, angle_inc * 2)) break; //End of arc, break loop!
                     float [] new_point = getPolarLineEndpoint(center, radius, start_angle);
                     RenderLine(last_point, new_point);
                     last_point = new_point;
@@ -193,10 +194,6 @@ public class GcodeViewer {
         g2d = graphics;
          /* Begin machine boundry outline */
         g2d.setColor(Color.red);
-        //0,0,X_Extent,0
-        //X_Extent,0,X_Extent,Y_Extent
-        //X_Extent,Y_Extent,0,Y_Extent
-        //0,Y_Extent,0,0
         g2d.draw(new Line2D.Float((0 * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0 * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0 * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
         g2d.draw(new Line2D.Float((GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0 * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents  * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
         g2d.draw(new Line2D.Float((GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (0 * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents  * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
@@ -223,21 +220,9 @@ public class GcodeViewer {
                 RenderArc(entity.start, entity.end, entity.center, entity.radius, "CCW");
             }
         }
-
-        /*g2d.setColor(Color.green); // 0 Degree polar
-        float[] test = getPolarLineEndpoint(new float[] {10, 10}, 10, 0);
-        RenderLine(new float[] {10, 10}, test);
-
-        g2d.setColor(Color.red); // 90 Degree polar
-        test = getPolarLineEndpoint(new float[] {10, 10}, 10, 90);
-        RenderLine(new float[] {10, 10}, test);
-
-        g2d.setColor(Color.blue); // 180 Degree polar
-        test = getPolarLineEndpoint(new float[] {10, 10}, 10, 180);
-        RenderLine(new float[] {10, 10}, test);
-
-        g2d.setColor(Color.orange); // 270 Degree polar
-        test = getPolarLineEndpoint(new float[] {10, 10}, 10, 270);
-        RenderLine(new float[] {10, 10}, test);*/
+    }
+    public void ClearStack()
+    {
+        gcodeViewerStack.clear();
     }
 }
