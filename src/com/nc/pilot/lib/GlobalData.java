@@ -20,7 +20,7 @@ public class GlobalData {
 
     public static float[] dro = {0, 0, 0};
     public static float[] last_dro = {0, 0, 0};
-    public static float[] work_offset = {20, 20, 0};
+    public static float[] work_offset = {0, 0, 0};
     public static String status;
     public static boolean IsHomed = false;
     public static boolean IsInMotion = false;
