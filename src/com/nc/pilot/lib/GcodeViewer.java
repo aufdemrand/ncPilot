@@ -25,7 +25,42 @@ public class GcodeViewer {
     public GcodeViewer() {
 
     }
+    public float getAngle(float[] start_point, float[] end_point) {
+        float angle = (float) Math.toDegrees(Math.atan2(start_point[1] - end_point[1], start_point[0] - end_point[0]));
 
+        angle += 180;
+        if(angle > 360){
+            angle -= 360;
+        }
+        if(angle < 0){
+            angle += 360;
+        }
+
+        return angle;
+    }
+    public float[] rotatePoint(float[] pivot, float[] rotated_point, float angle)
+    {
+        float s = (float)Math.sin(angle*Math.PI/180);
+        float c = (float)Math.cos(angle*Math.PI/180);
+
+        // translate point back to origin:
+        rotated_point[0] -= pivot[0];
+        rotated_point[1] -= pivot[1];
+
+        // rotate point
+        float xnew = (rotated_point[0] * c - rotated_point[1] * s);
+        float ynew = (rotated_point[0] * s + rotated_point[1] * c);
+
+        // translate point back:
+        rotated_point[0] = xnew + pivot[0];
+        rotated_point[1] = ynew + pivot[1];
+        return new float[] {rotated_point[0], rotated_point[1]};
+    }
+    public float[] getPolarLineEndpoint(float[] start_point, float length, float angle)
+    {
+        float[] end_point = new float[] {start_point[0] + length, start_point[1]};
+        return rotatePoint(start_point, end_point, angle);
+    }
     // setter
     public void addArc(float[] start, float[] end, float[] center, float radius, String direction) {
         ViewerEntity e = new ViewerEntity();
@@ -64,6 +99,38 @@ public class GcodeViewer {
     {
         g2d.draw(new Line2D.Float(((start[0] + GlobalData.work_offset[0]) * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], (((start[1] + GlobalData.work_offset[1]) * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], ((end[0] + GlobalData.work_offset[0]) * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], (((end[1] + GlobalData.work_offset[1]) * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
     }
+    public void RenderArc(float[] start, float[] end, float[] center, float radius, String direction)
+    {
+        float start_angle = getAngle(center, start);
+        float end_angle = getAngle(center, end);
+        if (start_angle > end_angle && start_angle == 360)
+        {
+            start_angle = 0;
+        }
+        if (direction == "CCW")
+        {
+            float [] last_point = start;
+            for (float x = start_angle; x < end_angle; x+= 600f / GlobalData.ViewerZoom)
+            {
+                float [] new_point = getPolarLineEndpoint(center, radius, x);
+                RenderLine(last_point, new_point);
+                last_point = new_point;
+            }
+            RenderLine(last_point, getPolarLineEndpoint(center, radius, end_angle));
+        }
+        else //CW
+        {
+            //System.out.println("CW Arc-> start_angle: " + start_angle + " end_angle: " + end_angle);
+            float [] last_point = start;
+            for (float x = start_angle; x > end_angle; x-= 600f / GlobalData.ViewerZoom)
+            {
+                float [] new_point = getPolarLineEndpoint(center, radius, x);
+                RenderLine(last_point, new_point);
+                last_point = new_point;
+            }
+            RenderLine(last_point, getPolarLineEndpoint(center, radius, end_angle));
+        }
+    }
     public void RenderStack(Graphics2D graphics)
     {
         g2d = graphics;
@@ -93,13 +160,32 @@ public class GcodeViewer {
                 g2d.setColor(Color.red);
                 RenderLine(entity.center, entity.start);
                 RenderLine(entity.center, entity.end);
+                RenderArc(entity.start, entity.end, entity.center, entity.radius, "CW");
             }
-            if (entity.type == 3) //We are a clockwise arc
+            if (entity.type == 3) //We are a counter-clockwise arc
             {
-                g2d.setColor(Color.blue);
-                RenderLine(entity.center, entity.start);
-                RenderLine(entity.center, entity.end);
+                g2d.setColor(Color.white);
+                //RenderLine(entity.center, entity.start);
+                //RenderLine(entity.center, entity.end);
+                RenderArc(entity.start, entity.end, entity.center, entity.radius, "CCW");
+                //g2d.setColor(Color.white);
             }
         }
+
+        /*g2d.setColor(Color.green); // 0 Degree polar
+        float[] test = getPolarLineEndpoint(new float[] {10, 10}, 10, 0);
+        RenderLine(new float[] {10, 10}, test);
+
+        g2d.setColor(Color.red); // 90 Degree polar
+        test = getPolarLineEndpoint(new float[] {10, 10}, 10, 90);
+        RenderLine(new float[] {10, 10}, test);
+
+        g2d.setColor(Color.blue); // 180 Degree polar
+        test = getPolarLineEndpoint(new float[] {10, 10}, 10, 180);
+        RenderLine(new float[] {10, 10}, test);
+
+        g2d.setColor(Color.orange); // 270 Degree polar
+        test = getPolarLineEndpoint(new float[] {10, 10}, 10, 270);
+        RenderLine(new float[] {10, 10}, test);*/
     }
 }

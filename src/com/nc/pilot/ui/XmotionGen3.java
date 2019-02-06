@@ -184,7 +184,7 @@ public class XmotionGen3 extends JFrame {
                                     //serial.write("$#\n");
                                     //MotionController.FeedHold();
                                     //MotionController.WriteBuffer("G0X10Y10\n");
-                                    GcodeInterpreter g = new GcodeInterpreter("/Users/admin/Documents/Projects/ncPilot/test/gcode/0.ngc");
+                                    GcodeInterpreter g = new GcodeInterpreter("\\\\192.168.1.102\\gcode\\Plasma\\Post\\Sheet1.ngc");
                                     ArrayList<GcodeInterpreter.GcodeMove> moves = g.GetMoves();
 
                                     for (int x = 2; x < moves.size(); x ++)
@@ -195,9 +195,9 @@ public class XmotionGen3 extends JFrame {
                                         }
                                         if (moves.get(x).Gword == 2)
                                         {
-                                            //float[] center = new float[]{moves.get(x-1).Xword - moves.get(x).Iword, moves.get(x-1).Yword - moves.get(x).Jword};
-                                            //float radius = new Float(Math.hypot(moves.get(x).Xword-center[0], moves.get(x).Yword-center[1]));
-                                            //gcode_viewer.addArc(new float[]{moves.get(x-1).Xword, moves.get(x-1).Yword}, new float[]{moves.get(x).Xword, moves.get(x).Yword}, center, radius, "CW");
+                                            float[] center = new float[]{moves.get(x-1).Xword + moves.get(x).Iword, moves.get(x-1).Yword + moves.get(x).Jword};
+                                            float radius = new Float(Math.hypot(moves.get(x).Xword-center[0], moves.get(x).Yword-center[1]));
+                                            gcode_viewer.addArc(new float[]{moves.get(x-1).Xword, moves.get(x-1).Yword}, new float[]{moves.get(x).Xword, moves.get(x).Yword}, center, radius, "CW");
                                         }
                                         if (moves.get(x).Gword == 3)
                                         {
@@ -228,7 +228,7 @@ public class XmotionGen3 extends JFrame {
                     GcodeInterpreter g = new GcodeInterpreter(selectedFile.getAbsolutePath());
                     ArrayList<GcodeInterpreter.GcodeMove> moves = g.GetMoves();
 
-                    for (int x = 1; x < moves.size(); x ++)
+                    for (int x = 2; x < moves.size(); x ++)
                     {
                         if (moves.get(x).Gword == 1)
                         {

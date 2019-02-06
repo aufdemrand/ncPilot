@@ -45,15 +45,20 @@ public class GcodeInterpreter {
     {
         return Moves;
     }
-    public void checkG(String line)
+    public void checkWord(String line, char Word)
     {
         boolean capture = false;
         String word_builder = "";
         for (int x = 0; x < line.length(); x++)
         {
+            if (line.charAt(x) == '(')
+            {
+                //Found comment
+                break;
+            }
             if (capture == true)
             {
-                if (Character.isDigit(line.charAt(x)) || line.charAt(x) == '.')
+                if (Character.isDigit(line.charAt(x)) || line.charAt(x) == '.' || line.charAt(x) == '-')
                 {
                     word_builder = word_builder + line.charAt(x);
                 }
@@ -61,192 +66,41 @@ public class GcodeInterpreter {
                 {
                     if (word_builder != "")
                     {
-                        //System.out.println("word_builder: " + word_builder);
                         float word = new Float(word_builder);
-                        if (word == 0 || word == 1 || word == 2 || word == 3)
+                        if (Word == 'g')
                         {
                             Gword = word;
+                        }
+                        if (Word == 'x')
+                        {
+                            Xword = word;
+                        }
+                        if (Word == 'y')
+                        {
+                            Yword = word;
+                        }
+                        if (Word == 'z')
+                        {
+                            Zword = word;
+                        }
+                        if (Word == 'i')
+                        {
+                            Iword = word;
+                        }
+                        if (Word == 'j')
+                        {
+                            Jword = word;
+                        }
+                        if (Word == 'f')
+                        {
+                            Fword = word;
                         }
                     }
                     capture = false;
                     word_builder = "";
                 }
             }
-            if (line.charAt(x) == 'g')
-            {
-                capture = true;
-            }
-        }
-    }
-    public void checkX(String line)
-    {
-        boolean capture = false;
-        String word_builder = "";
-        for (int x = 0; x < line.length(); x++)
-        {
-            if (capture == true)
-            {
-                if (Character.isDigit(line.charAt(x)) || line.charAt(x) == '.')
-                {
-                    word_builder = word_builder + line.charAt(x);
-                }
-                if ((Character.isAlphabetic(line.charAt(x)) && line.charAt(x) != ' ') || x == line.length() - 1)
-                {
-                    if (word_builder != "")
-                    {
-                        float word = new Float(word_builder);
-                        Xword = word;
-                    }
-                    capture = false;
-                    word_builder = "";
-                }
-            }
-            if (line.charAt(x) == 'x')
-            {
-                capture = true;
-            }
-        }
-    }
-    public void checkY(String line)
-    {
-        boolean capture = false;
-        String word_builder = "";
-        for (int x = 0; x < line.length(); x++)
-        {
-            if (capture == true)
-            {
-                if (Character.isDigit(line.charAt(x)) || line.charAt(x) == '.')
-                {
-                    word_builder = word_builder + line.charAt(x);
-                }
-                if ((Character.isAlphabetic(line.charAt(x)) && line.charAt(x) != ' ') || x == line.length() - 1)
-                {
-                    if (word_builder != "")
-                    {
-                        float word = new Float(word_builder);
-                        Yword = word;
-                    }
-                    capture = false;
-                    word_builder = "";
-                }
-            }
-            if (line.charAt(x) == 'y')
-            {
-                capture = true;
-            }
-        }
-    }
-    public void checkZ(String line)
-    {
-        boolean capture = false;
-        String word_builder = "";
-        for (int x = 0; x < line.length(); x++)
-        {
-            if (capture == true)
-            {
-                if (Character.isDigit(line.charAt(x)) || line.charAt(x) == '.')
-                {
-                    word_builder = word_builder + line.charAt(x);
-                }
-                if ((Character.isAlphabetic(line.charAt(x)) && line.charAt(x) != ' ') || x == line.length() - 1)
-                {
-                    if (word_builder != "")
-                    {
-                        float word = new Float(word_builder);
-                        Zword = word;
-                    }
-                    capture = false;
-                    word_builder = "";
-                }
-            }
-            if (line.charAt(x) == 'z')
-            {
-                capture = true;
-            }
-        }
-    }
-    public void checkF(String line)
-    {
-        boolean capture = false;
-        String word_builder = "";
-        for (int x = 0; x < line.length(); x++)
-        {
-            if (capture == true)
-            {
-                if (Character.isDigit(line.charAt(x)) || line.charAt(x) == '.')
-                {
-                    word_builder = word_builder + line.charAt(x);
-                }
-                if ((Character.isAlphabetic(line.charAt(x)) && line.charAt(x) != ' ') || x == line.length() - 1)
-                {
-                    if (word_builder != "")
-                    {
-                        float word = new Float(word_builder);
-                        Fword = word;
-                    }
-                    capture = false;
-                    word_builder = "";
-                }
-            }
-            if (line.charAt(x) == 'f')
-            {
-                capture = true;
-            }
-        }
-    }
-    public void checkI(String line)
-    {
-        boolean capture = false;
-        String word_builder = "";
-        for (int x = 0; x < line.length(); x++)
-        {
-            if (capture == true)
-            {
-                if (Character.isDigit(line.charAt(x)) || line.charAt(x) == '.')
-                {
-                    word_builder = word_builder + line.charAt(x);
-                }
-                if ((Character.isAlphabetic(line.charAt(x)) && line.charAt(x) != ' ') || x == line.length() - 1)
-                {
-                    if (word_builder != "")
-                    {
-                        float word = new Float(word_builder);
-                        Iword = word;
-                    }
-                    capture = false;
-                    word_builder = "";
-                }
-            }
-            if (line.charAt(x) == 'i')
-            {
-                capture = true;
-            }
-        }
-    }
-    public void checkJ(String line)
-    {
-        boolean capture = false;
-        String word_builder = "";
-        for (int x = 0; x < line.length(); x++)
-        {
-            if (capture == true)
-            {
-                if (Character.isDigit(line.charAt(x)) || line.charAt(x) == '.')
-                {
-                    word_builder = word_builder + line.charAt(x);
-                }
-                if ((Character.isAlphabetic(line.charAt(x)) && line.charAt(x) != ' ') || x == line.length() - 1)
-                {
-                    if (word_builder != "")
-                    {
-                        float word = new Float(word_builder);
-                        Jword = word;
-                    }
-                    capture = false;
-                    word_builder = "";
-                }
-            }
-            if (line.charAt(x) == 'j')
+            if (line.charAt(x) == Word)
             {
                 capture = true;
             }
@@ -254,14 +108,14 @@ public class GcodeInterpreter {
     }
     public void parseLine(String line)
     {
-        //System.out.println("Line: " + line);
-        checkG(line);
-        checkX(line);
-        checkY(line);
-        checkZ(line);
-        checkI(line);
-        checkJ(line);
-        checkF(line);
+        System.out.println("Line: " + line);
+        checkWord(line, 'g');
+        checkWord(line, 'x');
+        checkWord(line, 'y');
+        checkWord(line, 'z');
+        checkWord(line, 'i');
+        checkWord(line, 'j');
+        checkWord(line, 'f');
 
         GcodeMove m = new GcodeMove();
         m.Gword = Gword;
@@ -272,6 +126,7 @@ public class GcodeInterpreter {
         m.Jword = Jword;
         m.Fword = Fword;
 
+        //Moves.add(m);
         if (Moves.size() > 0)
         {
             if (Moves.get(Moves.size() - 1).Xword != Xword || Moves.get(Moves.size() - 1).Yword != Yword)
