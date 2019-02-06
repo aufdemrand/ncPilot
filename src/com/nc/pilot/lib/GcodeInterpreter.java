@@ -274,16 +274,16 @@ public class GcodeInterpreter {
 
         if (Moves.size() > 0)
         {
-            if (Moves.get(Moves.size() - 1).Gword != Gword || Moves.get(Moves.size() - 1).Xword != Xword || Moves.get(Moves.size() - 1).Yword != Yword)
+            if (Moves.get(Moves.size() - 1).Xword != Xword || Moves.get(Moves.size() - 1).Yword != Yword)
             {
-                /*if (Gword == 2 || Gword == 3)
+                if (Gword == 2 || Gword == 3)
                 {
                     System.out.println("G Entity-> G" + Gword + " X" + Xword + " Y" + Yword + " Z" + Zword + " I" + Iword + " J" + Jword + " F" + Fword);
                 }
                 else
                 {
                     System.out.println("G Entity-> G" + Gword + " X" + Xword + " Y" + Yword + " Z" + Zword + " F" + Fword);
-                }*/
+                }
                 Moves.add(m);
             }
         }

@@ -11,12 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8907f65-b5b3-4349-933e-bf222ba0f9b3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeViewer.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/GcodeMove.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/ViewerEntity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/ViewerEntity.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/GcodeInterpreter.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/GcodeInterpreter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$1.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/GlobalData.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/lib/GlobalData.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$10.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$11.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$11.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$12.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$12.class" />
@@ -27,12 +23,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$17.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$17.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$18.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$18.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$19.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$19.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$2.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$20.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$20.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$21.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$21.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$3.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$4.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$5.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$5.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$6.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$6.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$7.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$7.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$8.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3$8.class" />
@@ -41,9 +33,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3.class" afterPath="$PROJECT_DIR$/out/production/ncPilot/com/nc/pilot/ui/XmotionGen3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeInterpreter.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeInterpreter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" afterPath="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/gcode/0.ngc" afterPath="$PROJECT_DIR$/test/gcode/0.ngc" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,36 +46,36 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="XmotionGen3.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="XmotionGen3.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="203" column="129" lean-forward="false" selection-start-line="203" selection-start-column="129" selection-end-line="203" selection-end-column="129" />
+            <state relative-caret-position="335">
+              <caret line="206" column="41" lean-forward="true" selection-start-line="206" selection-start-column="41" selection-end-line="206" selection-end-column="41" />
               <folding>
                 <element signature="e#1220#1402#0" expanded="true" />
                 <element signature="e#1401#1402#0" expanded="true" />
                 <element signature="e#1985#2314#0" expanded="true" />
                 <element signature="e#2313#2314#0" expanded="true" />
-                <element signature="e#12686#12687#0" expanded="true" />
-                <element signature="e#12750#12751#0" expanded="true" />
-                <element signature="e#12917#12918#0" expanded="true" />
-                <element signature="e#12980#12981#0" expanded="true" />
-                <element signature="e#13146#13147#0" expanded="true" />
-                <element signature="e#13208#13209#0" expanded="true" />
-                <element signature="e#13375#13376#0" expanded="true" />
-                <element signature="e#13437#13438#0" expanded="true" />
-                <element signature="e#13599#13600#0" expanded="true" />
-                <element signature="e#13656#13657#0" expanded="true" />
-                <element signature="e#13819#13820#0" expanded="true" />
-                <element signature="e#13876#13877#0" expanded="true" />
-                <element signature="e#14039#14040#0" expanded="true" />
-                <element signature="e#14096#14097#0" expanded="true" />
-                <element signature="e#14261#14262#0" expanded="true" />
-                <element signature="e#14334#14335#0" expanded="true" />
-                <element signature="e#15066#15067#0" expanded="true" />
-                <element signature="e#15142#15143#0" expanded="true" />
-                <marker date="1549422100000" expanded="false" signature="16809:16828" ph=" { " />
-                <marker date="1549422100000" expanded="false" signature="16863:16877" ph=" }" />
+                <element signature="e#14251#14252#0" expanded="true" />
+                <element signature="e#14315#14316#0" expanded="true" />
+                <element signature="e#14482#14483#0" expanded="true" />
+                <element signature="e#14545#14546#0" expanded="true" />
+                <element signature="e#14711#14712#0" expanded="true" />
+                <element signature="e#14773#14774#0" expanded="true" />
+                <element signature="e#14940#14941#0" expanded="true" />
+                <element signature="e#15002#15003#0" expanded="true" />
+                <element signature="e#15164#15165#0" expanded="true" />
+                <element signature="e#15221#15222#0" expanded="true" />
+                <element signature="e#15384#15385#0" expanded="true" />
+                <element signature="e#15441#15442#0" expanded="true" />
+                <element signature="e#15604#15605#0" expanded="true" />
+                <element signature="e#15661#15662#0" expanded="true" />
+                <element signature="e#15826#15827#0" expanded="true" />
+                <element signature="e#15899#15900#0" expanded="true" />
+                <element signature="e#16631#16632#0" expanded="true" />
+                <element signature="e#16707#16708#0" expanded="true" />
+                <marker date="1549423457000" expanded="false" signature="18374:18393" ph=" { " />
+                <marker date="1549423457000" expanded="false" signature="18428:18442" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -94,7 +84,7 @@
       <file leaf-file-name="GcodeViewer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeViewer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
+            <state relative-caret-position="555">
               <caret line="98" column="39" lean-forward="false" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -103,7 +93,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GlobalData.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GlobalData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
@@ -129,8 +119,8 @@
       <file leaf-file-name="GcodeInterpreter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeInterpreter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1622">
-              <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+            <state relative-caret-position="231">
+              <caret line="280" column="55" lean-forward="false" selection-start-line="280" selection-start-column="55" selection-end-line="280" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1067#1068#0" expanded="true" />
@@ -202,11 +192,11 @@
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/MotionController.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/UIWidgets.java" />
         <option value="$PROJECT_DIR$/test/gcode/0.ngc" />
-        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeInterpreter.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/ViewerEntity.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeViewer.java" />
-        <option value="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
         <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeInterpreter.java" />
+        <option value="$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java" />
       </list>
     </option>
   </component>
@@ -950,11 +940,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/gcode/0.ngc">
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="59" lean-forward="false" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="59" />
+        <state relative-caret-position="208">
+          <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeInterpreter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="280" column="55" lean-forward="false" selection-start-line="280" selection-start-column="55" selection-end-line="280" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1067#1068#0" expanded="true" />
+            <element signature="e#1095#1096#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -971,7 +973,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
+        <state relative-caret-position="555">
           <caret line="98" column="39" lean-forward="false" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -979,56 +981,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GcodeInterpreter.java">
+    <entry file="file://$PROJECT_DIR$/test/gcode/0.ngc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1622">
-          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1067#1068#0" expanded="true" />
-            <element signature="e#1095#1096#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="59" lean-forward="false" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/ui/XmotionGen3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="203" column="129" lean-forward="false" selection-start-line="203" selection-start-column="129" selection-end-line="203" selection-end-column="129" />
+        <state relative-caret-position="335">
+          <caret line="206" column="41" lean-forward="true" selection-start-line="206" selection-start-column="41" selection-end-line="206" selection-end-column="41" />
           <folding>
             <element signature="e#1220#1402#0" expanded="true" />
             <element signature="e#1401#1402#0" expanded="true" />
             <element signature="e#1985#2314#0" expanded="true" />
             <element signature="e#2313#2314#0" expanded="true" />
-            <element signature="e#12686#12687#0" expanded="true" />
-            <element signature="e#12750#12751#0" expanded="true" />
-            <element signature="e#12917#12918#0" expanded="true" />
-            <element signature="e#12980#12981#0" expanded="true" />
-            <element signature="e#13146#13147#0" expanded="true" />
-            <element signature="e#13208#13209#0" expanded="true" />
-            <element signature="e#13375#13376#0" expanded="true" />
-            <element signature="e#13437#13438#0" expanded="true" />
-            <element signature="e#13599#13600#0" expanded="true" />
-            <element signature="e#13656#13657#0" expanded="true" />
-            <element signature="e#13819#13820#0" expanded="true" />
-            <element signature="e#13876#13877#0" expanded="true" />
-            <element signature="e#14039#14040#0" expanded="true" />
-            <element signature="e#14096#14097#0" expanded="true" />
-            <element signature="e#14261#14262#0" expanded="true" />
-            <element signature="e#14334#14335#0" expanded="true" />
-            <element signature="e#15066#15067#0" expanded="true" />
-            <element signature="e#15142#15143#0" expanded="true" />
-            <marker date="1549422100000" expanded="false" signature="16809:16828" ph=" { " />
-            <marker date="1549422100000" expanded="false" signature="16863:16877" ph=" }" />
+            <element signature="e#14251#14252#0" expanded="true" />
+            <element signature="e#14315#14316#0" expanded="true" />
+            <element signature="e#14482#14483#0" expanded="true" />
+            <element signature="e#14545#14546#0" expanded="true" />
+            <element signature="e#14711#14712#0" expanded="true" />
+            <element signature="e#14773#14774#0" expanded="true" />
+            <element signature="e#14940#14941#0" expanded="true" />
+            <element signature="e#15002#15003#0" expanded="true" />
+            <element signature="e#15164#15165#0" expanded="true" />
+            <element signature="e#15221#15222#0" expanded="true" />
+            <element signature="e#15384#15385#0" expanded="true" />
+            <element signature="e#15441#15442#0" expanded="true" />
+            <element signature="e#15604#15605#0" expanded="true" />
+            <element signature="e#15661#15662#0" expanded="true" />
+            <element signature="e#15826#15827#0" expanded="true" />
+            <element signature="e#15899#15900#0" expanded="true" />
+            <element signature="e#16631#16632#0" expanded="true" />
+            <element signature="e#16707#16708#0" expanded="true" />
+            <marker date="1549423457000" expanded="false" signature="18374:18393" ph=" { " />
+            <marker date="1549423457000" expanded="false" signature="18428:18442" ph=" }" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nc/pilot/lib/GlobalData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
