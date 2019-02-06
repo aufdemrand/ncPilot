@@ -25,7 +25,7 @@ public class XmotionGen3 extends JFrame {
     public XmotionGen3() {
 
         super("ncPilot Xmotion Gen3");
-        setSize(800, 600);
+        setSize(1100, 800);
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -65,6 +65,14 @@ public class XmotionGen3 extends JFrame {
                 //System.out.println(e.getX() + "," + e.getY());
                 GlobalData.MousePositionX = e.getX();
                 GlobalData.MousePositionY = e.getY();
+                ui_widgets.MouseMotionStack(e.getX(), e.getY());
+            }
+            public void mouseDragged(MouseEvent e) {
+                //System.out.println(e.getX() + "," + e.getY());
+                GlobalData.MousePositionX = e.getX();
+                GlobalData.MousePositionY = e.getY();
+                ui_widgets.MouseMotionStack(e.getX(), e.getY());
+                repaint();
             }
         });
         panel.addMouseWheelListener(new MouseWheelListener() {
@@ -180,32 +188,6 @@ public class XmotionGen3 extends JFrame {
                                     MotionController.FeedHold();
                                     //Load up a bunch of lines onto viewer entity stack and repaint
                                     repaint();
-
-                                    //serial.write("$#\n");
-                                    //MotionController.FeedHold();
-                                    //MotionController.WriteBuffer("G0X10Y10\n");
-                                    GcodeInterpreter g = new GcodeInterpreter("\\\\192.168.1.102\\gcode\\Plasma\\Post\\Sheet1.ngc");
-                                    ArrayList<GcodeInterpreter.GcodeMove> moves = g.GetMoves();
-
-                                    for (int x = 2; x < moves.size(); x ++)
-                                    {
-                                        if (moves.get(x).Gword == 1)
-                                        {
-                                            gcode_viewer.addLine(new float[]{moves.get(x-1).Xword, moves.get(x-1).Yword}, new float[]{moves.get(x).Xword, moves.get(x).Yword});
-                                        }
-                                        if (moves.get(x).Gword == 2)
-                                        {
-                                            float[] center = new float[]{moves.get(x-1).Xword + moves.get(x).Iword, moves.get(x-1).Yword + moves.get(x).Jword};
-                                            float radius = new Float(Math.hypot(moves.get(x).Xword-center[0], moves.get(x).Yword-center[1]));
-                                            gcode_viewer.addArc(new float[]{moves.get(x-1).Xword, moves.get(x-1).Yword}, new float[]{moves.get(x).Xword, moves.get(x).Yword}, center, radius, "CW");
-                                        }
-                                        if (moves.get(x).Gword == 3)
-                                        {
-                                            float[] center = new float[]{moves.get(x-1).Xword + moves.get(x).Iword, moves.get(x-1).Yword + moves.get(x).Jword};
-                                            float radius = new Float(Math.hypot(moves.get(x).Xword-center[0], moves.get(x).Yword-center[1]));
-                                            gcode_viewer.addArc(new float[]{moves.get(x-1).Xword, moves.get(x-1).Yword}, new float[]{moves.get(x).Xword, moves.get(x).Yword}, center, radius, "CCW");
-                                        }
-                                    }
                                 }
 
                                 break;
@@ -272,13 +254,13 @@ public class XmotionGen3 extends JFrame {
                 MotionController.CycleStart();
             }
         });
-        ui_widgets.AddMomentaryButton("Torch Off", "bottom-right", 170, 60, 10, 80, new Runnable() {
+        ui_widgets.AddSelectButton("Torch Off","torch", true, "bottom-right", 170, 60, 10, 80, new Runnable() {
             @Override
             public void run() {
                 System.out.println("Torch Off!");
             }
         });
-        ui_widgets.AddMomentaryButton("Torch On", "bottom-right", 170, 60, 190, 80, new Runnable() {
+        ui_widgets.AddSelectButton("Torch On", "torch", false,"bottom-right", 170, 60, 190, 80, new Runnable() {
             @Override
             public void run() {
                 System.out.println("Torch On!");
@@ -314,30 +296,43 @@ public class XmotionGen3 extends JFrame {
                 System.out.println("Z=0");
             }
         });
-        ui_widgets.AddMomentaryButton("0.001\"", "bottom-right", 60, 60, 10, 290, new Runnable() {
+        ui_widgets.AddSelectButton("0.001\"", "jog", false,"bottom-right", 60, 60, 10, 290, new Runnable() {
             @Override
             public void run() {
                 System.out.println("Clicked on 0.001\"!");
             }
         });
-        ui_widgets.AddMomentaryButton("0.01\"", "bottom-right", 60, 60, 80, 290, new Runnable() {
+        ui_widgets.AddSelectButton("0.01\"","jog", false, "bottom-right", 60, 60, 80, 290, new Runnable() {
             @Override
             public void run() {
                 System.out.println("Clicked on 0.01\"!");
                 MotionController.FeedHold();
             }
         });
-        ui_widgets.AddMomentaryButton("0.1\"", "bottom-right", 60, 60, 150, 290, new Runnable() {
+        ui_widgets.AddSelectButton("0.1\"", "jog", false,"bottom-right", 60, 60, 150, 290, new Runnable() {
             @Override
             public void run() {
                 System.out.println("Clicked on 0.1\"");
                 MotionController.CycleStart();
             }
         });
-        ui_widgets.AddMomentaryButton("Continuous", "bottom-right", 140, 60, 220, 290, new Runnable() {
+        ui_widgets.AddSelectButton("Continuous","jog",true, "bottom-right", 140, 60, 220, 290, new Runnable() {
             @Override
             public void run() {
                 System.out.println("Clicked on Continuous!");
+            }
+        });
+        //void AddSlider(String text, String anchor, int width, int height, int posx, int posy, int min, int max, Runnable action){
+        /*ui_widgets.AddSlider("Jog Speed", "bottom-right", 350, 60, 10, 360, 0, (int)GlobalData.X_Max_Vel , (int)(GlobalData.X_Max_Vel * 0.7), new Runnable(){
+            @Override
+            public void run() {
+                System.out.println("New position: " + ui_widgets.getSliderPosition("Jog Speed"));
+            }
+        });*/
+        ui_widgets.AddSlider("Jog Speed", "bottom-right", 350, 60, 10, 360, 0, 50 , 10, new Runnable(){
+            @Override
+            public void run() {
+                System.out.println("New position: " + ui_widgets.getSliderPosition("Jog Speed"));
             }
         });
     }
@@ -347,26 +342,17 @@ public class XmotionGen3 extends JFrame {
             Rectangle Frame_Bounds = this.getParent().getBounds();
             GlobalData.MousePositionX_MCS = (GlobalData.MousePositionX - GlobalData.ViewerPan[0]) / GlobalData.ViewerZoom;
             GlobalData.MousePositionY_MCS = ((GlobalData.MousePositionY - GlobalData.ViewerPan[1]) / GlobalData.ViewerZoom) * -1;
-            //System.out.println("Mouse X: " + GlobalData.MousePositionX + " Mouse Y: " + GlobalData.MousePositionY + " Mouse X MCS: " + GlobalData.MousePositionX_MCS + " Mouse Y MCS: " + GlobalData.MousePositionY_MCS + " Frame Width: " + Frame_Bounds.width + " Frame Height: " + Frame_Bounds.height);
             Graphics2D g2d = (Graphics2D) g;
-
             /* Begin Wallpaper */
             g.setColor(Color.black);
             g.fillRect(0,0,Frame_Bounds.width,Frame_Bounds.height);
             /* End Wallpaper */
-
             gcode_viewer.RenderStack(g2d);
-
-            //g.fillRect(10,10,100,100);
-
-
             ui_widgets.RenderStack(g2d, Frame_Bounds);
-
             //Display Mouse position in MCS and Screen Cord
             //g.setColor(Color.green);
             //g.setFont(new Font("Arial", Font.BOLD, 12));
             //g.drawString(String.format("Screen-> X: %d Y: %d MCS-> X: %.4f Y: %.4f", GlobalData.MousePositionX, GlobalData.MousePositionY, GlobalData.MousePositionX_MCS, GlobalData.MousePositionY_MCS), 10, 10);
-
         }
     }
     public static void main(String[] args) {
