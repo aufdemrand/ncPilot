@@ -5,6 +5,8 @@ import java.awt.geom.Arc2D;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
+import static java.lang.Math.abs;
+
 /**
  * Created by admin on 2/1/19.
  */
@@ -29,7 +31,7 @@ public class GcodeViewer {
         float angle = (float) Math.toDegrees(Math.atan2(start_point[1] - end_point[1], start_point[0] - end_point[0]));
 
         angle += 180;
-        if(angle > 360){
+        if(angle >= 360){
             angle -= 360;
         }
         if(angle < 0){
@@ -37,6 +39,27 @@ public class GcodeViewer {
         }
 
         return angle;
+    }
+    public boolean inTolerance(float a, float b, float t)
+    {
+        float diff;
+        if (a > b)
+        {
+            diff = a - b;
+        }
+        else
+        {
+            diff = b - a;
+        }
+        //printf("(geoInTolerance) Difference: %.6f, Plus: %.6f, Minus: %.6f\n", diff, fabs(t), -fabs(t));
+        if (diff <= Math.abs(t) && diff >= -Math.abs(t))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     public float[] rotatePoint(float[] pivot, float[] rotated_point, float angle)
     {
@@ -103,36 +126,70 @@ public class GcodeViewer {
     {
         float start_angle = getAngle(center, start);
         float end_angle = getAngle(center, end);
-        if (start_angle > end_angle && start_angle == 360)
+        float angle_inc = 1;
+        float[] last_point = start;
+        if (start_angle == end_angle) //We are a circle
         {
-            start_angle = 0;
-        }
-        if (direction == "CCW")
-        {
-            float [] last_point = start;
-            for (float x = start_angle; x < end_angle; x+= 600f / GlobalData.ViewerZoom)
+            for (float x = 0; x < 360; x += angle_inc)
             {
-                float [] new_point = getPolarLineEndpoint(center, radius, x);
+                start_angle += angle_inc;
+                float [] new_point = getPolarLineEndpoint(center, radius, start_angle);
                 RenderLine(last_point, new_point);
                 last_point = new_point;
             }
-            RenderLine(last_point, getPolarLineEndpoint(center, radius, end_angle));
         }
-        else //CW
+        else
         {
-            //System.out.println("CW Arc-> start_angle: " + start_angle + " end_angle: " + end_angle);
-            float [] last_point = start;
-            for (float x = start_angle; x > end_angle; x-= 600f / GlobalData.ViewerZoom)
+            if (direction == "CW")
             {
-                float [] new_point = getPolarLineEndpoint(center, radius, x);
-                RenderLine(last_point, new_point);
-                last_point = new_point;
+                for (int x = 0; x < 400; x++) //Runaway protection!
+                {
+                    start_angle -= angle_inc;
+                    //System.out.println("current_angle: " + start_angle + " end_angle: " + end_angle);
+                    if (start_angle <= 0)
+                    {
+                        start_angle = 360;
+                    }
+                    else if (inTolerance(start_angle, end_angle, 3f))
+                    {
+                        //System.out.println("Found Endpoint!");
+                        break; //End of arc, break loop!
+                    }
+                    float [] new_point = getPolarLineEndpoint(center, radius, start_angle);
+                    RenderLine(last_point, new_point);
+                    last_point = new_point;
+                    if (x == 399)
+                    {
+                        //System.out.println("Missed endpoint on Clockwise arc! start_angle: " + start_angle + " end_angle: " + end_angle);
+                    }
+                }
             }
-            RenderLine(last_point, getPolarLineEndpoint(center, radius, end_angle));
+            else
+            {
+                for (int x = 0; x < 400; x++) //Runaway protection!
+                {
+                    start_angle += angle_inc;
+                    if (start_angle >= 360)
+                    {
+                        start_angle = 0;
+                    }
+                    else if (inTolerance(start_angle, end_angle, 3f)) break; //End of arc, break loop!
+                    float [] new_point = getPolarLineEndpoint(center, radius, start_angle);
+                    RenderLine(last_point, new_point);
+                    last_point = new_point;
+                    if (x == 399)
+                    {
+                        //System.out.println("Missed endpoint on Counter-Clockwise arc! start_angle: " + start_angle + " end_angle: " + end_angle);
+                    }
+                }
+            }
+            float [] new_point = getPolarLineEndpoint(center, radius, end_angle);
+            RenderLine(last_point, new_point);
         }
     }
     public void RenderStack(Graphics2D graphics)
     {
+        //System.out.println("Begin render!");
         g2d = graphics;
          /* Begin machine boundry outline */
         g2d.setColor(Color.red);
@@ -157,18 +214,13 @@ public class GcodeViewer {
             }
             if (entity.type == 2) //We are a clockwise arc
             {
-                g2d.setColor(Color.red);
-                RenderLine(entity.center, entity.start);
-                RenderLine(entity.center, entity.end);
+                g2d.setColor(Color.white);
                 RenderArc(entity.start, entity.end, entity.center, entity.radius, "CW");
             }
             if (entity.type == 3) //We are a counter-clockwise arc
             {
                 g2d.setColor(Color.white);
-                //RenderLine(entity.center, entity.start);
-                //RenderLine(entity.center, entity.end);
                 RenderArc(entity.start, entity.end, entity.center, entity.radius, "CCW");
-                //g2d.setColor(Color.white);
             }
         }
 

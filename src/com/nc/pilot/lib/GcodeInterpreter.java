@@ -108,7 +108,7 @@ public class GcodeInterpreter {
     }
     public void parseLine(String line)
     {
-        System.out.println("Line: " + line);
+        //System.out.println("Line: " + line);
         checkWord(line, 'g');
         checkWord(line, 'x');
         checkWord(line, 'y');
@@ -133,11 +133,11 @@ public class GcodeInterpreter {
             {
                 if (Gword == 2 || Gword == 3)
                 {
-                    System.out.println("G Entity-> G" + Gword + " X" + Xword + " Y" + Yword + " Z" + Zword + " I" + Iword + " J" + Jword + " F" + Fword);
+                    //System.out.println("G Entity-> G" + Gword + " X" + Xword + " Y" + Yword + " Z" + Zword + " I" + Iword + " J" + Jword + " F" + Fword);
                 }
                 else
                 {
-                    System.out.println("G Entity-> G" + Gword + " X" + Xword + " Y" + Yword + " Z" + Zword + " F" + Fword);
+                    //System.out.println("G Entity-> G" + Gword + " X" + Xword + " Y" + Yword + " Z" + Zword + " F" + Fword);
                 }
                 Moves.add(m);
             }
