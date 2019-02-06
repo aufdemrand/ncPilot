@@ -5,12 +5,10 @@ import com.nc.pilot.lib.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.geom.Line2D;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.TimerTask;
 import java.util.Timer;
-import java.util.concurrent.Callable;
 
 /**
  * This program demonstrates how to draw lines using Graphics2D object.
@@ -19,16 +17,16 @@ import java.util.concurrent.Callable;
  */
 public class XmotionGen3 extends JFrame {
 
-    ArrayList<ViewerEntity> ViewerEntityStack = new ArrayList();
     private SerialIO serial;
     Timer repaint_timer = new Timer();
     MotionController motion_controller;
     UIWidgets ui_widgets;
+    GcodeViewer gcode_viewer;
     public XmotionGen3() {
 
         super("ncPilot Xmotion Gen3");
         setSize(800, 600);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         serial = new SerialIO();
@@ -37,6 +35,7 @@ public class XmotionGen3 extends JFrame {
         serial.inherit_motion_controller(motion_controller);
         //motion_controller.InitMotionController();
         ui_widgets = new UIWidgets();
+        gcode_viewer = new GcodeViewer();
         Layout_UI();
         GcodeViewerPanel panel = new GcodeViewerPanel();
         add(panel);
@@ -185,6 +184,28 @@ public class XmotionGen3 extends JFrame {
                                     //serial.write("$#\n");
                                     //MotionController.FeedHold();
                                     //MotionController.WriteBuffer("G0X10Y10\n");
+                                    GcodeInterpreter g = new GcodeInterpreter("/Users/admin/Documents/Projects/ncPilot/test/gcode/0.ngc");
+                                    ArrayList<GcodeInterpreter.GcodeMove> moves = g.GetMoves();
+
+                                    for (int x = 1; x < moves.size(); x ++)
+                                    {
+                                        if (moves.get(x).Gword == 1)
+                                        {
+                                            gcode_viewer.addLine(new float[]{moves.get(x-1).Xword, moves.get(x-1).Yword}, new float[]{moves.get(x).Xword, moves.get(x).Yword});
+                                        }
+                                        if (moves.get(x).Gword == 2)
+                                        {
+                                            float[] center = new float[]{moves.get(x-1).Xword + moves.get(x).Iword, moves.get(x-1).Yword + moves.get(x).Jword};
+                                            float radius = new Float(Math.hypot(moves.get(x).Xword-center[0], moves.get(x).Yword-center[1]));
+                                            gcode_viewer.addArc(new float[]{moves.get(x-1).Xword, moves.get(x-1).Yword}, new float[]{moves.get(x).Xword, moves.get(x).Yword}, center, radius, "CW");
+                                        }
+                                        if (moves.get(x).Gword == 3)
+                                        {
+                                            float[] center = new float[]{moves.get(x-1).Xword + moves.get(x).Iword, moves.get(x-1).Yword + moves.get(x).Jword};
+                                            float radius = new Float(Math.hypot(moves.get(x).Xword-center[0], moves.get(x).Yword-center[1]));
+                                            gcode_viewer.addArc(new float[]{moves.get(x-1).Xword, moves.get(x-1).Yword}, new float[]{moves.get(x).Xword, moves.get(x).Yword}, center, radius, "CCW");
+                                        }
+                                    }
                                 }
 
                                 break;
@@ -297,14 +318,6 @@ public class XmotionGen3 extends JFrame {
                 System.out.println("Clicked on Continuous!");
             }
         });
-
-        ViewerEntity entity = new ViewerEntity();
-        entity.setLine(new float[]{0, 0}, new float[]{10, 0});
-        ViewerEntityStack.add(entity);
-
-        entity = new ViewerEntity();
-        entity.setLine(new float[]{10, 0}, new float[]{10, 10});
-        ViewerEntityStack.add(entity);
     }
     // create a panel that you can draw on.
     class GcodeViewerPanel extends JPanel {
@@ -320,35 +333,10 @@ public class XmotionGen3 extends JFrame {
             g.fillRect(0,0,Frame_Bounds.width,Frame_Bounds.height);
             /* End Wallpaper */
 
-            g.setColor(Color.white);
+            gcode_viewer.RenderStack(g2d);
 
             //g.fillRect(10,10,100,100);
 
-            /* Begin machine boundry outline */
-            g.setColor(Color.red);
-            //0,0,X_Extent,0
-            //X_Extent,0,X_Extent,Y_Extent
-            //X_Extent,Y_Extent,0,Y_Extent
-            //0,Y_Extent,0,0
-            g2d.draw(new Line2D.Float((0 * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0 * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0 * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
-            g2d.draw(new Line2D.Float((GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0 * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents  * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
-            g2d.draw(new Line2D.Float((GlobalData.X_Extents * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (0 * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents  * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
-            g2d.draw(new Line2D.Float((0 * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((GlobalData.Y_Extents * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], (0 * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], ((0  * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
-            g.setColor(Color.white);
-            /* End machine boundry outline */
-
-            for(int i=0;i< ViewerEntityStack.size();i++)
-            {
-                ViewerEntity entity = ViewerEntityStack.get(i);
-                if (entity.type == 1) //We are a line move
-                {
-                    g.setColor(Color.white);
-                    //g.drawLine(entity.start[0], entity.start[1], entity.end[0], entity.end[1]);
-                    g2d.draw(new Line2D.Float(((entity.start[0] + GlobalData.work_offset[0]) * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], (((entity.start[1] + GlobalData.work_offset[1]) * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1], ((entity.end[0] + GlobalData.work_offset[0]) * GlobalData.ViewerZoom) + GlobalData.ViewerPan[0], (((entity.end[1] + GlobalData.work_offset[1]) * GlobalData.ViewerZoom) * -1) + GlobalData.ViewerPan[1]));
-
-                    //System.out.println("(" + i + ") Drawing Line Move: start: (" + entity.start[0] + ", " + entity.start[1] + ") end (" + entity.end[0] + ", " + entity.end[1] + ")");
-                }
-            }
 
             ui_widgets.RenderStack(g2d, Frame_Bounds);
 
