@@ -329,7 +329,7 @@ public class XmotionGen3 extends JFrame {
                 System.out.println("New position: " + ui_widgets.getSliderPosition("Jog Speed"));
             }
         });*/
-        ui_widgets.AddSlider("Jog Speed", "bottom-right", 350, 60, 10, 360, 0, 50 , 10, new Runnable(){
+        ui_widgets.AddSlider("Jog Speed", "bottom-right", 350, 60, 10, 360, 0, (int)GlobalData.Max_linear_Vel , 300, new Runnable(){
             @Override
             public void run() {
                 System.out.println("New position: " + ui_widgets.getSliderPosition("Jog Speed"));

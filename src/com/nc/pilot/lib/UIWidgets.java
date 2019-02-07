@@ -81,7 +81,7 @@ public class UIWidgets {
         g.drawString(text, text_posx, text_posy);
         g.drawRect(posx, posy, width, height);
     }
-    public void DrawSlider(String text, int width, int height, int real_posx, int real_posy, int position, int min, int max){
+    public void DrawSlider(String text, boolean engaged, int width, int height, int real_posx, int real_posy, int position, int min, int max){
         g.setColor(Color.red);
         int button_font_size = 15;
         g.setFont(new Font("Arial", Font.PLAIN, button_font_size));
@@ -100,6 +100,14 @@ public class UIWidgets {
         //if (slider_offset < slider_leftmost) slider_offset = slider_leftmost;
         //System.out.println(position);
         //int slider_offset = 50;
+        if (engaged == true)
+        {
+            g.setColor(Color.green);
+        }
+        else
+        {
+            g.setColor(Color.red);
+        }
         g.drawRect( slider_leftmost + slider_offset, real_posy + 35, 15, 15); //Slider
     }
     public void AddMomentaryButton(String text, String anchor, int width, int height, int posx, int posy, Runnable action){
@@ -146,7 +154,7 @@ public class UIWidgets {
         w.action = action;
         w.min = min;
         w.max = max;
-        w.position = defaultPosition;
+        w.position = map(defaultPosition, min, max, 0, width);
         w.engaged = false;
         WidgetStack.add(w);
     }
@@ -155,6 +163,10 @@ public class UIWidgets {
         for (int x = 0; x < WidgetStack.size(); x++)
         {
             if (WidgetStack.get(x).text.equals(text)){
+                //System.out.println("position in normal units: " + WidgetStack.get(x).position);
+                //System.out.println("width: " + WidgetStack.get(x).width);
+                //System.out.println("min: " + WidgetStack.get(x).min);
+                //System.out.println("max: " + WidgetStack.get(x).max);
                 return map(WidgetStack.get(x).position, 0, WidgetStack.get(x).width, WidgetStack.get(x).min, WidgetStack.get(x).max);
             }
         }
@@ -210,7 +222,7 @@ public class UIWidgets {
                     WidgetStack.get(x).real_posx = WidgetStack.get(x).posx;
                     WidgetStack.get(x).real_posy = WidgetStack.get(x).posy;
                 }
-                DrawSlider(WidgetStack.get(x).text, WidgetStack.get(x).width, WidgetStack.get(x).height, WidgetStack.get(x).real_posx, WidgetStack.get(x).real_posy, WidgetStack.get(x).position, WidgetStack.get(x).min, WidgetStack.get(x).max);
+                DrawSlider(WidgetStack.get(x).text, WidgetStack.get(x).engaged, WidgetStack.get(x).width, WidgetStack.get(x).height, WidgetStack.get(x).real_posx, WidgetStack.get(x).real_posy, WidgetStack.get(x).position, WidgetStack.get(x).min, WidgetStack.get(x).max);
             }
         }
         DrawDRO();
@@ -221,6 +233,13 @@ public class UIWidgets {
         for (int x = 0; x < WidgetStack.size(); x++)
         {
             if (WidgetStack.get(x).type.equals("momentary_button")){
+                if ((mousex > WidgetStack.get(x).real_posx && mousex < WidgetStack.get(x).real_posx + WidgetStack.get(x).width) && (mousey > WidgetStack.get(x).real_posy && mousey < WidgetStack.get(x).real_posy + WidgetStack.get(x).height))
+                {
+                    //System.out.println("Clicked on: " + WidgetStack.get(x).text);
+                    WidgetStack.get(x).engaged = true;
+                }
+            }
+            if (WidgetStack.get(x).type.equals("slider")){
                 if ((mousex > WidgetStack.get(x).real_posx && mousex < WidgetStack.get(x).real_posx + WidgetStack.get(x).width) && (mousey > WidgetStack.get(x).real_posy && mousey < WidgetStack.get(x).real_posy + WidgetStack.get(x).height))
                 {
                     //System.out.println("Clicked on: " + WidgetStack.get(x).text);
@@ -263,6 +282,7 @@ public class UIWidgets {
             if (WidgetStack.get(x).type.equals("slider")){
                 if ((mousex > WidgetStack.get(x).real_posx && mousex < WidgetStack.get(x).real_posx + WidgetStack.get(x).width) && (mousey > WidgetStack.get(x).real_posy && mousey < WidgetStack.get(x).real_posy + WidgetStack.get(x).height))
                 {
+                    WidgetStack.get(x).engaged = false;
                     WidgetStack.get(x).action.run();
                 }
             }
@@ -280,6 +300,14 @@ public class UIWidgets {
                         if (Math.abs(x_drag) < 60)
                         {
                             WidgetStack.get(x).position += x_drag;
+                            if (WidgetStack.get(x).position > WidgetStack.get(x).width)
+                            {
+                                WidgetStack.get(x).position = WidgetStack.get(x).width;
+                            }
+                            if (WidgetStack.get(x).position < 0)
+                            {
+                                WidgetStack.get(x).position = 0;
+                            }
                         }
                         //System.out.println("Mouse drag: " + x_drag);
                     }

@@ -39,6 +39,7 @@ public class GlobalData {
     public static float X_Max_Vel = 600f; //Inch/Min
     public static float Y_Max_Vel = 600f; //Inch/Min
     public static float Z_Max_Vel = 60f; //Inch/Min
+    public static float Max_linear_Vel = 600f;
     public static float X_Extents = 48.250f;
     public static float Y_Extents = 45.500f;
     public static float Z_Extents = -4.000f;
